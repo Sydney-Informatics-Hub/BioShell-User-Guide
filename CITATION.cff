@@ -1,10 +1,38 @@
-cff-version: 0.0.0
-message: "Please cite as below."
+cff-version: 1.2.0
+title: BioShell how-to guide
+message: >-
+  If you use this guide, please cite it using the metadata in this file.
+type: software
 authors:
-  - family-names: [family name goes here]
-    given-names: [given names go here]
-    orcid: [ORCID goes here]
-title: "Title of repository goes here"
-version: 0.0.0
-doi: [DOI goes here]
-date-released: YYYY-MM-DD
+  - given-names: Mitchell
+    family-names: O'Brien
+    orcid: https://orcid.org/0000-0003-0662-9101
+    affiliation: Sydney Informatics Hub, Australian BioCommons
+  - given-names: Fred
+    family-names: Jaya
+    orcid: https://orcid.org/0000-0002-4019-7026
+    affiliation: Sydney Informatics Hub, Australian BioCommons
+  - given-names: Georgina
+    family-names: Samaha
+    orcid: https://orcid.org/0000-0003-0419-1476
+    affiliation: Sydney Informatics Hub, Australian BioCommons
+  - given-names: Wenjing
+    family-names: Xue
+    affiliation: National Computational Infrastructure, Australian BioCommons
+  - given-names: Ziad
+    family-names: Al Bkhetan
+    orcid: https://orcid.org/0000-0002-4032-5331
+    affiliation: Australian BioCommons
+  - given-names: Andy
+    family-names: Botting
+    affiliation: Australian Research Data Commons, Nectar Research Cloud
+  - given-names: Johan
+    family-names: Gustafsson
+    orcid: https://orcid.org/0000-0002-2977-5032
+    affiliation: Australian BioCommons
+repository-code: https://github.com/Sydney-Informatics-Hub/How-to-Guide-BioShell
+url: https://sydney-informatics-hub.github.io/How-to-Guide-BioShell/
+license: CC-BY-4.0
+version: # AUTHOR TO SUPPLY — e.g. 1.0.0
+date-released: # AUTHOR TO SUPPLY — e.g. 2026-06-03
+doi: # AUTHOR TO SUPPLY — Zenodo DOI once minted

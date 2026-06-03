@@ -1,14 +1,53 @@
-#subitems:
-#  - title: About
-#    url: /index
-#  - title: Standard example page
-#    url: /example_page
-#  - title: Workflow How-to Guide example pages
-#    subitems:
-#      - title: Example workflow guide page
-#        url: /example_bioinformatics_workflow_page
-#      - title: Example workflow documentation page
-#        url: /example_workflow_documentation_page
-#  - title: Contributors
-#    url: /contributors
-  
+subitems:
+  - title: Home
+    url: /index
+  - title: Accessing BioShell
+    url: /access
+    subitems:
+      - title: Eligibility and acceptable use
+        url: /access#eligibility
+      - title: Your access pathway
+        url: /access#pathways
+      - title: Access duration and renewal
+        url: /access#duration
+      - title: Connecting to BioShell
+        url: /access#connecting
+  - title: Using BioShell
+    url: /using-bioshell
+    subitems:
+      - title: Choosing a flavour
+        url: /using-bioshell#flavours
+      - title: Reproducible tools
+        url: /using-bioshell#tools
+      - title: Bio-Shelley
+        url: /using-bioshell#bio-shelley
+      - title: Reference datasets
+        url: /using-bioshell#reference-data
+      - title: Interactive environments
+        url: /using-bioshell#interactive
+      - title: Using Nextflow with CVMFS
+        url: /using-bioshell#nextflow
+      - title: Advanced — manual SHPC
+        url: /using-bioshell#shpc-manual
+  - title: BioShell in practice
+    url: /community
+    subitems:
+      - title: Training workshops
+        url: /community#training
+      - title: Research outcomes
+        url: /community#research
+      - title: Get involved
+        url: /community#get-involved
+  - title: About
+    url: /about
+    subitems:
+      - title: How to cite
+        url: /about#cite
+      - title: Contributors
+        url: /about#contributors
+      - title: Acknowledgements
+        url: /about#acknowledgements
+      - title: References
+        url: /about#references
+  - title: Contributors
+    url: /contributors

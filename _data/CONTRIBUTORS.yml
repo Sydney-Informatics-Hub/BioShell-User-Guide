@@ -1,22 +1,45 @@
-
 ############################
 ### List of contributors ###
 ############################
 
 ### see https://github.com/ELIXIR-Belgium/elixir-toolkit-theme
 
-#############################################################################################################################################
-### add maintainers/contributors below and use their name in the contributors metadata section on each page they have contributed towards ###
-#############################################################################################################################################
+Mitchell O'Brien:
+    git: Mitchob
+    orcid: 0000-0003-0662-9101
+    role: lead
+    affiliation: Sydney Informatics Hub, Australian BioCommons
 
-# an example contributor is included below
-# example roles include "lead", "first-author", "author", "editor", "workflow-tester"
+Fred Jaya:
+    git: fredjaya
+    orcid: 0000-0002-4019-7026
+    role: author
+    affiliation: Sydney Informatics Hub, Australian BioCommons
 
-#Johan Gustafsson:
-#    git: supernord
-#    email: johan@biocommons.org.au
-#    orcid: 0000-0002-2977-5032
-#    role: author
-#    affiliation: Australian BioCommons / University of Melbourne
+Georgina Samaha:
+    git: georgiesamaha
+    orcid: 0000-0003-0419-1476
+    role: author
+    affiliation: Sydney Informatics Hub, Australian BioCommons
 
+Wenjing Xue:
+    git: eileen-xue
+    role: author
+    affiliation: National Computational Infrastructure, Australian BioCommons
 
+Ziad Al Bkhetan:
+    git: ziadbkh
+    orcid: 0000-0002-4032-5331
+    role: author
+    affiliation: Australian BioCommons
+
+Andy Botting:
+    git: andybotting
+    role: author
+    affiliation: Australian Research Data Commons, Nectar Research Cloud
+
+Johan Gustafsson:
+    git: supernord
+    orcid: 0000-0002-2977-5032
+    role: author
+    affiliation: Australian BioCommons
