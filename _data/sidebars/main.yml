@@ -12,6 +12,13 @@ subitems:
         url: /access#duration
       - title: Connecting to BioShell
         url: /access#connecting
+        subitems:
+          - title: Generate an SSH key
+            url: /access#ssh-key
+          - title: Submit your public key
+            url: /access#submit-key
+          - title: Connect
+            url: /access#connect
   - title: Using BioShell
     url: /using-bioshell
     subitems:
