@@ -10,7 +10,7 @@ Use the sections below to find what you need.
 
 | I want to… | Go to |
 |-----------|-------|
-| Choose the right VM size for my analysis | [Choosing a flavour](/flavours) |
-| Find, install, and load a bioinformatics tool | [Tools and reference data](/tools) |
-| Work in a Jupyter or RStudio notebook | [Interactive environments](/interactive) |
-| Run a Nextflow workflow using CVMFS containers | [Using Nextflow with CVMFS](/nextflow) |
+| Choose the right VM size for my analysis | [Choosing a flavour](flavours) |
+| Find, install, and load a bioinformatics tool | [Tools and reference data](tools) |
+| Work in a Jupyter or RStudio notebook | [Interactive environments](interactive) |
+| Run a Nextflow workflow using CVMFS containers | [Using Nextflow with CVMFS](nextflow) |

@@ -8,7 +8,7 @@ work. Both run on your BioShell instance and are accessible through your browser
 have connected via SSH.
 
 > **Important:** You must have an active SSH connection to your BioShell instance before
-> opening either environment in your browser. See [Connecting to BioShell](/access#connecting).
+> opening either environment in your browser. See [Connecting to BioShell](access#connecting).
 
 ---
 

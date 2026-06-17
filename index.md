@@ -36,22 +36,22 @@ the BioCommons Training cooperative and
 
 ## Quick start guide
 
-1. [Check you are eligible](/access#eligibility) — confirm your project is life-science
+1. [Check you are eligible](access#eligibility) — confirm your project is life-science
    related and aligns with the five ABLeS principles.
-2. [Identify your access pathway](/access#pathways) — most users apply through
+2. [Identify your access pathway](access#pathways) — most users apply through
    [ABLeS](https://australianbiocommons.github.io/ables/eligibility); training organisers
    contact the [BioCommons Training Team](https://www.biocommons.org.au/event-support).
-3. [Submit your access request](/access#requesting-access) — submit via the appropriate
+3. [Submit your access request](access#requesting-access) — submit via the appropriate
    pathway and wait for your infrastructure placement to be confirmed.
-4. [Accept your terms and conditions](/access#terms) — accept the terms for your assigned
+4. [Accept your terms and conditions](access#terms) — accept the terms for your assigned
    infrastructure before access is granted.
-5. [Connect to your BioShell environment via SSH](/access#connecting) — use the connection
+5. [Connect to your BioShell environment via SSH](access#connecting) — use the connection
    details provided in your provisioning notification.
-6. [Choose your flavour](/using-bioshell#flavours) — select the preconfigured environment
+6. [Choose your flavour](using-bioshell#flavours) — select the preconfigured environment
    profile that matches your task.
-7. [Load a tool and run your analysis](/using-bioshell#tools) — use Bio-Shelley or
+7. [Load a tool and run your analysis](using-bioshell#tools) — use Bio-Shelley or
    `module load` to access tools from the BioShell tool library.
-8. [Launch an interactive environment](/using-bioshell#interactive) — open JupyterLab or
+8. [Launch an interactive environment](using-bioshell#interactive) — open JupyterLab or
    RStudio directly in your browser for notebook-based work.
 
 > **Tip:** Not sure which tools are available or how to load them? Run
