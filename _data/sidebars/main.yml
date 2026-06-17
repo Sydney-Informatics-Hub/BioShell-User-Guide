@@ -12,23 +12,54 @@ subitems:
         url: /access#duration
       - title: Connecting to BioShell
         url: /access#connecting
+        subitems:
+          - title: Generate an SSH key
+            url: /access#ssh-key
+          - title: Submit your public key
+            url: /access#submit-key
+          - title: Connect
+            url: /access#connect
   - title: Using BioShell
     url: /using-bioshell
     subitems:
       - title: Choosing a flavour
-        url: /using-bioshell#flavours
-      - title: Reproducible tools
-        url: /using-bioshell#tools
-      - title: Bio-Shelley
-        url: /using-bioshell#bio-shelley
-      - title: Reference datasets
-        url: /using-bioshell#reference-data
+        url: /flavours
+        subitems:
+          - title: Flavour types
+            url: /flavours#flavour-types
+          - title: Quick sizing guide
+            url: /flavours#sizing-guide
+          - title: Worked examples
+            url: /flavours#worked-examples
+          - title: How to choose
+            url: /flavours#how-to-choose
+      - title: Tools and reference data
+        url: /tools
+        subitems:
+          - title: Verify CVMFS
+            url: /tools#cvmfs
+          - title: Find and install with Bio-Shelley
+            url: /tools#bio-shelley
+          - title: Load a tool
+            url: /tools#load-tool
+          - title: Reference datasets
+            url: /tools#reference-data
+          - title: Advanced — manual SHPC
+            url: /tools#shpc-manual
       - title: Interactive environments
-        url: /using-bioshell#interactive
+        url: /interactive
+        subitems:
+          - title: JupyterLab
+            url: /interactive#jupyterlab
+          - title: RStudio
+            url: /interactive#rstudio
       - title: Using Nextflow with CVMFS
-        url: /using-bioshell#nextflow
-      - title: Advanced — manual SHPC
-        url: /using-bioshell#shpc-manual
+        url: /nextflow
+        subitems:
+          - title: CVMFS containers
+            url: /nextflow#cvmfs-containers
+          - title: SHPC modules
+            url: /nextflow#shpc-module
   - title: BioShell in practice
     url: /community
     subitems:
