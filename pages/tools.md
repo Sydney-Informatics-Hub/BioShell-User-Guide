@@ -84,28 +84,17 @@ catalogue. You can run it directly from the command line or in interactive mode.
 **From the command line:**
 
 ```bash
-shelley-bio find <tool>
-shelley-bio search "<function>"
-shelley-bio versions <tool>
-shelley-bio build <tool>
+shelley-bio find <tool> # Look up a specific tool by name
+shelley-bio search "<function>" # Search by keyword or function
+shelley-bio versions <tool> # List all available versions
+shelley-bio build <tool> # Install the tool as a loadable module
 ```
 
 **In interactive mode:**
 
 ```bash
-shelley-bio interactive
+shelley-bio interactive # Launch Shelley-Bio in interactive mode
 ```
-
-| Command                  | What it does                           | Example                                |
-| ------------------------ | -------------------------------------- | -------------------------------------- |
-| `find <tool>`            | Look up a specific tool by name        | `shelley-bio find fastqc`              |
-| `search "<function>"`    | Search by keyword or function          | `shelley-bio search "quality control"` |
-| `versions <tool>`        | List all available versions            | `shelley-bio versions samtools`        |
-| `build <tool[/version]>` | Install the tool as a loadable module  | `shelley-bio build samtools/1.21`      |
-| `interactive`            | Launch Shelley-Bio in interactive mode | `shelley-bio interactive`              |
-
-The `build` command handles the full installation automatically: it finds the correct container
-in CVMFS, generates the module file, and makes the tool ready to load.
 
 **Example: installing `samtools`**
 
@@ -140,19 +129,19 @@ for anything older than the latest release), you also need to check CVMFS direct
 image, compute its checksum, fetch the registry YAML, edit it to add the missing version,
 create and register a local registry, ensure it takes precedence, then run the install.
 
-With Shelley-Bio, regardless of whether the version is in the registry or not:
+With Shelley-Bio, regardless of whether the version is in the sHPC registry or not it handles the registry check, CVMFS path resolution, local entry creation, and the sHPC installation.
 
 ```bash
 shelley-bio build samtools/1.20
 ```
 
-Shelley-Bio handles the registry check, CVMFS path resolution, local entry creation if
-needed, and the sHPC install call. The result is identical: a working `module load` command,
+The result is identical: a working `module load` command,
 without requiring you to know how the underlying machinery works.
 
 > **Tip:** If Shelley-Bio cannot find a tool, fall back to the manual sHPC method below.
 
-### Advanced: manual installation {#shpc-manual}
+<details markdown="1" id="shpc-manual">
+<summary>Advanced: manual installation</summary>
 
 #### Using sHPC directly {#shpc-direct}
 
@@ -172,6 +161,12 @@ shpc show -f plink
 shpc show quay.io/biocontainers/plink
 ```
 
+**Verify container path on CVMFS:**
+
+```bash
+ls /cvmfs/singularity.galaxyproject.org/all/plink*
+```
+
 **Install a module directly from CVMFS:**
 
 ```bash
@@ -181,7 +176,7 @@ shpc install quay.io/biocontainers/plink:1.90b7.7--h18e278d_1 \
 ```
 
 The `--keep-path` flag tells sHPC to use the container already present in CVMFS rather than
-downloading a fresh copy.
+downloading a fresh copy. The tag numbers must match.
 
 **Load and use the module:**
 
@@ -255,6 +250,8 @@ sudo shpc install quay.io/biocontainers/plink:1.90b4--h0a6d026_2 \
 
 > **Tip:** If Shelley-Bio recognises the container path but the version is not in the
 > registry, `shelley-bio build` handles the local registry creation automatically.
+
+</details>
 
 ---
 
