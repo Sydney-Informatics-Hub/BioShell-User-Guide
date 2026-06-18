@@ -38,14 +38,20 @@ subitems:
         subitems:
           - title: Verify CVMFS
             url: /tools#cvmfs
-          - title: Find and install with Bio-Shelley
+          - title: Find and install with Shelley-Bio
             url: /tools#bio-shelley
           - title: Load a tool
             url: /tools#load-tool
           - title: Reference datasets
             url: /tools#reference-data
-          - title: Advanced — manual SHPC
+          - title: Advanced — manual sHPC
             url: /tools#shpc-manual
+          - title: Older or unlisted versions
+            url: /tools#older-versions
+          - title: Troubleshooting
+            url: /tools#troubleshooting
+          - title: Further reading
+            url: /tools#further-reading
       - title: Interactive environments
         url: /interactive
         subitems:
