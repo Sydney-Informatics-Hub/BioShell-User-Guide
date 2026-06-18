@@ -48,7 +48,7 @@ subitems:
           - title: Installing tools
             url: /tools#installing-tools
             subitems:
-              - title: Recommended: Shelley-Bio
+              - title: "Recommended: Shelley-Bio"
                 url: /tools#bio-shelley
               - title: Why Shelley-Bio over manual sHPC?
                 url: /tools#why-shelley
