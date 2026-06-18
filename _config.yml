@@ -14,7 +14,7 @@ theme_variables:
   # biocommons blue
   theme_color: 205a86
   topnav:
-    brand_logo: assets/img/Australian-Biocommons-Logo-Tagline-Community-RGB.png
+    brand_logo: assets/img/BioShell_logo_with_name.png
 
 exclude:
   - README.md

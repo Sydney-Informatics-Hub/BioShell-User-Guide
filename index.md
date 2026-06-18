@@ -5,6 +5,8 @@ description: A guide to accessing and using BioShell, a preconfigured cloud bioi
 sidebar: false
 ---
 
+{% include image.html file="BioShell_logo_with_name.png" alt="BioShell logo" max-width="300px" %}
+
 ## Introduction
 
 BioShell is a ready-to-use cloud bioinformatics environment designed to get you from data to
