@@ -2,8 +2,8 @@ title: BioShell
 baseurl: "/BioShell-User-Guide"
 # This appears in the html browser tab for the site title (seen mostly by search engines, not users)
 
-#topnav_title: BioShell
-# Optional: this appears on the top navigation bar next to the main_logo.svg icon
+topnav_title: '<img src="/BioShell-User-Guide/assets/img/Australian-Biocommons-Logo-Tagline-Community-RGB.png" alt="Australian BioCommons" style="height:40px; margin-left:12px;">'
+# Rendered as raw HTML next to the brand_logo in the top navigation bar
 
 description: "A guide to accessing and using BioShell, a preconfigured cloud bioinformatics environment on NCI Nirin and ARDC Nectar Research Cloud."
 # Metadata description of the website
