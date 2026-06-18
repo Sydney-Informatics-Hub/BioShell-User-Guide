@@ -38,18 +38,26 @@ subitems:
         subitems:
           - title: How the tooling stack works
             url: /tools#tooling-stack
-          - title: Verify CVMFS
-            url: /tools#cvmfs
-          - title: Find and install with Shelley-Bio
-            url: /tools#bio-shelley
-          - title: Load a tool
+            subitems:
+              - title: CVMFS
+                url: /tools#cvmfs
+              - title: sHPC
+                url: /tools#shpc
+              - title: Shelley-Bio
+                url: /tools#shelley-bio
+          - title: Installing tools
+            url: /tools#installing-tools
+            subitems:
+              - title: Recommended: Shelley-Bio
+                url: /tools#bio-shelley
+              - title: Why Shelley-Bio over manual sHPC?
+                url: /tools#why-shelley
+              - title: Advanced: manual installation
+                url: /tools#shpc-manual
+          - title: Loading modules
             url: /tools#load-tool
           - title: Reference datasets
             url: /tools#reference-data
-          - title: Advanced — manual sHPC
-            url: /tools#shpc-manual
-          - title: Older or unlisted versions
-            url: /tools#older-versions
           - title: Troubleshooting
             url: /tools#troubleshooting
           - title: Further reading
