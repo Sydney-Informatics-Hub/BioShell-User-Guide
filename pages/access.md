@@ -1,6 +1,7 @@
 ---
 title: Accessing BioShell
-description: How to check your eligibility, request access to BioShell, and connect to your
+description:
+  How to check your eligibility, request access to BioShell, and connect to your
   environment for the first time.
 ---
 
@@ -22,12 +23,12 @@ For full eligibility criteria, see the [ABLeS eligibility page](https://australi
 
 ### Who can apply?
 
-| User type | Description |
-|-----------|-------------|
-| Research projects | Academic, government, or industry life-science research with defined outcomes |
-| Development projects | Bioinformatics tool or workflow development intended for community use |
-| Self-paced learning | Independent exploration and learning; no training event required |
-| Training projects | Nationally delivered or institutional life-science training activities |
+| User type            | Description                                                                   |
+| -------------------- | ----------------------------------------------------------------------------- |
+| Research projects    | Academic, government, or industry life-science research with defined outcomes |
+| Development projects | Bioinformatics tool or workflow development intended for community use        |
+| Self-paced learning  | Independent exploration and learning; no training event required              |
+| Training projects    | Nationally delivered or institutional life-science training activities        |
 
 ---
 
@@ -77,57 +78,6 @@ application.
 
 ## Connecting to BioShell {#connecting}
 
-Once your environment is provisioned you will receive connection details by email.
-
-### Step 1 — Generate an SSH key {#ssh-key}
-
-BioShell uses SSH key authentication. If you do not already have an SSH key pair, follow
-the [SSH key generation guide](ssh-keys) for step-by-step instructions on macOS, Linux,
-and Windows — including how to name your key, add it to ssh-agent, and copy the public key.
-
-Once you have your public key (the `.pub` file), continue to Step 2.
-
-> **Tip:** Your public key is the `.pub` file. This is what you share with services.
-> Never share the private key (the file without `.pub`).
-
-### Step 2 — Submit your public key {#submit-key}
-
-[AUTHOR TO SUPPLY — confirm how users submit their public key as part of the BioShell
-provisioning process, e.g. via the access request form or a separate step after approval]
-
-### Step 3 — Connect {#connect}
-
-Add an entry to `~/.ssh/config` so SSH automatically uses your BioShell key without
-needing to specify it each time:
-
-```
-Host bioshell
-    HostName <your-bioshell-ip>
-    User <username>
-    IdentityFile ~/.ssh/bioshell_key
-```
-
-Then connect with:
-
-```bash
-ssh bioshell
-```
-
-Or connect directly without the config entry:
-
-```bash
-ssh -i ~/.ssh/bioshell_key <username>@<your-bioshell-ip>
-```
-
-[AUTHOR TO SUPPLY — confirm username format]
-
-Once connected, you can also open interactive environments directly in your browser:
-
-- **JupyterLab** — `http://<your-bioshell-ip>:8888`
-- **RStudio** — `http://<your-bioshell-ip>:8787`
-
-> **Important:** Your connection details are provided as part of your provisioning
-> notification. Keep them secure and do not share them publicly.
-
-> **Tip:** If you are connecting from outside your institution's network you may need a VPN
-> or SSH tunnel. Contact your local IT support if you are unsure.
+Once your environment is provisioned you will receive connection details by email. For
+step-by-step SSH connection instructions and information about your first login, see the
+[Connecting to BioShell](connecting) page.

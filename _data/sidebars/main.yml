@@ -10,17 +10,22 @@ subitems:
         url: /access#pathways
       - title: Access duration and renewal
         url: /access#duration
-      - title: Connecting to BioShell
-        url: /access#connecting
+  - title: Connecting to BioShell
+    url: /connecting
+    subitems:
+      - title: SSH key generation guide
+        url: /ssh-keys
+      - title: Connect via SSH
+        url: /connecting#ssh-connect
+      - title: Interactive environments
+        url: /connecting#interactive-envs
+      - title: First login
+        url: /connecting#first-login
         subitems:
-          - title: Generate an SSH key
-            url: /access#ssh-key
-          - title: SSH key generation guide
-            url: /ssh-keys
-          - title: Submit your public key
-            url: /access#submit-key
-          - title: Connect
-            url: /access#connect
+          - title: CVMFS access
+            url: /connecting#cvmfs-access
+          - title: Storage volumes
+            url: /connecting#storage
   - title: Using BioShell
     url: /using-bioshell
     subitems:
