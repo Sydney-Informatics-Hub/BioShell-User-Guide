@@ -81,78 +81,14 @@ Once your environment is provisioned you will receive connection details by emai
 
 ### Step 1 — Generate an SSH key {#ssh-key}
 
-BioShell uses SSH key authentication. If you do not already have an SSH key pair, generate
-one on your local machine before connecting.
+BioShell uses SSH key authentication. If you do not already have an SSH key pair, follow
+the [SSH key generation guide](ssh-keys) for step-by-step instructions on macOS, Linux,
+and Windows — including how to name your key, add it to ssh-agent, and copy the public key.
 
-**Quick start** (works on macOS, Linux, and Windows with OpenSSH):
+Once you have your public key (the `.pub` file), continue to Step 2.
 
-```bash
-ssh-keygen -t ed25519 -C "user@example.com" -f ~/.ssh/bioshell_key
-```
-
-Replace `user@example.com` with your own email address. Accept the default prompts, or set
-a passphrase when asked (recommended).
-
-**Complete setup — macOS:**
-
-```bash
-# Create .ssh directory if it doesn't exist
-mkdir -p ~/.ssh && chmod 700 ~/.ssh
-
-# Generate the key
-ssh-keygen -t ed25519 -C "user@example.com" -f ~/.ssh/bioshell_key
-
-# Start ssh-agent and load the key into the macOS Keychain
-eval "$(ssh-agent -s)"
-ssh-add --apple-use-keychain ~/.ssh/bioshell_key
-
-# Set correct permissions on the private key
-chmod 600 ~/.ssh/bioshell_key
-
-# Copy the public key to your clipboard
-pbcopy < ~/.ssh/bioshell_key.pub
-```
-
-**Complete setup — Linux:**
-
-```bash
-# Create .ssh directory if it doesn't exist
-mkdir -p ~/.ssh && chmod 700 ~/.ssh
-
-# Generate the key
-ssh-keygen -t ed25519 -C "user@example.com" -f ~/.ssh/bioshell_key
-
-# Start ssh-agent and add the key
-eval "$(ssh-agent -s)"
-ssh-add ~/.ssh/bioshell_key
-
-# Set correct permissions on the private key
-chmod 600 ~/.ssh/bioshell_key
-
-# Copy the public key to your clipboard (requires xclip)
-xclip -selection clipboard < ~/.ssh/bioshell_key.pub
-```
-
-**Complete setup — Windows (PowerShell with OpenSSH):**
-
-```powershell
-# Generate the key
-ssh-keygen -t ed25519 -C "user@example.com" -f "$env:USERPROFILE\.ssh\bioshell_key"
-
-# Start ssh-agent service and add the key
-Start-Service ssh-agent
-ssh-add "$env:USERPROFILE\.ssh\bioshell_key"
-
-# Copy the public key to your clipboard
-Get-Content "$env:USERPROFILE\.ssh\bioshell_key.pub" | Set-Clipboard
-```
-
-> **Note:** OpenSSH ships with Windows 10 (version 1809 and later) and Windows 11. If
-> `ssh-keygen` is not found, go to **Settings → Apps → Optional features** and install
-> **OpenSSH Client**.
-
-> **Tip:** Your public key is the `.pub` file — this is what you share with others or
-> submit when registering for access. Never share your private key (the file without `.pub`).
+> **Tip:** Your public key is the `.pub` file. This is what you share with services.
+> Never share the private key (the file without `.pub`).
 
 ### Step 2 — Submit your public key {#submit-key}
 

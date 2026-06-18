@@ -15,6 +15,8 @@ subitems:
         subitems:
           - title: Generate an SSH key
             url: /access#ssh-key
+          - title: SSH key generation guide
+            url: /ssh-keys
           - title: Submit your public key
             url: /access#submit-key
           - title: Connect
