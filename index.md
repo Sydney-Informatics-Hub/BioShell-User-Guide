@@ -5,7 +5,7 @@ description: A guide to accessing and using BioShell, a preconfigured cloud bioi
 sidebar: false
 ---
 
-{% include image.html file="BioShell_logo_with_name.png" alt="BioShell logo" max-width="300px" %}
+<p style="text-align:center; margin: 1rem 0;"><img src="{{ '/images/BioShell_logo_with_name.png' | relative_url }}" alt="BioShell logo" style="max-width:300px;"></p>
 
 ## Introduction
 
