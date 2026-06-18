@@ -52,7 +52,7 @@ subitems:
                 url: /tools#bio-shelley
               - title: Why Shelley-Bio over manual sHPC?
                 url: /tools#why-shelley
-              - title: Advanced: manual installation
+              - title: "Advanced: manual installation"
                 url: /tools#shpc-manual
           - title: Loading modules
             url: /tools#load-tool
