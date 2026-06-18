@@ -7,10 +7,22 @@ BioShell gives you access to thousands of bioinformatics tools and reference dat
 two underlying systems — **CVMFS** and **sHPC** — and a built-in assistant called
 **Shelley-Bio** that automates working with both.
 
-[CernVM-FS (CVMFS)](https://cvmfs.readthedocs.io/en/stable/) is a read-only, network-backed
-file system that delivers containerised tools and reference data on demand. Rather than
-downloading or installing software yourself, you access tools as modules — files are pulled
-from CVMFS only when you need them and cached locally.
+> **Recommended approach:** Start with Shelley-Bio. Use the manual CVMFS/sHPC methods only
+> if you need finer control or are troubleshooting.
+
+---
+
+## How the tooling stack works {#tooling-stack}
+
+### CVMFS — the software and data library
+
+**[CernVM-FS (CVMFS)](https://cvmfs.readthedocs.io/en/stable/)** is a read-only,
+network-backed file system originally developed at CERN for distributing scientific software
+at scale. Rather than downloading tools and datasets upfront, CVMFS fetches only what you
+actually access — on demand — and caches it locally. From your perspective it looks like a
+regular directory at `/cvmfs/`: you can `ls` it, browse it, and point workflows at files
+inside it. Nothing is stored permanently on the VM itself, and you cannot write to CVMFS — it
+is a shared, read-only resource.
 
 BioShell mounts three CVMFS repositories automatically:
 
@@ -20,8 +32,42 @@ BioShell mounts three CVMFS repositories automatically:
 | `data.galaxyproject.org` | Reference genome builds and pre-built indexes from the Galaxy Project |
 | `data.biocommons.aarnet.edu.au` | [AUTHOR TO SUPPLY — confirm final name and description] |
 
-> **Recommended approach:** Start with Shelley-Bio. Use the manual CVMFS/sHPC methods only
-> if you need finer control or are troubleshooting.
+The repositories BioShell connects to are maintained by the BioContainers and Galaxy
+communities — thousands of tools, kept up to date, versioned, and tested. You get access to
+all of it without compiling software, managing dependencies, or tracking down container images
+yourself.
+
+> **Note:** The first time you access a path in CVMFS it may take a moment while metadata is
+> fetched and cached. Subsequent access is fast.
+
+### sHPC — the module layer
+
+The containers in CVMFS are [Singularity](https://docs.sylabs.io/guides/latest/user-guide/)
+images. You could run them directly with `singularity exec`, but that requires knowing the
+exact container path for every tool, every time. **[Singularity-HPC (sHPC)](https://singularity-hpc.readthedocs.io/)**
+solves this by wrapping containers as standard environment modules, so you can discover and
+load tools the same way you would on any HPC system:
+
+```bash
+module load samtools/1.21
+samtools --version
+```
+
+sHPC generates a module file for each container and creates command wrappers so tools behave
+like natively installed software. On BioShell, sHPC is configured to point installations at
+containers already present in CVMFS — nothing is re-downloaded.
+
+Without sHPC, using a containerised tool means constructing `singularity exec` commands with
+full container paths throughout your scripts. sHPC turns containers into clean, versioned
+modules without requiring you to know how containers work.
+
+### Shelley-Bio — the assistant
+
+Working with CVMFS paths and sHPC registry recipes by hand is tedious and error-prone,
+particularly for older tool versions not listed in the standard registry. **Shelley-Bio** is
+BioShell's command-line assistant that automates the entire workflow: it searches the CVMFS
+BioContainers index, identifies the correct container version, creates any missing registry
+entries, and runs the sHPC install — all from a single command.
 
 ---
 

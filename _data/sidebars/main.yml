@@ -36,6 +36,8 @@ subitems:
       - title: Tools and reference data
         url: /tools
         subitems:
+          - title: How the tooling stack works
+            url: /tools#tooling-stack
           - title: Verify CVMFS
             url: /tools#cvmfs
           - title: Find and install with Shelley-Bio
