@@ -38,6 +38,9 @@ the BioCommons Training cooperative and
 
 ## Quick start guide
 
+> **Tip:** New to cloud computing or virtual machines? Read [Why use a cloud workspace?](why-bioshell)
+> first — it explains what BioShell is, how it compares to HPC, and whether it is right for your work.
+
 1. [Check you are eligible](access#eligibility) — confirm your project is life-science
    related and aligns with the five ABLeS principles.
 2. [Identify your access pathway](access#pathways) — most users apply through

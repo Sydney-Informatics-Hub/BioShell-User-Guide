@@ -1,6 +1,17 @@
 subitems:
   - title: Home
     url: /index
+  - title: Why BioShell?
+    url: /why-bioshell
+    subitems:
+      - title: What is a virtual machine?
+        url: /why-bioshell#what-is-a-vm
+      - title: Cloud vs HPC
+        url: /why-bioshell#cloud-vs-hpc
+      - title: Why BioShell?
+        url: /why-bioshell#why-bioshell
+      - title: BioShell and HPC
+        url: /why-bioshell#bioshell-and-hpc
   - title: Accessing BioShell
     url: /access
     subitems:
