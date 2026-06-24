@@ -40,17 +40,23 @@ subitems:
   - title: Using BioShell
     url: /using-bioshell
     subitems:
-      - title: Choosing a flavour
+      - title: Choosing an environment size
         url: /flavours
         subitems:
-          - title: Flavour types
-            url: /flavours#flavour-types
-          - title: Quick sizing guide
-            url: /flavours#sizing-guide
-          - title: Worked examples
-            url: /flavours#worked-examples
-          - title: How to choose
-            url: /flavours#how-to-choose
+          - title: A familiar starting point
+            url: /flavours#familiar-starting-point
+          - title: Small — light preprocessing
+            url: /flavours#small
+          - title: Medium — scRNA-seq and notebooks
+            url: /flavours#medium
+          - title: Large — variant calling and HPC-scale
+            url: /flavours#large
+          - title: Not sure? Start small.
+            url: /flavours#start-small
+          - title: Quick reference
+            url: /flavours#quick-reference
+          - title: Further reading
+            url: /flavours#further-reading
       - title: Tools and reference data
         url: /tools
         subitems:
