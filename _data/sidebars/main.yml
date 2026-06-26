@@ -21,6 +21,23 @@ subitems:
         url: /access#pathways
       - title: Access duration and renewal
         url: /access#duration
+  - title: Choosing an environment size
+    url: /flavours
+    subitems:
+      - title: A familiar starting point
+        url: /flavours#familiar-starting-point
+      - title: Small — light preprocessing
+        url: /flavours#small
+      - title: Medium — scRNA-seq and notebooks
+        url: /flavours#medium
+      - title: Large — variant calling and HPC-scale
+        url: /flavours#large
+      - title: Not sure? Start small.
+        url: /flavours#start-small
+      - title: Quick reference
+        url: /flavours#quick-reference
+      - title: Further reading
+        url: /flavours#further-reading
   - title: Connecting to BioShell
     url: /connecting
     subitems:
@@ -40,23 +57,6 @@ subitems:
   - title: Using BioShell
     url: /using-bioshell
     subitems:
-      - title: Choosing an environment size
-        url: /flavours
-        subitems:
-          - title: A familiar starting point
-            url: /flavours#familiar-starting-point
-          - title: Small — light preprocessing
-            url: /flavours#small
-          - title: Medium — scRNA-seq and notebooks
-            url: /flavours#medium
-          - title: Large — variant calling and HPC-scale
-            url: /flavours#large
-          - title: Not sure? Start small.
-            url: /flavours#start-small
-          - title: Quick reference
-            url: /flavours#quick-reference
-          - title: Further reading
-            url: /flavours#further-reading
       - title: Tools and reference data
         url: /tools
         subitems:
@@ -109,6 +109,27 @@ subitems:
         url: /community#research
       - title: Get involved
         url: /community#get-involved
+  - title: For trainers
+    url: /training-development
+    subitems:
+      - title: VM setup and access
+        url: /training-development#vm-setup
+      - title: Disk budget
+        url: /training-development#disk-budget
+      - title: Using CVMFS resources
+        url: /training-development#cvmfs
+      - title: Developing training materials
+        url: /training-development#developing-materials
+      - title: Trainee directory layout
+        url: /training-development#directory-layout
+      - title: Non-CVMFS resources
+        url: /training-development#non-cvmfs
+      - title: How trainees are provisioned
+        url: /training-development#provisioning
+      - title: Cloud-init check
+        url: /training-development#cloud-init
+      - title: Pre-snapshot checklist
+        url: /training-development#checklist
   - title: About
     url: /about
     subitems:
