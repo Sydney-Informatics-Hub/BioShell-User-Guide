@@ -114,22 +114,24 @@ subitems:
     subitems:
       - title: VM setup and access
         url: /training-development#vm-setup
-      - title: Disk budget
-        url: /training-development#disk-budget
-      - title: Using CVMFS resources
-        url: /training-development#cvmfs
       - title: Developing training materials
         url: /training-development#developing-materials
-      - title: Trainee directory layout
-        url: /training-development#directory-layout
-      - title: Non-CVMFS resources
-        url: /training-development#non-cvmfs
-      - title: How trainees are provisioned
-        url: /training-development#provisioning
-      - title: Cloud-init check
-        url: /training-development#cloud-init
-      - title: Pre-snapshot checklist
-        url: /training-development#checklist
+        subitems:
+          - title: Disk budget
+            url: /training-development#disk-budget
+          - title: Using CVMFS resources
+            url: /training-development#cvmfs
+          - title: Non-CVMFS resources
+            url: /training-development#non-cvmfs
+          - title: Trainee directory layout
+            url: /training-development#directory-layout
+      - title: Pre-snapshot requirements
+        url: /training-development#pre-snapshot
+        subitems:
+          - title: Cloud-init check
+            url: /training-development#cloud-init
+          - title: Pre-snapshot checklist
+            url: /training-development#checklist
   - title: About
     url: /about
     subitems:
