@@ -114,6 +114,9 @@ subitems:
     subitems:
       - title: VM setup and access
         url: /training-development#vm-setup
+        subitems:
+          - title: Accessing RStudio and JupyterLab
+            url: /training-development#ports
       - title: Developing training materials
         url: /training-development#developing-materials
         subitems:
@@ -121,6 +124,8 @@ subitems:
             url: /training-development#disk-budget
           - title: Using CVMFS resources
             url: /training-development#cvmfs
+          - title: RStudio and JupyterLab environments
+            url: /training-development#interactive-envs
           - title: Non-CVMFS resources
             url: /training-development#non-cvmfs
           - title: Trainee directory layout

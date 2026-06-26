@@ -23,6 +23,17 @@ The training team will provide you with a username and IP address. Your username
 ssh tdevNN@<IP_Address>
 ```
 
+### Accessing RStudio and JupyterLab {#ports}
+
+RStudio and JupyterLab run as web services on your VM and are accessible directly in your browser. See [Interactive environments](interactive) for full details on both environments.
+
+Once you have an active SSH connection, open your browser and go to:
+
+- **JupyterLab:** `http://<IP_Address>:8888`
+- **RStudio:** `http://<IP_Address>:8787`
+
+Replace `<IP_Address>` with the IP address provided by the training team.
+
 ---
 
 ## Developing training materials {#developing-materials}
@@ -102,6 +113,43 @@ This creates a symlink in your current directory pointing to the CVMFS source. Y
 
 ```bash
 ln -s /cvmfs/data.galaxyproject.org/byhand/CHM13_T2T_v2.0/seq/CHM13_T2T_v2.0.fa /path/to/destination/my_reference.fa
+```
+
+> **Symlinks must use relative paths or CVMFS paths.** If you create a symlink pointing to an absolute path inside your home directory (for example `/home/tdev01/data/reference.fa`), that path will not exist on trainee VMs and the link will be broken. Always point symlinks either at a CVMFS path (absolute paths under `/cvmfs/` are safe because CVMFS is available on all VMs) or at a relative path within the directory structure that will be copied to `/etc/skel/`.
+
+### RStudio and JupyterLab environments {#interactive-envs}
+
+If your training module uses RStudio or JupyterLab, any R packages, Python packages, or Jupyter kernels you install are written to your home directory and follow the same `/etc/skel/` workflow as everything else.
+
+#### R packages
+
+Install packages from within R as normal:
+
+```r
+install.packages("ggplot2")
+BiocManager::install("DESeq2")
+```
+
+R writes packages to `~/R/x86_64-pc-linux-gnu-library/<version>/` by default. This directory will be picked up automatically when you copy your home directory to `/etc/skel/`.
+
+> **Watch the size:** R packages for workflows like scRNA-seq (Seurat, Bioconductor suites) can be several gigabytes. Check the size before copying:
+
+```bash
+du -sh ~/R/
+```
+
+#### Python packages and Jupyter kernels
+
+Install packages to your user directory:
+
+```bash
+pip install --user <package>
+```
+
+Packages land in `~/.local/lib/python<version>/site-packages/`. If you register a custom Jupyter kernel (for example a conda environment), its kernel spec is written to `~/.local/share/jupyter/kernels/`. Both locations are included when you copy your home directory to `/etc/skel/`.
+
+```bash
+du -sh ~/.local/
 ```
 
 ### If resources are not available on CVMFS {#non-cvmfs}
@@ -258,5 +306,6 @@ Run through this before taking any snapshot:
 - [ ] Any non-CVMFS resources that are too large to bundle have been prepared as provisioning script pull steps and shared with Giorgia or Mitchell
 - [ ] `sudo cp -r /home/<username>/. /etc/skel/` completed successfully
 - [ ] `/etc/skel/` contents verified before snapshotting
+- [ ] All symlinks in `/etc/skel/` point to CVMFS paths or relative paths (no absolute paths into `/home/tdevNN/`)
 - [ ] Total estimated disk usage (base ~12 GB + skel + boot-time pulls) is comfortably under 30 GB
 - [ ] `/etc/cloud/ds-identify.cfg` is present and reads `policy: enabled`
