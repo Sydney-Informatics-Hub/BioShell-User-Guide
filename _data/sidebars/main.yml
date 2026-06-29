@@ -21,6 +21,17 @@ subitems:
         url: /access#pathways
       - title: Access duration and renewal
         url: /access#duration
+      - title: What does access include?
+        url: /access#quotas
+      - title: Acceptable use policy and service terms
+        url: /aup
+        subitems:
+          - title: Acceptable use
+            url: /aup#acceptable-use
+          - title: Service commitments
+            url: /aup#service-commitments
+          - title: Privacy and data collection
+            url: /aup#privacy
   - title: Choosing an environment size
     url: /flavours
     subitems:
@@ -140,7 +151,7 @@ subitems:
   - title: About
     url: /about
     subitems:
-      - title: How to cite
+      - title: How to cite and acknowledge
         url: /about#cite
       - title: Contributors
         url: /about#contributors

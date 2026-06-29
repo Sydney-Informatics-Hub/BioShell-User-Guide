@@ -13,13 +13,11 @@ BioShell is a ready-to-use cloud bioinformatics environment designed to get you 
 results with as little setup as possible. Rather than spending time configuring software on
 your own machine, you connect to BioShell and find a fully equipped workspace already waiting
 for you — with the tools, compute power, and interactive environments you need to run analyses
-that would be impractical on a laptop.
+that would be impractical on a laptop. 
 
-BioShell is available through NCI Nirin and ARDC Nectar Research Cloud and is designed for
-researchers and learners at all stages. Whether you are a higher degree student running your
-first bioinformatics analysis, a trainer delivering a national workshop, or a researcher who
-needs a consistent and reproducible environment to share with collaborators, BioShell removes
-the technical overhead so you can focus on your science.
+Whether you are a higher degree student running your
+first bioinformatics analysis or a trainer delivering a national workshop, BioShell removes
+the technical overhead so you can focus on delivering science.
 
 This guide walks you through requesting access, choosing the right environment for your work,
 and using BioShell's built-in tools and support features. It assumes you are comfortable
@@ -79,3 +77,18 @@ If you use BioShell in your research or training, please cite it as:
 *Fig 1. Overview of the BioShell access and use flow: from submitting an access request
 through to connecting, choosing a flavour, loading tools, and launching interactive
 environments.*
+
+---
+
+## Operational partners
+
+BioShell is delivered through a collaboration between Australian BioCommons, the Sydney
+Informatics Hub at the University of Sydney, ARDC Nectar Research Cloud, and the National
+Computational Infrastructure.
+
+<div style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: center; margin: 1.5rem 0;">
+  <img src="{{ '/assets/img/Australian-Biocommons-Logo-Horizontal-RGB.png' | relative_url }}" alt="Australian BioCommons" style="max-height: 48px;">
+  <img src="{{ '/assets/img/University%20of%20Sydney%20logo%20lockup%20-%20Sydney%20Informatics%20Hub%20-%20mono.png' | relative_url }}" alt="Sydney Informatics Hub, University of Sydney" style="max-height: 48px;">
+  <img src="{{ '/assets/img/ARDC_Nectar_Research_Cloud_RGB.png' | relative_url }}" alt="ARDC Nectar Research Cloud" style="max-height: 48px;">
+  <img src="{{ '/assets/img/NCI%20logo.png' | relative_url }}" alt="National Computational Infrastructure" style="max-height: 48px;">
+</div>

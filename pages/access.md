@@ -19,7 +19,7 @@ Every access request must satisfy the five core ABLeS principles:
 4. Your project should support collaboration and sharing of outputs where appropriate.
 5. You must comply with all relevant facility policies.
 
-For full eligibility criteria, see the [ABLeS eligibility page](https://australianbiocommons.github.io/ables/eligibility).
+For full eligibility criteria, see the [ABLeS eligibility page](https://australianbiocommons.github.io/ables/eligibility). By submitting an access request you agree to the [BioShell acceptable use policy and service terms](aup).
 
 ### Who can apply?
 
@@ -29,6 +29,21 @@ For full eligibility criteria, see the [ABLeS eligibility page](https://australi
 | Development projects | Bioinformatics tool or workflow development intended for community use        |
 | Self-paced learning  | Independent exploration and learning; no training event required              |
 | Training projects    | Nationally delivered or institutional life-science training activities        |
+
+### What does access include? {#quotas}
+
+| | Training | Research | Development |
+|---|---|---|---|
+| Data analysis and visualisation | Yes | Yes | Yes |
+| Interactive interfaces (JupyterLab, RStudio) | Yes | Yes | Yes |
+| SSH CLI access | Yes | Yes | Yes |
+| Storage quota | 0 GB | 100 GB | 100 GB |
+| Allocation period | Training period | 3 months | 3 months |
+| Renewal | Not applicable — event bound | Yes, subject to review | Yes, subject to review |
+
+> **Note:** Storage quotas are enforced at the infrastructure level — it is not possible to
+> exceed your allocation. If you need more storage, contact the BioShell helpdesk. Requests
+> are subject to availability and review and cannot be guaranteed.
 
 ---
 
