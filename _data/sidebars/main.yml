@@ -1,70 +1,73 @@
 subitems:
   - title: Home
     url: /index
-  - title: Why BioShell?
+  - title: Getting started
     url: /why-bioshell
     subitems:
-      - title: What is a virtual machine?
-        url: /why-bioshell#what-is-a-vm
-      - title: Cloud vs HPC
-        url: /why-bioshell#cloud-vs-hpc
       - title: Why BioShell?
-        url: /why-bioshell#why-bioshell
-      - title: BioShell and HPC
-        url: /why-bioshell#bioshell-and-hpc
-  - title: Accessing BioShell
-    url: /access
-    subitems:
-      - title: Eligibility and acceptable use
-        url: /access#eligibility
-      - title: Your access pathway
-        url: /access#pathways
-      - title: Access duration and renewal
-        url: /access#duration
-      - title: What does access include?
-        url: /access#quotas
-      - title: Acceptable use policy and service terms
-        url: /aup
+        url: /why-bioshell
         subitems:
-          - title: Acceptable use
-            url: /aup#acceptable-use
-          - title: Service commitments
-            url: /aup#service-commitments
-          - title: Privacy and data collection
-            url: /aup#privacy
-  - title: Choosing an environment size
-    url: /flavours
-    subitems:
-      - title: A familiar starting point
-        url: /flavours#familiar-starting-point
-      - title: Small — light preprocessing
-        url: /flavours#small
-      - title: Medium — scRNA-seq and notebooks
-        url: /flavours#medium
-      - title: Large — variant calling and HPC-scale
-        url: /flavours#large
-      - title: Not sure? Start small.
-        url: /flavours#start-small
-      - title: Quick reference
-        url: /flavours#quick-reference
-      - title: Further reading
-        url: /flavours#further-reading
-  - title: Connecting to BioShell
-    url: /connecting
-    subitems:
-      - title: SSH key generation guide
-        url: /ssh-keys
-      - title: Connect via SSH
-        url: /connecting#ssh-connect
-      - title: Interactive environments
-        url: /connecting#interactive-envs
-      - title: First login
-        url: /connecting#first-login
+          - title: What is a virtual machine?
+            url: /why-bioshell#what-is-a-vm
+          - title: Cloud vs HPC
+            url: /why-bioshell#cloud-vs-hpc
+          - title: Why BioShell?
+            url: /why-bioshell#why-bioshell
+          - title: BioShell and HPC
+            url: /why-bioshell#bioshell-and-hpc
+      - title: Accessing BioShell
+        url: /access
         subitems:
-          - title: CVMFS access
-            url: /connecting#cvmfs-access
-          - title: Storage volumes
-            url: /connecting#storage
+          - title: Eligibility and acceptable use
+            url: /access#eligibility
+          - title: Your access pathway
+            url: /access#pathways
+          - title: Access duration and renewal
+            url: /access#duration
+          - title: What does access include?
+            url: /access#quotas
+          - title: Acceptable use policy and service terms
+            url: /aup
+            subitems:
+              - title: Acceptable use
+                url: /aup#acceptable-use
+              - title: Service commitments
+                url: /aup#service-commitments
+              - title: Privacy and data collection
+                url: /aup#privacy
+      - title: Choosing an environment size
+        url: /flavours
+        subitems:
+          - title: A familiar starting point
+            url: /flavours#familiar-starting-point
+          - title: Small — light preprocessing
+            url: /flavours#small
+          - title: Medium — scRNA-seq and notebooks
+            url: /flavours#medium
+          - title: Large — variant calling and HPC-scale
+            url: /flavours#large
+          - title: Not sure? Start small.
+            url: /flavours#start-small
+          - title: Quick reference
+            url: /flavours#quick-reference
+          - title: Further reading
+            url: /flavours#further-reading
+      - title: Connecting to BioShell
+        url: /connecting
+        subitems:
+          - title: SSH key generation guide
+            url: /ssh-keys
+          - title: Connect via SSH
+            url: /connecting#ssh-connect
+          - title: Interactive environments
+            url: /connecting#interactive-envs
+          - title: First login
+            url: /connecting#first-login
+            subitems:
+              - title: CVMFS access
+                url: /connecting#cvmfs-access
+              - title: Storage volumes
+                url: /connecting#storage
   - title: Using BioShell
     url: /using-bioshell
     subitems:

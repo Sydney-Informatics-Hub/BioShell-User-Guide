@@ -1,11 +1,11 @@
 ---
-title: BioShell
+title:
 description: A guide to accessing and using BioShell, a preconfigured cloud bioinformatics
   environment available on NCI Nirin and ARDC Nectar Research Cloud.
 sidebar: false
 ---
 
-<p style="text-align:center; margin: 1rem 0;"><img src="{{ '/images/BioShell_logo_with_name.png' | relative_url }}" alt="BioShell logo" style="max-width:300px;"></p>
+<p style="text-align:center; margin: 2rem 0 1.5rem;"><img src="{{ '/images/BioShell_logo_with_name.png' | relative_url }}" alt="BioShell logo" style="max-width:600px; width:100%;"></p>
 
 ## Introduction
 
