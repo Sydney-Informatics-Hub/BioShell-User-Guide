@@ -21,13 +21,21 @@ Every access request must satisfy the five core ABLeS principles:
 
 For full eligibility criteria, see the [ABLeS eligibility page](https://australianbiocommons.github.io/ables/eligibility). By submitting an access request you agree to the [BioShell acceptable use policy and service terms](aup).
 
+## Training events
+
+If you are planning a workshop or training event using BioShell, contact the
+[BioCommons Training Team](https://www.biocommons.org.au/event-support) or email
+[comms@biocommons.org.au](mailto:comms@biocommons.org.au). 
+
+> **Tip:** Visit the [Event support page](https://www.biocommons.org.au/event-support) to see
+> the full range of events Australian BioCommons can support.
+
 ### Who can apply?
 
 | User type            | Description                                                                   |
 | -------------------- | ----------------------------------------------------------------------------- |
 | Research projects    | Academic, government, or industry life-science research with defined outcomes |
 | Development projects | Bioinformatics tool or workflow development intended for community use        |
-| Self-paced learning  | Independent exploration and learning; no training event required              |
 | Training projects    | Nationally delivered or institutional life-science training activities        |
 
 ### What does access include? {#quotas}
@@ -44,38 +52,6 @@ For full eligibility criteria, see the [ABLeS eligibility page](https://australi
 > **Note:** Storage quotas are enforced at the infrastructure level — it is not possible to
 > exceed your allocation. If you need more storage, contact the BioShell helpdesk. Requests
 > are subject to availability and review and cannot be guaranteed.
-
----
-
-## Your access pathway {#pathways}
-
-Choose the pathway that matches your use case.
-
-### Research, development, and self-paced learning
-
-Apply through [ABLeS](https://australianbiocommons.github.io/ables/eligibility). Your
-application should describe your purpose, expected duration, scale of compute needed, and any
-data considerations.
-
-[AUTHOR TO SUPPLY — link to BioShell-specific access request form once available]
-
-### Training events
-
-If you are planning a workshop or training event using BioShell, contact the
-[BioCommons Training Team](https://www.biocommons.org.au/event-support) or email
-[comms@biocommons.org.au](mailto:comms@biocommons.org.au).
-
-BioShell training events must meet Australian BioCommons Co-hosted Event standards, including:
-
-- Open to all suitable Australian life science researchers
-- Affiliated with an Australian research organisation or university
-- Publicly advertised at least one month before the event
-- Delivered by an expert practitioner with clear learning outcomes
-- Content reviewed by the Australian BioCommons Training and Communications team
-- Adherence to the [Australian BioCommons Code of Conduct](https://zenodo.org/record/4276854)
-
-> **Tip:** Visit the [Event support page](https://www.biocommons.org.au/event-support) to see
-> the full range of events Australian BioCommons can support.
 
 ---
 
