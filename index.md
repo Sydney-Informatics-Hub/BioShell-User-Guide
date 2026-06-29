@@ -40,21 +40,16 @@ the BioCommons Training cooperative and
 > first — it explains what BioShell is, how it compares to HPC, and whether it is right for your work.
 
 1. [Check you are eligible](access#eligibility) — confirm your project is life-science
-   related and aligns with the five ABLeS principles.
-2. [Identify your access pathway](access#pathways) — most users apply through
-   [ABLeS](https://australianbiocommons.github.io/ables/eligibility); training organisers
-   contact the [BioCommons Training Team](https://www.biocommons.org.au/event-support).
-3. [Submit your access request](access#requesting-access) — submit via the appropriate
+   related and aligns with the five ABLeS principles or Australian BioCommons Co-hosted Event standards.
+2. [Submit your access request](access#requesting-access) — submit via the appropriate
    pathway and wait for your infrastructure placement to be confirmed.
-4. [Accept your terms and conditions](access#terms) — accept the terms for your assigned
+4. [Understand Acceptable use policy and service terms](aup) — accept the terms for your assigned
    infrastructure before access is granted.
 5. [Connect to your BioShell environment via SSH](access#connecting) — use the connection
    details provided in your provisioning notification.
-6. [Choose your flavour](using-bioshell#flavours) — select the preconfigured environment
-   profile that matches your task.
-7. [Load a tool and run your analysis](using-bioshell#tools) — use Bio-Shelley or
+6. [Find data and tools to run your analysis](using-bioshell#tools) — use Bio-Shelley or
    `module load` to access tools from the BioShell tool library.
-8. [Launch an interactive environment](using-bioshell#interactive) — open JupyterLab or
+7. [Launch an interactive environment](using-bioshell#interactive) — open JupyterLab or
    RStudio directly in your browser for notebook-based work.
 
 > **Tip:** Not sure which tools are available or how to load them? Run
@@ -86,9 +81,9 @@ BioShell is delivered through a collaboration between Australian BioCommons, the
 Informatics Hub at the University of Sydney, ARDC Nectar Research Cloud, and the National
 Computational Infrastructure.
 
-<div style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: center; margin: 1.5rem 0;">
-  <img src="{{ '/assets/img/Australian-Biocommons-Logo-Horizontal-RGB.png' | relative_url }}" alt="Australian BioCommons" style="max-height: 48px;">
-  <img src="{{ '/assets/img/University%20of%20Sydney%20logo%20lockup%20-%20Sydney%20Informatics%20Hub%20-%20mono.png' | relative_url }}" alt="Sydney Informatics Hub, University of Sydney" style="max-height: 48px;">
-  <img src="{{ '/assets/img/ARDC_Nectar_Research_Cloud_RGB.png' | relative_url }}" alt="ARDC Nectar Research Cloud" style="max-height: 48px;">
-  <img src="{{ '/assets/img/NCI%20logo.png' | relative_url }}" alt="National Computational Infrastructure" style="max-height: 48px;">
+<div style="display: flex; flex-wrap: wrap; gap: 3rem; align-items: center; justify-content: center; margin: 2rem 0;">
+  <img src="{{ '/assets/img/Australian-Biocommons-Logo-Horizontal-RGB.png' | relative_url }}" alt="Australian BioCommons" style="max-height: 72px;">
+  <img src="{{ '/assets/img/University%20of%20Sydney%20logo%20lockup%20-%20Sydney%20Informatics%20Hub%20-%20mono.png' | relative_url }}" alt="Sydney Informatics Hub, University of Sydney" style="max-height: 72px;">
+  <img src="{{ '/assets/img/ARDC_Nectar_Research_Cloud_RGB.png' | relative_url }}" alt="ARDC Nectar Research Cloud" style="max-height: 72px;">
+  <img src="{{ '/assets/img/NCI%20logo.png' | relative_url }}" alt="National Computational Infrastructure" style="max-height: 72px;">
 </div>
