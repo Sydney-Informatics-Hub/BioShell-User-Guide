@@ -1,5 +1,6 @@
 ---
 title: Using Nextflow with CVMFS
+type: Using BioShell
 description: How to run Nextflow workflows on BioShell using containers already available in CVMFS instead of downloading them.
 ---
 

@@ -1,5 +1,6 @@
 ---
 title: Connecting to BioShell
+type: Getting started
 description: How to connect to your BioShell environment via SSH and what to expect on first login.
 ---
 

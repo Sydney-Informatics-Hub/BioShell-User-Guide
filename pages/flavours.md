@@ -1,5 +1,6 @@
 ---
 title: Choosing the right environment size
+type: Getting started
 description: How to choose the right number of CPUs, memory, and storage for your BioShell environment.
 ---
 

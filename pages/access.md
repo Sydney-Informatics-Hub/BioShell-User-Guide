@@ -1,5 +1,6 @@
 ---
 title: Accessing BioShell
+type: Getting started
 description:
   How to check your eligibility, request access to BioShell, and connect to your
   environment for the first time.

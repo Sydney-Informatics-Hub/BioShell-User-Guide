@@ -1,5 +1,6 @@
 ---
 title: Why use a cloud workspace for bioinformatics?
+type: Getting started
 description: An introduction to virtual machines, cloud computing, and why BioShell is a great starting point for life-science researchers and workshop participants.
 ---
 

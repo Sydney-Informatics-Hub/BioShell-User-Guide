@@ -1,5 +1,6 @@
 ---
 title: Tools and reference data
+type: Using BioShell
 description: How to find, install, and load bioinformatics tools and reference datasets in BioShell using CVMFS, Shelley-Bio, and sHPC.
 ---
 

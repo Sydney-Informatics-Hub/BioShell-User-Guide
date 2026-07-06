@@ -1,5 +1,6 @@
 ---
 title: Interactive environments
+type: Using BioShell
 description: How to use JupyterLab and RStudio browser-based coding environments in BioShell.
 ---
 

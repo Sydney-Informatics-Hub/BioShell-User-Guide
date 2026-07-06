@@ -1,59 +1,58 @@
 ---
 title:
-description: A guide to accessing and using BioShell, a preconfigured cloud bioinformatics
-  environment available on NCI Nirin and ARDC Nectar Research Cloud.
+toc: false
 sidebar: false
 ---
 
-<p style="text-align:center; margin: 2rem 0 1.5rem;"><img src="{{ '/images/BioShell_logo_with_name.png' | relative_url }}" alt="BioShell logo" style="max-width:600px; width:100%;"></p>
+<p style="text-align:center; margin: 2rem 0 1rem;"><img src="{{ '/images/BioShell_logo_with_name.png' | relative_url }}" alt="BioShell logo" style="max-width:600px; width:100%;"></p>
 
-## Introduction
+<p style="text-align:center; color: #555; font-size: 1.1rem; margin-bottom: 2rem;">A ready-to-use cloud bioinformatics environment for life-science researchers, trainers, and developers — available on NCI Nirin and ARDC Nectar Research Cloud.</p>
 
-BioShell is a ready-to-use cloud bioinformatics environment designed to get you from data to
-results with as little setup as possible. Rather than spending time configuring software on
-your own machine, you connect to BioShell and find a fully equipped workspace already waiting
-for you — with the tools, compute power, and interactive environments you need to run analyses
-that would be impractical on a laptop. 
-
-Whether you are a higher degree student running your
-first bioinformatics analysis or a trainer delivering a national workshop, BioShell removes
-the technical overhead so you can focus on delivering science.
-
-This guide walks you through requesting access, choosing the right environment for your work,
-and using BioShell's built-in tools and support features. It assumes you are comfortable
-with basic command-line navigation, but no prior experience with cloud infrastructure,
-containers, or software installation is needed. BioShell is developed by Australian BioCommons
-as part of the [ABLeS programme](https://australianbiocommons.github.io/ables/) and supports
-the BioCommons Training cooperative and
-[Bioinformatics ToolFinder](https://australianbiocommons.github.io/2_tools.html).
-
-> **Note:** This guide does not cover how to provision a virtual machine on Nectar or NCI, or
-> how to build a BioShell instance from scratch. See the
-> [BioShell GitHub repository](https://github.com/AustralianBioCommons/BioShell) and the
-> infrastructure documentation for those topics.
+<p style="text-align:center; margin-bottom: 3rem;">
+  <a href="[PLACEHOLDER — Google Form link to be added]" class="btn btn-primary btn-lg" style="padding: 0.85rem 3rem; font-size: 1.15rem; border-radius: 4px;">Request access</a>
+</p>
 
 ---
 
-## Quick start guide
+## Getting started
 
-> **Tip:** New to cloud computing or virtual machines? Read [Why use a cloud workspace?](why-bioshell)
-> first — it explains what BioShell is, how it compares to HPC, and whether it is right for your work.
+{% include section-navigation-tiles.html type="Getting started" col="3" %}
 
-1. [Check you are eligible](access#eligibility) — confirm your project is life-science
-   related and aligns with the five ABLeS principles or Australian BioCommons Co-hosted Event standards.
-2. [Submit your access request](access#requesting-access) — submit via the appropriate
-   pathway and wait for your infrastructure placement to be confirmed.
-4. [Understand Acceptable use policy and service terms](aup) — accept the terms for your assigned
-   infrastructure before access is granted.
-5. [Connect to your BioShell environment via SSH](access#connecting) — use the connection
-   details provided in your provisioning notification.
-6. [Find data and tools to run your analysis](using-bioshell#tools) — use Bio-Shelley or
-   `module load` to access tools from the BioShell tool library.
-7. [Launch an interactive environment](using-bioshell#interactive) — open JupyterLab or
-   RStudio directly in your browser for notebook-based work.
+## Using BioShell
 
-> **Tip:** Not sure which tools are available or how to load them? Run
-> `shelley-bio search "<what you want to do>"` for instant suggestions.
+{% include section-navigation-tiles.html type="Using BioShell" col="4" %}
+
+## Support
+
+<div class="row row-cols-1 row-cols-md-3 g-4 my-3">
+  <div class="col">
+    <div class="card h-100">
+      <div class="card-body d-flex flex-column">
+        <h5 class="card-title">Image support</h5>
+        <p class="card-text flex-grow-1">Bug reports and feature requests for the BioShell VM image.</p>
+        <a href="https://github.com/AustralianBioCommons/BioShell/issues" class="btn btn-outline-primary mt-3">Open an issue</a>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100">
+      <div class="card-body d-flex flex-column">
+        <h5 class="card-title">Community discussion</h5>
+        <p class="card-text flex-grow-1">Questions, ideas, and general conversation about BioShell.</p>
+        <a href="https://github.com/AustralianBioCommons/BioShell/discussions" class="btn btn-outline-primary mt-3">Join the discussion</a>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100">
+      <div class="card-body d-flex flex-column">
+        <h5 class="card-title">Project support</h5>
+        <p class="card-text flex-grow-1">Get help with your BioShell project from the Australian BioCommons team.</p>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSc6Tr2FAponrwYuMXfqspuzcXnssbM5gQ9ChLUqzh5yUxWJuQ/viewform?usp=publish-editor" class="btn btn-outline-primary mt-3">Submit a request</a>
+      </div>
+    </div>
+  </div>
+</div>
 
 ---
 
@@ -64,14 +63,6 @@ If you use BioShell in your research or training, please cite it as:
 > O'Brien M, Jaya F, Samaha G, Xue W, Al Bkhetan Z, Botting A, Gustafsson J. (2026).
 > **BioShell how-to guide**. Australian BioCommons.
 > [AUTHOR TO SUPPLY — Zenodo DOI once minted]
-
----
-
-![](images/bioshell/SCREENSHOT_NEEDED_overview_diagram.png)
-
-*Fig 1. Overview of the BioShell access and use flow: from submitting an access request
-through to connecting, choosing a flavour, loading tools, and launching interactive
-environments.*
 
 ---
 
