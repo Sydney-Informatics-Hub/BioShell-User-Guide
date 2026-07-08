@@ -3,35 +3,39 @@ title: About
 description: How to cite this guide, contributor acknowledgements, and references.
 ---
 
-## How to cite and acknowledge {#cite}
-
-### Acknowledging BioShell in outputs
+## How to cite and acknowledge BioShell {#cite}
 
 Acknowledge use of BioShell in relevant research, training, and innovation outputs using:
 
-> *"This work is supported by BioShell, a service provided by Australian BioCommons and its
-> partners. The service receives NCRIS funding through Bioplatforms Australia as well as
-> The University of Sydney."*
+```
+This work is supported by BioShell, a service provided by Australian BioCommons and its
+partners. The service receives NCRIS funding through Bioplatforms Australia as well as
+The University of Sydney.
+```
 
-and cite:
+And cite:
 
-> O'Brien M, Jaya F, Xue W, Al Bkhetan Z, Botting A, Gustafsson J. Samaha G (2026).
-> **BioShell how-to guide**. Australian BioCommons.
-> [AUTHOR TO SUPPLY — Zenodo DOI once minted]
+```
+O'Brien M, Jaya F, Xue W, Al Bkhetan Z, Botting A, Gustafsson J. Samaha G (2026).
+BioShell How-to Guide. Australian BioCommons.
+[AUTHOR TO SUPPLY — Zenodo DOI once minted]
+```
 
+If you're a researcher, your BioShell access has been provisioned through the ABLeS programme. Please also include:
 
-If you're a researcher, you're BioShell access has been provisioned through the ABLeS programme. Please also consider including:
-
-> *"The authors acknowledge the provision of computing and data resources provided by the
-> Australian BioCommons Leadership Share (ABLeS) program."*
+```
+The authors acknowledge the provision of computing and data resources provided by the
+Australian BioCommons Leadership Share (ABLeS) program.
+```
 
 And cite ABLeS as:
 
-> Gustafsson et al. (2023). Enabling national step changes in bioinformatics through ABLeS,
-> the Australian BioCommons Leadership Share (3.0). Zenodo.
-> [https://doi.org/10.5281/zenodo.10139651](https://doi.org/10.5281/zenodo.10139651)
+```
+Gustafsson et al. (2023). Enabling national step changes in bioinformatics through ABLeS,
+the Australian BioCommons Leadership Share (3.0). Zenodo.
+https://doi.org/10.5281/zenodo.10139651
+```
 
----
 
 ## Contributors {#contributors}
 
@@ -45,7 +49,6 @@ And cite ABLeS as:
 | Andy Botting     | [@andybotting](https://github.com/andybotting)     | —                                                            |
 | Johan Gustafsson | [@supernord](https://github.com/supernord)         | [0000-0002-2977-5032](https://orcid.org/0000-0002-2977-5032) |
 
----
 
 ## Acknowledgements {#acknowledgements}
 
@@ -54,7 +57,6 @@ Bioplatforms Australia funding.
 
 BioShell is available through [ARDC Nectar Research Cloud](https://ardc.edu.au/services/ardc-nectar-research-cloud/) and [NCI Nirin](https://nci.org.au/our-systems/cloud-computing).
 
----
 
 ## References {#references}
 
