@@ -8,7 +8,7 @@ baseurl: "/BioShell-User-Guide"
 description: "A guide to accessing and using BioShell, a preconfigured cloud bioinformatics environment on NCI Nirin and ARDC Nectar Research Cloud."
 # Metadata description of the website
 
-remote_theme: ELIXIR-Belgium/elixir-toolkit-theme@2.5.0
+remote_theme: ELIXIR-Belgium/elixir-toolkit-theme
 
 theme_variables:
   # biocommons blue
