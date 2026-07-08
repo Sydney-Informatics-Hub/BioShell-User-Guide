@@ -1,10 +1,11 @@
 ---
 title: Choosing the right environment size
-type: Getting started
+type: Using BioShell
 description: How to choose the right number of CPUs, memory, and storage for your BioShell environment.
 ---
 
 > **What is a flavour?**
+>
 > A flavour is the combination of virtual CPUs and memory allocated to your BioShell
 > environment, essentially the "spec" of your cloud computer. Different flavours suit
 > different workloads, just as you might choose a lightweight laptop for email but a
@@ -19,7 +20,6 @@ Estimating requirements can be challenging, particularly at the start of a proje
 not yet know which software tools you will use or how demanding they will be. The guidance
 below is designed to help you make a reasonable first choice and adjust from there.
 
----
 
 ## A familiar starting point {#familiar-starting-point}
 
@@ -35,7 +35,6 @@ If you are new to BioShell, or unsure of your requirements, starting with a
 **laptop-equivalent size** (4 CPUs / 8–16 GB RAM) is a reasonable default. You can always
 request a larger environment if you find you need it.
 
----
 
 ## Suggested sizes by workload {#workload-sizes}
 
@@ -57,7 +56,6 @@ annotation, and phylogenetic tree construction. Because he is working on a subse
 rather than whole genomes, each individual job is small. A standard laptop-equivalent
 environment handles this comfortably.
 
----
 
 ### Medium: single-cell RNA-seq analysis {#medium}
 
@@ -71,7 +69,7 @@ particularly those involving large in-memory data objects.
 | **Storage** | Variable, depends on sample count |
 
 **Example:** A researcher running the
-[SIH scRNAvigator notebooks](https://github.com/Sydney-Informatics-Hub/scrna-analysis) in
+[**SIH scRNAvigator notebooks**](https://github.com/Sydney-Informatics-Hub/scrna-analysis) in
 RStudio. The workflow covers quality control, doublet detection, dataset integration, cell
 annotation, differential gene expression, and pathway enrichment analysis. Integration and
 doublet detection steps load large data objects into memory simultaneously, making this
@@ -81,7 +79,6 @@ The scRNAvigator documentation recommends at least 32 GB of memory for local use
 environment is suitable for small to moderate cohorts; larger datasets may require 64 GB or
 more. If you are unsure, start at 32 GB and scale up if jobs fail or run very slowly.
 
----
 
 ### Large: whole exome variant calling and high-throughput workflows {#large}
 
@@ -104,7 +101,6 @@ For larger cohorts (~30 exomes or more), or when running multiple jobs in parall
 requesting a proportionally larger environment or splitting the workload across multiple
 instances.
 
----
 
 ## Not sure where to start? Start small. {#start-small}
 
@@ -119,7 +115,6 @@ based on what you observe:
 Scaling incrementally avoids over-allocating shared resources and makes it easier to
 identify bottlenecks.
 
----
 
 ## Quick reference {#quick-reference}
 
@@ -130,7 +125,6 @@ identify bottlenecks.
 | Heavy — variant calling, large-scale analysis, multi-sample workflows | 8–16 | 32–64 GB | 500 GB – 1 TB |
 | Very large — genome-wide, high memory workflows | 16–32 | 64–128 GB | 1 TB+ |
 
----
 
 ## Further reading {#further-reading}
 

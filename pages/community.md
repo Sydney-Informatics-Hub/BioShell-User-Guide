@@ -1,5 +1,5 @@
 ---
-title: BioShell in practice
+title: Getting involved
 description: Training workshops, research outcomes, and community achievements enabled by
   BioShell.
 ---
@@ -10,17 +10,14 @@ BioShell supports nationally delivered training events and research projects acr
 Australia. This page highlights workshops delivered using BioShell and how you can get
 involved.
 
----
 
 ## Training workshops {#training}
 
 The following workshops have been delivered using BioShell as the computational environment.
 All training materials are openly available via Zenodo.
 
-> **Note:** All BioShell training events are coordinated by the Australian BioCommons
-> Training Team. Visit
-> [biocommons.org.au/event-support](https://www.biocommons.org.au/event-support) to find
-> out how to run a BioShell-powered workshop at your institution.
+{% include callout.html type="note" content="All BioShell training events are coordinated by the Australian BioCommons Training Team. Visit [biocommons.org.au/event-support](https://www.biocommons.org.au/event-support) to find out how to run a BioShell-powered workshop at your institution." %}
+
 
 ### 2026
 
@@ -57,22 +54,9 @@ All training materials are openly available via Zenodo.
 > **WORKSHOP: Unlocking nf-core: customising workflows for your research**. Zenodo.
 > https://doi.org/10.5281/zenodo.8026170
 
----
 
 ## Research outcomes {#research}
 
 [AUTHOR TO SUPPLY — add publications or datasets that used BioShell. Include DOI where
 available.]
 
----
-
-## Get involved {#get-involved}
-
-- **Run a workshop:** Contact the
-  [BioCommons Training Team](https://www.biocommons.org.au/event-support) to deliver a
-  BioShell-powered training event at your institution.
-- **Share your work:** If you have published research or training materials using BioShell,
-  [let us know](mailto:comms@biocommons.org.au) so we can feature it here.
-- **Contribute:** Visit the
-  [BioShell GitHub repository](https://github.com/AustralianBioCommons/BioShell) to report
-  issues or contribute to development.
