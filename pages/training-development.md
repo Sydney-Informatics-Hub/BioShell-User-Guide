@@ -3,17 +3,17 @@ title: Training development instructions
 description: How to set up and prepare a BioShell training environment for the BioCommons Training Cooperative, including VM configuration, CVMFS use, trainee directory layout, and pre-snapshot requirements.
 ---
 
-> **Draft:** These instructions are a work in progress. If anything is unclear, reach out to Mitchell directly. Feedback is very welcome.
+{% include callout.html type="warning" content="**Draft:** These instructions are a work in progress. If anything is unclear, reach out to Mitchell directly. Feedback is very welcome." %}
 
 This guide is for **training developers** (`tdevNN` users) who are setting up BioShell training environments for the BioCommons Training Cooperative. You will configure tools, build training materials, and prepare a template that gets automatically applied to trainee accounts when VMs are provisioned. When a VM is built from your snapshot by Giorgia or Mitchell, the provisioning script runs automatically: the trainee's username will be `userNN` (for example `user1`), their password is generated deterministically from their username and is unique per VM, the contents of `/etc/skel/` at snapshot time become the trainee's home directory, and `/etc/skel/` is cleared afterwards to reduce VM image size.
 
----
 
 ## VM setup and access {#vm-setup}
 
 ### Launch a VM instance
 
 VM instances are provisioned by Giorgia or Mitchell. Each dev machine is named with the prefix `D` followed by a number (for example `D1`).
+
 
 ### Log in via SSH
 
@@ -34,15 +34,15 @@ Once you have an active SSH connection, open your browser and go to:
 
 Replace `<IP_Address>` with the IP address provided by the training team.
 
----
 
 ## Developing training materials {#developing-materials}
 
 Set up your home directory (`/home/tdevNN`) exactly as you want trainees to experience it. Build and test your workflows there, using CVMFS containers and references throughout. The goal is a working, self-contained environment that a trainee could follow from start to finish.
 
-> **Keep data small:** When the Australian BioCommons dataset repository is ready, it will be the main access point for training data. Like CVMFS, data stored there will not count against VM size. Until then, use the minimum input data needed to demonstrate the workflow. If your ideal dataset is too large to copy to every trainee home directory, see [If resources are not available on CVMFS](#non-cvmfs) for how to pull it at boot time instead.
+{% include callout.html type="tip" content="**Keep data small:** When the Australian BioCommons dataset repository is ready, it will be the main access point for training data. Like CVMFS, data stored there will not count against VM size. Until then, use the minimum input data needed to demonstrate the workflow. If your ideal dataset is too large to copy to every trainee home directory, see [If resources are not available on CVMFS](#non-cvmfs) for how to pull it at boot time instead." %}
 
 Once everything works end-to-end, your home directory becomes the template.
+
 
 ### Disk budget {#disk-budget}
 
@@ -52,7 +52,7 @@ The base VM template takes up approximately **12 GB** on a **30 GB** disk, leavi
 - CVMFS-cached container layers and reference data (written to the CVMFS cache on first use)
 - Trainee working files generated during the session
 
-> **Watch the disk:** If the disk fills up during user creation, the `useradd` step will fail and the trainee account will not be created. Keep `/etc/skel/` as lean as possible.
+{% include callout.html type="tip" content="**Watch the disk:** If the disk fills up during user creation, the `useradd` step will fail and the trainee account will not be created. Keep `/etc/skel/` as lean as possible." %}
 
 Check how much space you have with:
 
@@ -115,7 +115,8 @@ This creates a symlink in your current directory pointing to the CVMFS source. Y
 ln -s /cvmfs/data.galaxyproject.org/byhand/CHM13_T2T_v2.0/seq/CHM13_T2T_v2.0.fa /path/to/destination/my_reference.fa
 ```
 
-> **Symlinks must use relative paths or CVMFS paths.** If you create a symlink pointing to an absolute path inside your home directory (for example `/home/tdev01/data/reference.fa`), that path will not exist on trainee VMs and the link will be broken. Always point symlinks either at a CVMFS path (absolute paths under `/cvmfs/` are safe because CVMFS is available on all VMs) or at a relative path within the directory structure that will be copied to `/etc/skel/`.
+{% include callout.html type="note" content="**Symlinks must use relative paths or CVMFS paths.** If you create a symlink pointing to an absolute path inside your home directory (for example `/home/tdev01/data/reference.fa`), that path will not exist on trainee VMs and the link will be broken. Always point symlinks either at a CVMFS path (absolute paths under `/cvmfs/` are safe because CVMFS is available on all VMs) or at a relative path within the directory structure that will be copied to `/etc/skel/`." %}
+
 
 ### RStudio and JupyterLab environments {#interactive-envs}
 
@@ -132,7 +133,9 @@ BiocManager::install("DESeq2")
 
 R writes packages to `~/R/x86_64-pc-linux-gnu-library/<version>/` by default. This directory will be picked up automatically when you copy your home directory to `/etc/skel/`.
 
-> **Watch the size:** R packages for workflows like scRNA-seq (Seurat, Bioconductor suites) can be several gigabytes. Check the size before copying:
+{% include callout.html type="tip" content="**Watch the size:** R packages for workflows like scRNA-seq (Seurat, Bioconductor suites) can be several gigabytes." %}
+
+Check the size before copying:
 
 ```bash
 du -sh ~/R/
@@ -156,6 +159,7 @@ du -sh ~/.local/
 
 If a required container or reference dataset is not on CVMFS and is too large to include directly in the trainee directory, it needs to be fetched at boot time via the VM provisioning script. Prepare the required scripts and share them with Giorgia or Mitchell.
 
+
 #### Adding a pull step to the provisioning script
 
 Downloads should be added before the `useradd` block, targeting the relevant folder inside `/etc/skel/`:
@@ -172,7 +176,8 @@ wget -q -O /home/$USERNAME/references/<file> <url>
 
 Resources pulled this way will appear in the correct location in the trainee's home directory, matching the layout described in [Trainee directory layout](#directory-layout).
 
-> **Note:** Boot-time pulls count toward your disk budget. Factor their size into your 30 GB total.
+{% include callout.html type="note" content="Boot-time pulls count toward your disk budget. Factor their size into your 30 GB total." %}
+
 
 ### Trainee directory layout {#directory-layout}
 
@@ -221,15 +226,16 @@ Once you are confident the template is correct, you can clean up your own home d
 rm -rf ~/*
 ```
 
-> **Tip:** Ask Giorgia or Mitchell to take a snapshot at key checkpoints if you want a backup before making significant changes.
+{% include callout.html type="tip" content="Ask Giorgia or Mitchell to take a snapshot at key checkpoints if you want a backup before making significant changes." %}
 
----
 
 ## Pre-snapshot requirements {#pre-snapshot}
+
 
 ### Cloud-init datasource check {#cloud-init}
 
 Running `apt upgrade` during VM setup can silently change cloud-init configuration, which causes all VMs built from your snapshot to inherit the wrong hostname. Please check and fix this before asking the VM to be snapshot.
+
 
 #### Step 1: Check for the offending apt file
 
@@ -257,13 +263,16 @@ datasource_list:
   - OpenStack
 ```
 
+
 #### Step 3: Clean cloud-init state
 
 ```bash
 sudo cloud-init clean --logs
 ```
 
-> **Important:** `cloud-init clean` deletes `/etc/cloud/ds-identify.cfg`. You will need to recreate it:
+{% include callout.html type="important" content="`cloud-init clean` deletes `/etc/cloud/ds-identify.cfg`." %}
+
+You will need to recreate it:
 
 ```bash
 sudo tee /etc/cloud/ds-identify.cfg << 'EOF'
@@ -278,6 +287,7 @@ cat /etc/cloud/ds-identify.cfg
 ```
 
 Expected output: `policy: enabled`
+
 
 #### Step 4: Confirm the datasource
 

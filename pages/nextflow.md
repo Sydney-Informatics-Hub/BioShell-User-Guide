@@ -11,10 +11,8 @@ Nextflow runs each workflow process in its own environment. When using container
 pulls the required image automatically. On BioShell, you can override this behaviour by
 creating a config file that points processes to the existing CVMFS images.
 
-> **Note:** Nextflow always prioritises a `-config` file passed on the command line over the
-> workflow's built-in `nextflow.config`.
+{% include callout.html type="note" content="Nextflow always prioritises a `-config` file passed on the command line over the workflow's built-in `nextflow.config`." %}
 
----
 
 ## Using containers directly from CVMFS {#cvmfs-containers}
 
@@ -29,7 +27,6 @@ process {
 }
 ```
 
----
 
 ## Using an installed SHPC module {#shpc-module}
 
@@ -44,9 +41,8 @@ process {
 }
 ```
 
-> **Note:** The `module` value must match exactly what appears in `module avail`.
+{% include callout.html type="note" content="The `module` value must match exactly what appears in `module avail`." %}
 
----
 
 ## Running with your config override {#run}
 

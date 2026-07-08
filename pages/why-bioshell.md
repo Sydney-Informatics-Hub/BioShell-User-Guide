@@ -7,7 +7,6 @@ description: An introduction to virtual machines, cloud computing, and why BioSh
 If you are new to bioinformatics and the world of high computing, this page explains what cloud
 computing is, when to use it, and why BioShell makes it easy to get started.
 
----
 
 ## What is a virtual machine? {#what-is-a-vm}
 
@@ -29,7 +28,6 @@ With a virtual machine you can:
 - Have administrator access to install software and configure the system
 - Host services such as databases or web servers
 
----
 
 ## Cloud vs HPC - which should I use? {#cloud-vs-hpc}
 
@@ -48,7 +46,6 @@ powerful research tools, but they suit different types of work.
 exploring a new analysis, start with cloud. BioShell is the right choice. You can move to
 HPC later once your workflow is established and you need more compute power.
 
----
 
 ## Why BioShell? {#why-bioshell}
 
@@ -65,7 +62,6 @@ teaching. BioShell solves this.
 | **Easier access than HPC** | Getting time on a national HPC requires project allocation, queue estimates, and job scheduler knowledge. BioShell access is fast, self-service, and does not require you to know in advance exactly what you will run |
 | **Admin access, safely sandboxed** | You have full administrator privileges on your own VM, install anything and break things without affecting other users or needing HPC sysadmin approval |
 
----
 
 ## How does BioShell fit with HPC? {#bioshell-and-hpc}
 
@@ -79,8 +75,5 @@ place where you learn, develop, and test your workflows before scaling up. It he
 3. **Scale up to HPC when ready** - once your workflow is confirmed and your data needs are
    clear, move to NCI Gadi or another HPC system for large-scale runs.
 
----
 
-## Ready to get started? {#get-started}
-
-[Check your eligibility and apply →](access#eligibility)
+## [Ready to get started? Check your eligibility and apply →](access#eligibility) {#get-started} 

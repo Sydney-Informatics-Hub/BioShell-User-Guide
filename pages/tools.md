@@ -8,7 +8,6 @@ BioShell gives you access to thousands of bioinformatics tools and reference dat
 two underlying systems, **CVMFS** and **sHPC**, and a built-in assistant called **Shelley-Bio**
 that automates working with both.
 
----
 
 ## How the tooling stack works {#tooling-stack}
 
