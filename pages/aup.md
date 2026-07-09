@@ -5,7 +5,6 @@ description: The BioShell acceptable use policy, service level agreement, and pr
 
 Submission of a BioShell access request, and use of the BioShell service following provisioning, denotes agreement with the [Australian BioCommons Services Acceptable Use Policy and Conditions of Use](https://portal.access.services.biocommons.org.au/terms/biocommons) in addition to the terms below.
 
----
 
 ## Acceptable use {#acceptable-use}
 
@@ -20,7 +19,6 @@ Submission of a BioShell access request, and use of the BioShell service followi
      - Introduction or transmission of malware into BioShell or partner infrastructure
      - Circumvention of quota enforcement or resource allocation mechanisms
 
----
 
 ## Service commitments {#service-commitments}
 
@@ -66,7 +64,6 @@ Storage quotas are fixed at provisioning and enforced at the infrastructure leve
 
 At the end of your allocation period, you will be notified via email two weeks prior to de-provisioning with instructions on how to download your data and submit a renewal request if required. Data remaining on a de-provisioned VM cannot be recovered.
 
----
 
 ## Privacy and data collection {#privacy}
 

@@ -8,10 +8,8 @@ BioShell supports two browser-based interactive environments for notebook and sc
 work. Both run on your BioShell instance and are accessible through your browser once you
 have connected via SSH.
 
-> **Important:** You must have an active SSH connection to your BioShell instance before
-> opening either environment in your browser. See [Connecting to BioShell](access#connecting).
+{% include callout.html type="important" content="You must have an active SSH connection to your BioShell instance before opening either environment in your browser. See [Connecting to BioShell](access#connecting)." %}
 
----
 
 ## JupyterLab {#jupyterlab}
 
@@ -29,7 +27,6 @@ http://<your-bioshell-ip>:8888
 
 *Fig 4. JupyterLab open in a browser connected to a BioShell instance.*
 
----
 
 ## RStudio {#rstudio}
 
@@ -46,12 +43,6 @@ http://<your-bioshell-ip>:8787
 
 *Fig 5. RStudio open in a browser connected to a BioShell instance.*
 
----
+{% include callout.html type="tip" content="Your SSH terminal and browser environments connect to the same BioShell instance. Any tool you have loaded with `module load` in your terminal is also available inside JupyterLab and RStudio." %}
 
-> **Tip:** Your SSH terminal and browser environments connect to the same BioShell instance.
-> Any tool you have loaded with `module load` in your terminal is also available inside
-> JupyterLab and RStudio.
-
-> **Note:** If you cannot reach JupyterLab or RStudio in your browser, check that your SSH
-> connection is still active. If you are connecting from outside your institution's network,
-> you may need an SSH tunnel. Contact your local IT support for help with this.
+{% include callout.html type="note" content="If you cannot reach JupyterLab or RStudio in your browser, check that your SSH connection is still active. If you are connecting from outside your institution's network, you may need an SSH tunnel. Contact your local IT support for help with this." %}

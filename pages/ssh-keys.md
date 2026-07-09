@@ -6,13 +6,13 @@ description: How to generate an SSH key pair on macOS, Linux, and Windows to aut
 BioShell uses SSH key authentication. This guide walks you through generating a key pair,
 copying your public key, and submitting it to the BioShell Onboarding Portal.
 
----
 
 ## Quick start {#quick-start}
 
 If you are familiar with SSH keys and just need the commands, use the steps below. For a
 full walkthrough including optional settings and troubleshooting, see the
 [step-by-step guide](#prerequisites) below.
+
 
 ### macOS and Linux
 
@@ -28,6 +28,7 @@ cat ~/.ssh/id_ed25519.pub
 
 Paste the output into the [BioShell Onboarding Portal](AUTHOR TO SUPPLY — add URL).
 
+
 ### Windows
 
 ```powershell
@@ -42,7 +43,6 @@ cat $env:USERPROFILE\.ssh\id_ed25519.pub
 
 Paste the output into the [BioShell Onboarding Portal](AUTHOR TO SUPPLY — add URL).
 
----
 
 ## Prerequisites {#prerequisites}
 
@@ -52,12 +52,12 @@ Paste the output into the [BioShell Onboarding Portal](AUTHOR TO SUPPLY — add 
 | Linux | `openssh-client` — install with `sudo apt install openssh-client` or `sudo dnf install openssh` |
 | Windows | OpenSSH Client — built-in on Windows 10 (1809+) and Windows 11; enable via **Settings > Optional Features** if missing |
 
----
 
 ## Step 1: Generate the key pair {#generate}
 
 The recommended algorithm is **Ed25519** — it is fast, secure, and compact. Use RSA 4096
 only if a service requires it.
+
 
 ### macOS and Linux
 
@@ -110,7 +110,6 @@ Enter passphrase (empty for no passphrase):
 A passphrase encrypts your private key at rest. It is recommended for any key that will
 access production systems. Press **Enter** to skip.
 
----
 
 ## Step 2: Verify the key files {#verify}
 
@@ -120,6 +119,7 @@ After generation, two files are created:
 |------|-------------|
 | `id_ed25519` | Private key — never share this |
 | `id_ed25519.pub` | Public key — share this with servers and services |
+
 
 ### macOS and Linux
 
@@ -133,7 +133,6 @@ ls -la ~/.ssh/
 dir $env:USERPROFILE\.ssh\
 ```
 
----
 
 ## Step 3: Add the key to ssh-agent (optional) {#ssh-agent}
 
@@ -146,13 +145,11 @@ Run the relevant command once after login:
 | Linux | `ssh-add ~/.ssh/id_ed25519` |
 | Windows (PowerShell) | `ssh-add $env:USERPROFILE\.ssh\id_ed25519` |
 
-> **Note:** On macOS the key is stored in Keychain and persists across reboots. On Linux
-> you may need to re-add the key after each session unless you configure your shell to start
-> the agent automatically.
+{% include callout.html type="note" content="On macOS the key is stored in Keychain and persists across reboots. On Linux you may need to re-add the key after each session unless you configure your shell to start the agent automatically." %}
 
----
 
 ## Step 4: Copy your public key {#copy-key}
+
 
 ### macOS
 
@@ -166,6 +163,7 @@ Or print it to copy manually:
 cat ~/.ssh/id_ed25519.pub
 ```
 
+
 ### Linux
 
 ```bash
@@ -175,6 +173,7 @@ xclip -selection clipboard < ~/.ssh/id_ed25519.pub
 # Or print it to copy manually
 cat ~/.ssh/id_ed25519.pub
 ```
+
 
 ### Windows
 
@@ -186,7 +185,6 @@ Get-Content $env:USERPROFILE\.ssh\id_ed25519.pub | Set-Clipboard
 cat $env:USERPROFILE\.ssh\id_ed25519.pub
 ```
 
----
 
 ## Step 5: Submit your public key to BioShell {#submit}
 
@@ -198,10 +196,8 @@ cat $env:USERPROFILE\.ssh\id_ed25519.pub
 Your BioShell username will follow the convention `firstname.lastname`. Once your account is
 ready, return to the [Connecting to BioShell](access#connect) section of the access guide.
 
-> **Important:** If you run into any issues, contact
-> [AUTHOR TO SUPPLY — helpdesk email or link].
+{% include callout.html type="important" content="If you run into any issues, contact [AUTHOR TO SUPPLY — helpdesk email or link]." %}
 
----
 
 ## Managing multiple keys {#multiple-keys}
 
@@ -221,9 +217,8 @@ Host github.com
 
 With this config, connect to BioShell with `ssh bioshell`.
 
-> **Note:** On Windows this file lives at `C:\Users\you\.ssh\config`.
+{% include callout.html type="note" content="On Windows this file lives at `C:\Users\you\.ssh\config`." %}
 
----
 
 ## Key permissions (macOS and Linux) {#permissions}
 
@@ -237,7 +232,6 @@ chmod 600 ~/.ssh/config           # if it exists
 chmod 600 ~/.ssh/authorized_keys  # on servers
 ```
 
----
 
 ## Adding a key later {#add-key}
 
@@ -262,7 +256,6 @@ Then verify correct permissions on the server:
 ssh firstname.lastname@BIOSHELL_HOSTNAME "chmod 600 ~/.ssh/authorized_keys"
 ```
 
----
 
 ## Testing your connection {#testing}
 
@@ -276,7 +269,6 @@ Use `-v` for verbose output when troubleshooting:
 ssh -v firstname.lastname@BIOSHELL_HOSTNAME
 ```
 
----
 
 ## Algorithm reference {#algorithms}
 

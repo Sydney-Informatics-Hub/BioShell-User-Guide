@@ -1,6 +1,6 @@
 ---
 title: Connecting to BioShell
-type: Getting started
+type: Using BioShell
 description: How to connect to your BioShell environment via SSH and what to expect on first login.
 ---
 
@@ -8,13 +8,11 @@ Once your environment is provisioned you will receive connection details by emai
 uses SSH key authentication — you will need the key pair you generated and submitted during
 your access request.
 
-> **Important:** Your connection details are provided as part of your provisioning
-> notification. Keep them secure and do not share them publicly.
+{% include callout.html type="important" content="Your connection details are provided as part of your provisioning notification. Keep them secure and do not share them publicly." %}
 
 If you have not yet generated and submitted your SSH key, see the
-[SSH key generation guide](ssh-keys) first.
+[**SSH key generation guide**](ssh-keys) first.
 
----
 
 ## Connect via SSH {#ssh-connect}
 
@@ -42,10 +40,8 @@ ssh -i ~/.ssh/bioshell_key <username>@<your-bioshell-ip>
 
 [AUTHOR TO SUPPLY — confirm username format]
 
-> **Tip:** If you are connecting from outside your institution's network you may need a VPN
-> or SSH tunnel. Contact your local IT support if you are unsure.
+{% include callout.html type="tip" content="If you are connecting from outside your institution's network you may need a VPN or SSH tunnel. Contact your local IT support if you are unsure." %}
 
----
 
 ## Interactive environments {#interactive-envs}
 
@@ -56,9 +52,8 @@ Once connected, you can also open browser-based environments directly:
 | JupyterLab | `http://<your-bioshell-ip>:8888` |
 | RStudio | `http://<your-bioshell-ip>:8787` |
 
-See the [Interactive environments](interactive) page for full setup instructions.
+See the [**Interactive environments**](interactive) page for full setup instructions.
 
----
 
 ## First login {#first-login}
 

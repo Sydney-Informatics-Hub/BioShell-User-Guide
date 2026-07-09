@@ -3,164 +3,28 @@ subitems:
     url: /index
   - title: Getting started
     url: /why-bioshell
-    subitems:
-      - title: Why BioShell?
-        url: /why-bioshell
-        subitems:
-          - title: What is a virtual machine?
-            url: /why-bioshell#what-is-a-vm
-          - title: Cloud vs HPC
-            url: /why-bioshell#cloud-vs-hpc
-          - title: Why BioShell?
-            url: /why-bioshell#why-bioshell
-          - title: BioShell and HPC
-            url: /why-bioshell#bioshell-and-hpc
-      - title: Accessing BioShell
-        url: /access
-        subitems:
-          - title: Eligibility and acceptable use
-            url: /access#eligibility
-          - title: Your access pathway
-            url: /access#pathways
-          - title: Access duration and renewal
-            url: /access#duration
-          - title: What does access include?
-            url: /access#quotas
-          - title: Acceptable use policy and service terms
-            url: /aup
-            subitems:
-              - title: Acceptable use
-                url: /aup#acceptable-use
-              - title: Service commitments
-                url: /aup#service-commitments
-              - title: Privacy and data collection
-                url: /aup#privacy
-      - title: Choosing an environment size
-        url: /flavours
-        subitems:
-          - title: A familiar starting point
-            url: /flavours#familiar-starting-point
-          - title: Small — light preprocessing
-            url: /flavours#small
-          - title: Medium — scRNA-seq and notebooks
-            url: /flavours#medium
-          - title: Large — variant calling and HPC-scale
-            url: /flavours#large
-          - title: Not sure? Start small.
-            url: /flavours#start-small
-          - title: Quick reference
-            url: /flavours#quick-reference
-          - title: Further reading
-            url: /flavours#further-reading
-      - title: Connecting to BioShell
-        url: /connecting
-        subitems:
-          - title: SSH key generation guide
-            url: /ssh-keys
-          - title: Connect via SSH
-            url: /connecting#ssh-connect
-          - title: Interactive environments
-            url: /connecting#interactive-envs
-          - title: First login
-            url: /connecting#first-login
-            subitems:
-              - title: CVMFS access
-                url: /connecting#cvmfs-access
-              - title: Storage volumes
-                url: /connecting#storage
   - title: Using BioShell
     url: /using-bioshell
     subitems:
+      - title: Accessing BioShell
+        url: /access
+      - title: Choosing an environment size
+        url: /flavours
+      - title: Connecting to BioShell
+        url: /connecting
       - title: Tools and reference data
         url: /tools
-        subitems:
-          - title: How the tooling stack works
-            url: /tools#tooling-stack
-            subitems:
-              - title: CVMFS
-                url: /tools#cvmfs
-              - title: sHPC
-                url: /tools#shpc
-              - title: Shelley-Bio
-                url: /tools#shelley-bio
-          - title: Installing tools
-            url: /tools#installing-tools
-            subitems:
-              - title: "Recommended: Shelley-Bio"
-                url: /tools#bio-shelley
-              - title: Why Shelley-Bio over manual sHPC?
-                url: /tools#why-shelley
-              - title: "Advanced: manual installation"
-                url: /tools#shpc-manual
-          - title: Loading modules
-            url: /tools#load-tool
-          - title: Reference datasets
-            url: /tools#reference-data
-          - title: Troubleshooting
-            url: /tools#troubleshooting
-          - title: Further reading
-            url: /tools#further-reading
       - title: Interactive environments
         url: /interactive
-        subitems:
-          - title: JupyterLab
-            url: /interactive#jupyterlab
-          - title: RStudio
-            url: /interactive#rstudio
       - title: Using Nextflow with CVMFS
         url: /nextflow
-        subitems:
-          - title: CVMFS containers
-            url: /nextflow#cvmfs-containers
-          - title: SHPC modules
-            url: /nextflow#shpc-module
-  - title: BioShell in practice
+  - title: BioShell community and outcomes
     url: /community
-    subitems:
-      - title: Training workshops
-        url: /community#training
-      - title: Research outcomes
-        url: /community#research
-      - title: Get involved
-        url: /community#get-involved
   - title: For trainers
     url: /training-development
-    subitems:
-      - title: VM setup and access
-        url: /training-development#vm-setup
-        subitems:
-          - title: Accessing RStudio and JupyterLab
-            url: /training-development#ports
-      - title: Developing training materials
-        url: /training-development#developing-materials
-        subitems:
-          - title: Disk budget
-            url: /training-development#disk-budget
-          - title: Using CVMFS resources
-            url: /training-development#cvmfs
-          - title: RStudio and JupyterLab environments
-            url: /training-development#interactive-envs
-          - title: Non-CVMFS resources
-            url: /training-development#non-cvmfs
-          - title: Trainee directory layout
-            url: /training-development#directory-layout
-      - title: Pre-snapshot requirements
-        url: /training-development#pre-snapshot
-        subitems:
-          - title: Cloud-init check
-            url: /training-development#cloud-init
-          - title: Pre-snapshot checklist
-            url: /training-development#checklist
-  - title: About
-    url: /about
-    subitems:
-      - title: How to cite and acknowledge
-        url: /about#cite
-      - title: Contributors
-        url: /about#contributors
-      - title: Acknowledgements
-        url: /about#acknowledgements
-      - title: References
-        url: /about#references
+  - title: Get involved
+    url: /contributing
   - title: Contributors
     url: /contributors
+  - title: Acceptable use policy and service terms
+    url: /aup

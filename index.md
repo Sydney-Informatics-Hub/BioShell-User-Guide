@@ -12,15 +12,16 @@ sidebar: false
   <a href="[PLACEHOLDER — Google Form link to be added]" class="btn btn-primary btn-lg" style="padding: 0.85rem 3rem; font-size: 1.15rem; border-radius: 4px;">Request access</a>
 </p>
 
----
 
 ## Getting started
 
-{% include section-navigation-tiles.html type="Getting started" col="3" %}
+{% include section-navigation-tiles_mod.html type="Getting started" col="1" %}
+
 
 ## Using BioShell
 
-{% include section-navigation-tiles.html type="Using BioShell" col="4" %}
+{% include section-navigation-tiles_mod.html type="Using BioShell" col="3" %}
+
 
 ## Support
 
@@ -64,7 +65,6 @@ If you use BioShell in your research or training, please cite it as:
 > **BioShell how-to guide**. Australian BioCommons.
 > [AUTHOR TO SUPPLY — Zenodo DOI once minted]
 
----
 
 ## Operational partners
 
