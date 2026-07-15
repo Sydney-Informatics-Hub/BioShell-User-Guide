@@ -6,10 +6,10 @@ sidebar: false
 
 <p style="text-align:center; margin: 2rem 0 1rem;"><img src="{{ '/images/BioShell_logo_with_name.png' | relative_url }}" alt="BioShell logo" style="max-width:600px; width:100%;"></p>
 
-<p style="text-align:center; color: #555; font-size: 1.1rem; margin-bottom: 2rem;">A ready-to-use cloud bioinformatics environment for life-science researchers, trainers, and developers — available on NCI Nirin and ARDC Nectar Research Cloud.</p>
+<p style="text-align:center; color: #555; font-size: 1.1rem; margin-bottom: 2rem;">A ready-to-use cloud bioinformatics environment for life-science researchers, trainers, and developers.</p>
 
 <p style="text-align:center; margin-bottom: 3rem;">
-  <a href="[PLACEHOLDER — Google Form link to be added]" class="btn btn-primary btn-lg" style="padding: 0.85rem 3rem; font-size: 1.15rem; border-radius: 4px;">Request access</a>
+  <a href="[https://docs.google.com/forms/d/e/1FAIpQLScOVZjZTvdZC65cnUN2BmasQhxYjTzDjJu2bleIZKQZyB7LrA/viewform?usp=dialog]" class="btn btn-primary btn-lg" style="padding: 0.85rem 3rem; font-size: 1.15rem; border-radius: 4px;">Request access</a>
 </p>
 
 
@@ -25,7 +25,16 @@ sidebar: false
 
 ## Support
 
-<div class="row row-cols-1 row-cols-md-3 g-4 my-3">
+<div class="row row-cols-1 row-cols-md-4 g-4 my-3">
+  <div class="col">
+    <div class="card h-100">
+      <div class="card-body d-flex flex-column">
+        <h5 class="card-title">Project support</h5>
+        <p class="card-text flex-grow-1">Get help with your BioShell project from the Australian BioCommons team.</p>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSc6Tr2FAponrwYuMXfqspuzcXnssbM5gQ9ChLUqzh5yUxWJuQ/viewform?usp=publish-editor" class="btn btn-outline-primary mt-3">Submit a request</a>
+      </div>
+    </div>
+  </div>
   <div class="col">
     <div class="card h-100">
       <div class="card-body d-flex flex-column">
@@ -47,9 +56,9 @@ sidebar: false
   <div class="col">
     <div class="card h-100">
       <div class="card-body d-flex flex-column">
-        <h5 class="card-title">Project support</h5>
-        <p class="card-text flex-grow-1">Get help with your BioShell project from the Australian BioCommons team.</p>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSc6Tr2FAponrwYuMXfqspuzcXnssbM5gQ9ChLUqzh5yUxWJuQ/viewform?usp=publish-editor" class="btn btn-outline-primary mt-3">Submit a request</a>
+        <h5 class="card-title">Source code</h5>
+        <p class="card-text flex-grow-1">BioShell is open source. Browse the VM image build scripts and configuration.</p>
+        <a href="https://github.com/AustralianBioCommons/BioShell" class="btn btn-outline-primary mt-3">View repository</a>
       </div>
     </div>
   </div>
