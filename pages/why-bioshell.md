@@ -19,7 +19,7 @@ operating system, and unlike an HPC system, you have the administrator access to
 configure software yourself, no need to work around module systems or wait on sysadmin
 approval. [Shelley](tools) is there to make that installation step fast.
 
-{% include callout.html type="tip" content="Think of it like a fully-equipped lab bench that is always ready, you just sit down and start working, then leave when you are done. The bench does not belong to you, but it is set up exactly the way you need it." %}
+{% include callout.html type="tip" content="It's like booking a fully equipped lab bench. The facility handles all the infrastructure, the bench is cleared, powered, common use instruments are maintained and ready to go. You bring your samples and your experimental protocol, and run your work. Need extra equipment or more bench space? You request it and get it immediately without waiting for installation. When you're finished, you collect your results, clear out your samples, and the bench gets cleaned and reset for the next researcher." %}
 
 With a virtual machine you can:
 
