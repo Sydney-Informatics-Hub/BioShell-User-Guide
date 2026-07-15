@@ -21,6 +21,29 @@ not yet know which software tools you will use or how demanding they will be. Th
 below is designed to help you make a reasonable first choice and adjust from there.
 
 
+## Is your workload balanced, CPU-bound, or memory-bound? {#workload-profile}
+
+Beyond overall size, it helps to think about the *shape* of your workload, not just how much
+CPU and memory it needs, but which one it needs more of relative to the other. BioShell can
+offer environments tuned to each profile, so it's worth identifying yours before requesting
+an environment:
+
+- **Balanced** — CPU and memory usage rise and fall together. This describes most
+  general-purpose and interactive work (notebooks, mixed pipelines). Roughly equal parts
+  CPU and RAM, in the range of 1 CPU to every 2 GB of RAM, is a reasonable default.
+- **CPU-bound** — CPU usage sits at or near 100% while memory has plenty of headroom. This
+  is typical of alignment, assembly, and other steps that scale with thread count. These
+  workloads benefit from more cores relative to memory.
+- **Memory-bound** — RAM usage is consistently high while CPU is under-utilised. This is
+  typical of workflows that load large objects into memory at once, dataset integration,
+  large in-memory joins, genome indices. These workloads benefit from more RAM relative to
+  CPU, sometimes 1 CPU to every 4 GB of RAM or more.
+
+
+{% include callout.html type="tip" content="If you're not sure which profile fits, request a balanced environment to start, then monitor CPU and memory usage while your pipeline runs (see [Not sure where to start?](#start-small) below). If one resource is consistently the bottleneck, mention this when requesting a change so you can move to an environment shaped for that profile." %}
+
+
+
 ## A familiar starting point {#familiar-starting-point}
 
 A good way to think about environment sizing is to start from what you already know: your
@@ -38,7 +61,7 @@ request a larger environment if you find you need it.
 
 ## Suggested sizes by workload {#workload-sizes}
 
-### Small: light preprocessing and exploration {#small}
+### Light: preprocessing and exploration {#small}
 
 **Who this suits:** users running quality control, adapter trimming, short read filtering, or
 exploring tools and datasets interactively in JupyterLab or RStudio with small to moderate
@@ -46,29 +69,35 @@ datasets.
 
 | | |
 |---|---|
+| **Profile** | Balanced |
 | **CPUs** | 2–4 |
 | **Memory** | 4–8 GB |
 | **Storage** | Up to 100 GB |
 
 **Example:** John is starting a research project analysing drought-resistant genes from 20
-crop samples (~140 GB raw data). His pipeline covers quality control, trimming, alignment,
-annotation, and phylogenetic tree construction. Because he is working on a subset of genes
-rather than whole genomes, each individual job is small. A standard laptop-equivalent
-environment handles this comfortably.
+crop samples (~140 GB raw data). His pipeline runs quality control (`FASTQC`), adapter
+trimming (`cutadapt`), alignment and annotation (`blast`, `SPAdes`), and phylogenetic tree
+construction (`MrBayes`). Of these, `blast` and `SPAdes` are the most CPU- and
+memory-intensive tools in the pipeline, but because John is selecting out a small set of
+drought-resistant genes rather than whole genomes, each run only needs 2–4 CPUs and well
+under 10 GB of RAM. A balanced environment at this size handles the whole pipeline
+comfortably. If John later extends the analysis to many more genes, those steps become more
+CPU-bound and he should move to the medium size below with more cores.
 
 
-### Medium: single-cell RNA-seq analysis {#medium}
+### Moderate: single-cell RNA-seq analysis {#medium}
 
 **Who this suits:** users running interactive multi-step R or Python analysis workflows,
 particularly those involving large in-memory data objects.
 
 | | |
 |---|---|
+| **Profile** | Memory-bound |
 | **CPUs** | 4–8 |
 | **Memory** | 32–64 GB |
 | **Storage** | Variable, depends on sample count |
 
-**Example:** A researcher running the
+**Example:** Michael is running the
 [**SIH scRNAvigator notebooks**](https://github.com/Sydney-Informatics-Hub/scrna-analysis) in
 RStudio. The workflow covers quality control, doublet detection, dataset integration, cell
 annotation, differential gene expression, and pathway enrichment analysis. Integration and
@@ -80,26 +109,34 @@ environment is suitable for small to moderate cohorts; larger datasets may requi
 more. If you are unsure, start at 32 GB and scale up if jobs fail or run very slowly.
 
 
-### Large: whole exome variant calling and high-throughput workflows {#large}
+### Heavy: whole exome variant calling and high-throughput workflows {#large}
 
 **Who this suits:** users running GATK best-practice workflows, genome-wide analyses, large
 alignments, or multiple samples in parallel.
 
 | | |
 |---|---|
+| **Profile** | Balanced (CPU and memory both matter) |
 | **CPUs** | 8–16 |
 | **Memory** | 32–64 GB |
 | **Storage** | Up to 1 TB |
 
-**Example:** Georgie is running `GATK4` variant calling across 15 human exomes. Each sample
-produces approximately 15 GB of BAM files, plus similarly sized temporary intermediates.
-Total storage for the project is approximately 870 GB, round up to 1 TB to allow room for
-workflow outputs and reruns. `GATK4` benefits from both high memory and multiple CPU cores,
-so a balanced large environment is appropriate here.
+**Example:** Georgie is running `GATK4` variant calling across 15 human exomes, processing
+from `fastq` to `VCF` with quality control. Raw `fastq` files are 4–7 GB each (two per
+sample), and the intermediate BAM files she keeps are about 15 GB per sample, with other
+temporary intermediates consuming a similar amount of space. Total storage across 15 exomes
+is approximately 870 GB, round up to 1 TB to allow room for workflow outputs and reruns.
 
-For larger cohorts (~30 exomes or more), or when running multiple jobs in parallel, consider
-requesting a proportionally larger environment or splitting the workload across multiple
-instances.
+While RAM usage in the GATK4 toolset can be limited with command-line flags, many of its
+tools support multithreading, using more CPU cores in parallel reduces processing time even
+where a tool doesn't let you set thread count explicitly. `GATK4` therefore benefits from
+both high memory and multiple CPU cores, making a balanced large environment appropriate
+here. For around 30 exomes, consider scaling towards the top of this range.
+
+For larger cohorts, or when running multiple jobs in parallel, consider requesting a
+proportionally larger environment, splitting the workload across multiple instances, or
+moving to an HPC system, see [Beyond a single environment](#beyond-single-environment)
+below.
 
 
 ## Not sure where to start? Start small. {#start-small}
@@ -116,11 +153,81 @@ Scaling incrementally avoids over-allocating shared resources and makes it easie
 identify bottlenecks.
 
 
+## Checking CPU and memory usage {#checking-usage}
+
+To find out whether you're actually CPU-bound, memory-bound, or well matched, watch your
+environment while a job is running. A few simple command-line tools make this easy, no
+scripting or special permissions needed, connect to your environment in a second terminal
+so your pipeline keeps running while you watch.
+
+{% include callout.html type="tip" content="Usage only tells you something while a job is actually running. Start your pipeline first, then open one of the tools below in a separate terminal window or tab." %}
+
+
+**`htop` (recommended for beginners)**
+
+`htop` gives a live, colour-coded view that updates automatically, the easiest way to see
+what's happening at a glance:
+
+1. Run `htop`.
+2. The numbered bars at the top show load on each CPU core. If most cores are consistently
+   full (and shown in red/orange) while your job runs, your workload is **CPU-bound**.
+3. The `Mem` bar shows how much RAM is in use. If it climbs steadily and sits near the total
+   available, your workload is **memory-bound**.
+4. Press `q` to quit.
+
+If `htop` isn't already installed, install it with `sudo apt install htop` (Ubuntu/Debian
+environments) or ask Bio-Shelley for help.
+
+**`top`**
+
+`top` shows the same core information as `htop` in a plainer, text-only layout, and is
+installed by default on almost every Linux system, useful if `htop` isn't available:
+
+- Run `top`.
+- Press `1` to show usage for each CPU core individually rather than a single average.
+- Press `q` to quit.
+
+**`free -h`**
+
+For a one-off snapshot of memory only, rather than continuous monitoring, run `free -h`. It
+prints total, used, and available memory in human-readable units (GB/MB) and then returns you
+to the prompt.
+
+**`vmstat` (for logging over time)**
+
+`vmstat` is better suited to longer-running jobs where you want a record of usage over time
+rather than just watching live. For example, `vmstat 5` prints a new line of CPU and memory
+statistics every 5 seconds; redirecting this to a file, `vmstat 5 > usage.log`, lets you
+review resource use after a long job finishes.
+
+Once you've identified a consistent bottleneck using any of these tools, use that to decide
+whether to request more CPUs, more memory, or move to a larger balanced environment, see
+[Not sure where to start?](#start-small) above.
+
+
+## Beyond a single environment: when to consider HPC {#beyond-single-environment}
+
+BioShell environments are well suited to interactive work and moderate-scale pipelines, but
+they have a ceiling. If your workload keeps growing, more samples in parallel, whole genomes
+rather than subsets, cohorts scaling into the hundreds, a single environment may no longer
+be the most efficient option.
+
+
+{% include callout.html type="tip" content="Before requesting a very large environment, test your pipeline end-to-end on a small subset of your data (a handful of samples, or a reduced reference) on a modest environment. This confirms the pipeline runs correctly and gives you a realistic estimate of per-sample time and resource use, information you’ll need whether you stay on BioShell or move to an HPC system." %}
+
+
+Once your pipeline is validated, high-throughput or many-sample workloads are often better
+suited to a national HPC facility than to a single cloud environment. The
+[**Australian BioCommons Leadership Share (ABLeS)**](https://australianbiocommons.github.io/ables/index)
+programme, offering access to HPC infrastructure, specialist expertise, and best-practice
+support, can help you plan that transition.
+
+
 ## Quick reference {#quick-reference}
 
 | Workload | CPUs | Memory | Storage |
 |----------|------|--------|---------|
-| Light — QC, trimming, small datasets | 2–4 | 4–8 GB | Up to 100 GB |
+| Light — QC, trimming, small sample sizes and datasets (Array data or subset genomic data) | 2–4 | 4–8 GB | Up to 100 GB |
 | Moderate — alignment, assembly, interactive notebooks | 4–8 | 8–32 GB | 100–500 GB |
 | Heavy — variant calling, large-scale analysis, multi-sample workflows | 8–16 | 32–64 GB | 500 GB – 1 TB |
 | Very large — genome-wide, high memory workflows | 16–32 | 64–128 GB | 1 TB+ |
