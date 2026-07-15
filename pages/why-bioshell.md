@@ -7,17 +7,19 @@ description: An introduction to virtual machines, cloud computing, and why BioSh
 If you are new to bioinformatics and the world of high computing, this page explains what cloud
 computing is, when to use it, and why BioShell makes it easy to get started.
 
+{% include callout.html type="note" content="Why 'cloud'? The name comes from old network diagrams, engineers would draw a cloud symbol for the internet or any infrastructure whose exact physical location did not matter to the diagram. The name stuck: your data and computing actually run on real servers in a data centre somewhere, but you do not need to know or care where, you just connect over the internet and use it." %}
+
 
 ## What is a virtual machine? {#what-is-a-vm}
 
 A virtual machine is a computer that runs inside another computer, delivered to you over the
 internet. You connect to it from your laptop or desktop, and it behaves like a full computer
-you have complete control over. You do not need to worry about your own hardware specs,
-operating system, or software installation.
+you have complete control over. You do not need to worry about your own hardware specs or
+operating system, and unlike an HPC system, you have the administrator access to install and
+configure software yourself, no need to work around module systems or wait on sysadmin
+approval. [Shelley](tools) is there to make that installation step fast.
 
-> Think of it like a fully-equipped lab bench that is always ready, you just sit down and
-> start working, then leave when you are done. The bench does not belong to you, but it is
-> set up exactly the way you need it.
+{% include callout.html type="tip" content="Think of it like a fully-equipped lab bench that is always ready, you just sit down and start working, then leave when you are done. The bench does not belong to you, but it is set up exactly the way you need it." %}
 
 With a virtual machine you can:
 
@@ -38,7 +40,7 @@ powerful research tools, but they suit different types of work.
 |--|-----------------|---------------------|
 | **Session type** | Interactive - work in real time | Batch - submit jobs and come back later |
 | **Interfaces** | JupyterLab, RStudio, CLI | CLI only (PBS/Slurm schedulers) |
-| **Setup required** | None - environment is preconfigured | Familiarity with job schedulers required |
+| **Setup required** | You install your own tools (Shelley makes this quick), with full admin control and none of an HPC's module or approval restrictions | Familiarity with job schedulers required |
 | **Best for** | Learning, workshops, exploratory analysis | Large-scale, tightly coupled, or long-running workloads |
 | **Scaling** | Flexible - choose your VM size on demand | Fixed allocations managed through project quotas |
 
@@ -57,7 +59,7 @@ teaching. BioShell solves this.
 |---------|----------------------|
 | **Ready on any device** | Every participant gets the same preconfigured environment regardless of whether they are on Windows, macOS, or Linux with no device-specific setup required |
 | **More power than your laptop** | Use familiar tools like RStudio and JupyterLab, but backed by cloud compute that is not competing with your browser, email, or background applications |
-| **Tool discovery built in** | [Bio-Shelley](tools), BioShell's command-line assistant, makes finding and installing tools from a catalogue of over 20,000 containers as simple as `shelley-bio build samtools`, no container knowledge needed |
+| **Tool discovery built in** | [Shelley](tools), BioShell's command-line assistant, makes finding and installing tools from a catalogue of over 20,000 containers as simple as `Shelley build samtools`, no container knowledge needed |
 | **Reproducible workshops** | Version-controlled environments mean you can build a workshop once and rerun it identically next year, or share it with another trainer at another institution |
 | **Easier access than HPC** | Getting time on a national HPC requires project allocation, queue estimates, and job scheduler knowledge. BioShell access is fast, self-service, and does not require you to know in advance exactly what you will run |
 | **Admin access, safely sandboxed** | You have full administrator privileges on your own VM, install anything and break things without affecting other users or needing HPC sysadmin approval |
