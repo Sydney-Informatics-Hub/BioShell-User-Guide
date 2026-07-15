@@ -9,7 +9,7 @@ sidebar: false
 <p style="text-align:center; color: #555; font-size: 1.1rem; margin-bottom: 2rem;">A ready-to-use cloud bioinformatics environment for life-science researchers, trainers, and developers.</p>
 
 <p style="text-align:center; margin-bottom: 3rem;">
-  <a href="[https://docs.google.com/forms/d/e/1FAIpQLScOVZjZTvdZC65cnUN2BmasQhxYjTzDjJu2bleIZKQZyB7LrA/viewform?usp=dialog]" class="btn btn-primary btn-lg" style="padding: 0.85rem 3rem; font-size: 1.15rem; border-radius: 4px;">Request access</a>
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLScOVZjZTvdZC65cnUN2BmasQhxYjTzDjJu2bleIZKQZyB7LrA/viewform?usp=dialog" class="btn btn-primary btn-lg" style="padding: 0.85rem 3rem; font-size: 1.15rem; border-radius: 4px;">Request access</a>
 </p>
 
 
