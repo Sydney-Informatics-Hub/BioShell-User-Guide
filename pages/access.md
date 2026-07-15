@@ -14,24 +14,21 @@ BioShell is a national resource funded through NCRIS. Access to BioShell for res
 ABLeS is available to research groups and bioinformatics communities across **Australia**. Read the criteria below to determine whether your project aligns with the ABLeS core principles and resource criteria. To qualify for access, your project must address the following:
 
 **1. Domain and impact**
-
 - Your work must have a molecular life sciences focus.
 - Where appropriate, you are willing to openly share your results and outputs, including data, software, and methods.
 
 **2. Technical readiness and responsible resource use**
-
 - Your team should have, or be actively building, the "hands-on" bioinformatics skills needed to make use of the environment.
 - Your resource usage must be planned and proportional as national infrastructure is finite.
 
 **3. Governance and leadership**
-
 - You, or someone in your group, is able and willing to act as the project lead and be responsible for all resource usage and adherence to facility policies.
 
-For full eligibility criteria, see the [**ABLeS eligibility page**](https://australianbiocommons.github.io/ables/eligibility). By submitting an access request you agree to the [**BioShell acceptable use policy and service terms**](aup).
+By submitting an access request you agree to the [**BioShell acceptable use policy and service terms**](aup).
 
 {% include callout.html type="tip" content="Check out some [**example ABLeS projects**](https://australianbiocommons.github.io/ables/participants) to see initiatives that align with ABLeS principles and eligibility criteria." %}
 
-## What's support?
+## What's supported?
 
 | User type            | Description                                                                   |
 | -------------------- | ----------------------------------------------------------------------------- |

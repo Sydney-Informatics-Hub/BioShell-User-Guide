@@ -5,7 +5,7 @@ description: How to connect to your BioShell environment via SSH and what to exp
 ---
 
 Once your environment is provisioned you will receive connection details by email. BioShell
-uses SSH key authentication — you will need the key pair you generated and submitted during
+uses SSH key authentication, you will need the key pair you generated and submitted during
 your access request.
 
 {% include callout.html type="important" content="Your connection details are provided as part of your provisioning notification. Keep them secure and do not share them publicly." %}
@@ -37,10 +37,6 @@ Or connect directly without the config entry:
 ```bash
 ssh -i ~/.ssh/bioshell_key <username>@<your-bioshell-ip>
 ```
-
-[AUTHOR TO SUPPLY — confirm username format]
-
-{% include callout.html type="tip" content="If you are connecting from outside your institution's network you may need a VPN or SSH tunnel. Contact your local IT support if you are unsure." %}
 
 
 ## Interactive environments {#interactive-envs}

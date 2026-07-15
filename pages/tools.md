@@ -1,11 +1,11 @@
 ---
 title: Tools and reference data
 type: Using BioShell
-description: How to find, install, and load bioinformatics tools and reference datasets in BioShell using CVMFS, Shelley-Bio, and sHPC.
+description: How to find, install, and load bioinformatics tools and reference datasets in BioShell using CVMFS, Shelley, and sHPC.
 ---
 
 BioShell gives you access to thousands of bioinformatics tools and reference datasets through
-two underlying systems, **CVMFS** and **sHPC**, and a built-in assistant called **Shelley-Bio**
+two underlying systems, **CVMFS** and **sHPC**, and a built-in assistant called **Shelley**
 that automates working with both.
 
 
@@ -16,18 +16,20 @@ that automates working with both.
 **[CernVM-FS (CVMFS)](https://cvmfs.readthedocs.io/en/stable/)** is a read-only,
 network-backed file system originally developed at CERN for distributing scientific software
 at scale. Rather than downloading tools and datasets upfront, CVMFS fetches only what you
-actually access, on demand, and caches it locally. From your perspective it looks like a
+actually access, on demand, and caches it locally. 
+
+From your perspective it looks like a
 regular directory at `/cvmfs/`: you can `ls` it, browse it, and point workflows at files
 inside it. Nothing is stored permanently on the VM itself, and you cannot write to CVMFS: it
 is a shared, read-only resource.
 
-BioShell mounts three CVMFS repositories automatically:
+BioShell mounts two CVMFS repositories automatically:
 
 | Repository                      | Contents                                                                      |
 | ------------------------------- | ----------------------------------------------------------------------------- |
-| `singularity.galaxyproject.org` | 100,000+ containerised tools from [BioContainers](https://biocontainers.pro/) |
+| `singularity.galaxyproject.org` | 120,000+ containerised tools from [BioContainers](https://biocontainers.pro/) |
 | `data.galaxyproject.org`        | Reference genome builds and pre-built indexes from the Galaxy Project         |
-| `data.biocommons.aarnet.edu.au` | [AUTHOR TO SUPPLY — confirm final name and description]                       |
+
 
 The repositories BioShell connects to are maintained by the BioContainers and Galaxy
 communities: thousands of tools, kept up to date, versioned, and tested. You get access to
@@ -44,13 +46,12 @@ You should see `OK` for each repository. If a repository shows `Failed!`, wait a
 try again. Contact [Australian BioCommons support](https://www.biocommons.org.au/helpdesk)
 if the problem persists.
 
-> **Note:** The first time you access a path in CVMFS it may take a moment while metadata is
-> fetched and cached. Subsequent access is fast.
+{% include callout.html type="note" content="The first time you access a path in CVMFS it may take a moment while metadata is fetched and cached. Subsequent access is fast." %}
 
 ### sHPC {#shpc}
 
 The containers in CVMFS are [encapsulated software components](https://biocontainers-edu.readthedocs.io/en/latest/what_is_container.html) called images. You could run them directly with `singularity` which is installed on BioShell, but that requires knowing the
-exact container path for every tool, every time. **[Singularity-HPC (sHPC)](https://singularity-hpc.readthedocs.io/)**
+exact container path and syntax for every tool, every time. **[Singularity-HPC (sHPC)](https://singularity-hpc.readthedocs.io/)**
 solves this by wrapping containers as standard environment modules, so you can discover and
 load tools the same way you would on any HPC system:
 
@@ -61,10 +62,10 @@ samtools --version
 
 sHPC turns containers into clean, versioned modules without requiring you to know how containers work. On BioShell, sHPC should be configured so that installations point at containers already present in CVMFS, so nothing is re-downloaded.
 
-### Shelley-Bio {#shelley-bio}
+### Shelley {#Shelley}
 
 Working with CVMFS paths and sHPC registry recipes by hand is tedious and error-prone,
-particularly for older tool versions not listed in the standard registry. **Shelley-Bio** is
+particularly for older tool versions not listed in the standard registry. **Shelley** is
 BioShell's command-line assistant that automates the entire workflow: it searches the CVMFS
 BioContainers index, identifies the correct container version, creates any missing registry
 entries, and runs the sHPC install, all from a single command.
@@ -73,54 +74,52 @@ entries, and runs the sHPC install, all from a single command.
 
 ## Installing tools {#installing-tools}
 
-> **Recommended approach:** Start with Shelley-Bio. Use the manual CVMFS/sHPC methods only
-> if you need finer control or are troubleshooting.
+{% include callout.html type="important" content="Use the manual CVMFS/sHPC methods only if you need finer control or are troubleshooting." %}
 
-### Recommended: Shelley-Bio {#bio-shelley}
+### Recommended: Shelley {#shelley}
 
-Shelley-Bio indexes over 700 tools and 118,000 container versions from the BioContainers
+Shelley indexes over 700 tools and 118,000 container versions from the BioContainers
 catalogue. You can run it directly from the command line or in interactive mode.
 
 **From the command line:**
 
 ```bash
-shelley-bio find <tool> # Look up a specific tool by name
-shelley-bio search "<function>" # Search by keyword or function
-shelley-bio versions <tool> # List all available versions
-shelley-bio build <tool> # Install the tool as a loadable module
+shelley find <tool> # Look up a specific tool by name
+shelley search "<function>" # Search by keyword or function
+shelley versions <tool> # List all available versions
+shelley build <tool> # Install the tool as a loadable module
 ```
 
 **In interactive mode:**
 
 ```bash
-shelley-bio interactive # Launch Shelley-Bio in interactive mode
+shelley interactive # Launch Shelley in interactive mode
 ```
 
 **Example: installing `samtools`**
 
 ```bash
-shelley-bio find samtools
+shelley find samtools
 # samtools: Tools for manipulating next-generation sequencing data
 
-shelley-bio versions samtools
+shelley versions samtools
 # samtools/1.21
 # samtools/1.20
 # samtools/1.19.2
 # ...
 
-shelley-bio build samtools/1.21
+shelley build samtools/1.21
 # Installing samtools/1.21 from CVMFS...
 # Module samtools/1.21 was created.
 ```
 
 ![](images/bioshell/SCREENSHOT_NEEDED_bioshelley_build.png)
 
-_Fig 3. Using `shelley-bio build samtools/1.21` to install a tool module._
+_Fig 3. Using `Shelley build samtools/1.21` to install a tool module._
 
-> **Tip:** Use `shelley-bio search` when you know what you want to do but not the tool name.
-> For example, `shelley-bio search "variant calling"` returns tools relevant to that task.
+{% include callout.html type="tip" content="Use `Shelley search` when you know what you want to do but not the tool name. For example, `Shelley search 'variant calling'` returns tools relevant to that task." %}
 
-### Why Shelley-Bio over manual sHPC? {#why-shelley}
+### Why Shelley over manual sHPC? {#why-shelley}
 
 The manual sHPC method requires you to load the module, search the registry, identify the
 correct entry, check available versions, construct the install command with the right CVMFS
@@ -129,23 +128,23 @@ for anything older than the latest release), you also need to check CVMFS direct
 image, compute its checksum, fetch the registry YAML, edit it to add the missing version,
 create and register a local registry, ensure it takes precedence, then run the install.
 
-With Shelley-Bio, regardless of whether the version is in the sHPC registry or not it handles the registry check, CVMFS path resolution, local entry creation, and the sHPC installation.
+With Shelley, regardless of whether the version is in the sHPC registry or not it handles the registry check, CVMFS path resolution, local entry creation, and the sHPC installation.
 
 ```bash
-shelley-bio build samtools/1.20
+shelley build samtools/1.20
 ```
 
 The result is identical: a working `module load` command,
 without requiring you to know how the underlying machinery works.
 
-> **Tip:** If Shelley-Bio cannot find a tool, fall back to the manual sHPC method below.
+{% include callout.html type="tip" content="If Shelley cannot find a tool, fall back to the manual sHPC method below." %}
 
 <details markdown="1" id="shpc-manual">
 <summary>Advanced: manual installation</summary>
 
 #### Using sHPC directly {#shpc-direct}
 
-If Shelley-Bio cannot find what you need, or you prefer direct sHPC control, use the steps
+If Shelley cannot find what you need, or you prefer direct sHPC control, use the steps
 below. This example uses `plink` throughout.
 
 **Load sHPC:**
@@ -200,7 +199,7 @@ For full documentation see the
 #### Installing older or unlisted versions {#older-versions}
 
 Some older tool versions exist in CVMFS but are not listed in the default sHPC registry.
-Shelley-Bio handles this automatically, but if you need to do it manually, follow these steps.
+Shelley handles this automatically, but if you need to do it manually, follow these steps.
 
 **1. Check CVMFS for the version:**
 
@@ -248,8 +247,7 @@ sudo shpc install quay.io/biocontainers/plink:1.90b4--h0a6d026_2 \
   --keep-path
 ```
 
-> **Tip:** If Shelley-Bio recognises the container path but the version is not in the
-> registry, `shelley-bio build` handles the local registry creation automatically.
+{% include callout.html type="tip" content="If Shelley recognises the container path but the version is not in the registry, `Shelley build` handles the local registry creation automatically." %}
 
 </details>
 
@@ -257,7 +255,7 @@ sudo shpc install quay.io/biocontainers/plink:1.90b4--h0a6d026_2 \
 
 ## Loading modules {#load-tool}
 
-Once Shelley-Bio or sHPC has installed a module, load it with:
+Once Shelley or sHPC has installed a module, load it with:
 
 ```bash
 module load <tool>/<version>
@@ -302,9 +300,7 @@ ls /cvmfs/data.galaxyproject.org/byhand/CHM13_T2T_v2.0/
 # bowtie2_index/  bwa_mem_index/  bwameth_index/  hisat2_index/  len/  rnastar/  seq/
 ```
 
-> **Note:** The reference datasets available through CVMFS are maintained by the Galaxy Project
-> and may not be comprehensive. This is not a replacement for your institution's primary data
-> access methods.
+{% include callout.html type="note" content="The reference datasets available through CVMFS are maintained by the Galaxy Project and may not be comprehensive. This is not a replacement for your institution's primary data access methods." %}
 
 ---
 
@@ -326,10 +322,10 @@ module list
 
 sHPC requires Singularity to execute containers.
 
-**Shelley-Bio cannot find a tool**
+**Shelley cannot find a tool**
 
-Try `search` with different keywords, for example `shelley-bio search "alignment"` instead
-of a specific tool name. If the container exists in CVMFS but Shelley-Bio does not index it,
+Try `search` with different keywords, for example `Shelley search "alignment"` instead
+of a specific tool name. If the container exists in CVMFS but Shelley does not index it,
 fall back to the manual sHPC method above.
 
 ---
@@ -338,6 +334,6 @@ fall back to the manual sHPC method above.
 
 - [sHPC user guide](https://singularity-hpc.readthedocs.io/en/latest/getting_started/user-guide.html)
 - [BioContainers registry](https://biocontainers.pro/registry)
-- [Shelley-Bio on GitHub](https://github.com/Sydney-Informatics-Hub/shelley-bio)
+- [Shelley on GitHub](https://github.com/Sydney-Informatics-Hub/Shelley)
 - [CVMFS documentation](https://cvmfs.readthedocs.io/en/stable/)
 - [Galaxy Project CVMFS repositories](https://galaxyproject.org/admin/cvmfs/)
