@@ -24,7 +24,7 @@ ABLeS is available to research groups and bioinformatics communities across **Au
 **3. Governance and leadership**
 - You, or someone in your group, is able and willing to act as the project lead and be responsible for all resource usage and adherence to facility policies.
 
-By submitting an access request you agree to the [**BioShell acceptable use policy and service terms**](aup).
+By submitting an access request you agree to the [**BioShell acceptable use policy and service terms**](aup), including the requirement to [acknowledge BioShell](aup#acknowledging-the-service) in relevant research, training, and innovation outputs.
 
 {% include callout.html type="tip" content="Check out some [**example ABLeS projects**](https://australianbiocommons.github.io/ables/participants) to see initiatives that align with ABLeS principles and eligibility criteria." %}
 

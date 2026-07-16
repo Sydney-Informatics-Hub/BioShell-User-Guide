@@ -20,6 +20,13 @@ Submission of a BioShell access request, and use of the BioShell service followi
      - Circumvention of quota enforcement or resource allocation mechanisms
 
 
+## Acknowledging the Service {#acknowledging-the-service}
+
+You shall acknowledge use of BioShell in relevant research, training, and innovation outputs using the format:
+
+> "This work is supported by BioShell, a service provided by Australian BioCommons and its partners. The service receives NCRIS funding through Bioplatforms Australia as well as The University of Sydney"
+
+
 ## Service commitments {#service-commitments}
 
 ### Best-effort operations
