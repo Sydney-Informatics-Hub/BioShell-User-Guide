@@ -59,7 +59,7 @@ teaching. BioShell solves this.
 |---------|----------------------|
 | **Ready on any device** | Every participant gets the same preconfigured environment regardless of whether they are on Windows, macOS, or Linux with no device-specific setup required |
 | **More power than your laptop** | Use familiar tools like RStudio and JupyterLab, but backed by cloud compute that is not competing with your browser, email, or background applications |
-| **Tool discovery built in** | [Shelley](tools), BioShell's command-line assistant, makes finding and installing tools from a catalogue of over 20,000 containers as simple as `Shelley build samtools`, no container knowledge needed |
+| **Tool discovery built in** | [Shelley](tools), BioShell's command-line assistant, makes finding and installing tools from a catalogue of over 20,000 containers as simple as `Shelley build <tool>`, no container knowledge needed |
 | **Reproducible workshops** | Version-controlled environments mean you can build a workshop once and rerun it identically next year, or share it with another trainer at another institution |
 | **Easier access than HPC** | Getting time on a national HPC requires project allocation, queue estimates, and job scheduler knowledge. BioShell access is fast, self-service, and does not require you to know in advance exactly what you will run |
 | **Admin access, safely sandboxed** | You have full administrator privileges on your own VM, install anything and break things without affecting other users or needing HPC sysadmin approval |

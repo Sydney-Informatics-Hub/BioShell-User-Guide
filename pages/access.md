@@ -8,17 +8,14 @@ description:
 
 ## Eligibility {#eligibility}
 
-BioShell is a national resource funded through NCRIS. Access to BioShell for research and development is governed by the
-[**ABLeS programme**](https://australianbiocommons.github.io/ables/index) (Australian BioCommons Leadership Share).
-
-ABLeS is available to research groups and bioinformatics communities across **Australia**. Read the criteria below to determine whether your project aligns with the ABLeS core principles and resource criteria. To qualify for access, your project must address the following:
+BioShell is a national resource funded through NCRIS. BioShell is available to researchers across **Australia**. Read the criteria below to determine whether your project aligns with our core principles and resource criteria. To qualify for access, your project must address the following:
 
 **1. Domain and impact**
 - Your work must have a molecular life sciences focus.
 - Where appropriate, you are willing to openly share your results and outputs, including data, software, and methods.
 
 **2. Technical readiness and responsible resource use**
-- Your team should have, or be actively building, the "hands-on" bioinformatics skills needed to make use of the environment.
+- Your team should have, or be building, the "hands-on" bioinformatics skills needed to make use of the environment.
 - Your resource usage must be planned and proportional as national infrastructure is finite.
 
 **3. Governance and leadership**
@@ -26,7 +23,7 @@ ABLeS is available to research groups and bioinformatics communities across **Au
 
 By submitting an access request you agree to the [**BioShell acceptable use policy and service terms**](aup), including the requirement to [acknowledge BioShell](aup#acknowledging-the-service) in relevant research, training, and innovation outputs.
 
-{% include callout.html type="tip" content="Check out some [**example ABLeS projects**](https://australianbiocommons.github.io/ables/participants) to see initiatives that align with ABLeS principles and eligibility criteria." %}
+{% include callout.html type="tip" content="ABLeS supports Australian researchers with access to HPC and other national compute resources, complementing BioShell. Check out some example [**BioShell**](aup#acknowledging-the-service) or [**ABLeS projects**](https://australianbiocommons.github.io/ables/participants) to see initiatives that align with our principles and eligibility criteria." %}
 
 ## What's supported?
 
