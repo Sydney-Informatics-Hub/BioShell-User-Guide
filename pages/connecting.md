@@ -38,19 +38,6 @@ Or connect directly without the config entry:
 ssh -i ~/.ssh/bioshell_key <username>@<your-bioshell-ip>
 ```
 
-
-## Interactive environments {#interactive-envs}
-
-Once connected, you can also open browser-based environments directly:
-
-| Environment | URL |
-|-------------|-----|
-| JupyterLab | `http://<your-bioshell-ip>:8888` |
-| RStudio | `http://<your-bioshell-ip>:8787` |
-
-See the [**Interactive environments**](interactive) page for full setup instructions.
-
-
 ## First login {#first-login}
 
 When you connect for the first time you will land in your home directory. Confirm where you
@@ -66,9 +53,8 @@ You should see your home directory path:
 /home/<username>
 ```
 
-Your prompt shows your username and the host. Once you are logged in, take a moment to
-verify that the two things you will rely on most, the software file system (CVMFS) and your
-storage volumes, are present and working.
+Once you are logged in, verify the two things you will rely on most: the software file
+system (CVMFS) and your storage volumes.
 
 ### CVMFS access {#cvmfs-access}
 
@@ -109,8 +95,7 @@ For how to find, install, and load tools from these repositories, see the
 
 ### Storage volumes {#storage}
 
-BioShell provides two distinct storage locations. Understanding the difference matters:
-they have different sizes, and only one is intended for your working data.
+BioShell provides two storage locations:
 
 | Location | Volume | Purpose |
 |----------|--------|---------|
@@ -131,9 +116,8 @@ vda    253:0    0  30G  0 disk
 vdb    253:16   0 100G  0 disk /mnt/data
 ```
 
-Here the root volume (`vda`) holds the operating system and your home directory, and a
-separate data volume (`vdb`) is mounted at `/mnt/data`. Check the size and available space
-of your home directory with `df`:
+This shows your home directory on the root volume (`vda`) and your data volume (`vdb`) as a
+separate disk. Check the size and available space of your home directory with `df`:
 
 ```bash
 df -hT /home/<username>/
@@ -158,3 +142,15 @@ Filesystem     Type  Size  Used Avail Use% Mounted on
 {% include callout.html type="note" content="The sizes shown above are examples only. Your home and data volume capacities depend on the allocation provisioned for your project." %}
 
 {% include callout.html type="tip" content="Store your analysis inputs and outputs on the data volume at `/mnt/data` rather than in your home directory. The data volume is provisioned for your working data and keeps it separate from your home directory and installed software." %}
+
+
+## Interactive environments {#interactive-envs}
+
+Once connected, you can also open browser-based environments directly:
+
+| Environment | URL |
+|-------------|-----|
+| JupyterLab | `http://<your-bioshell-ip>:8888` |
+| RStudio | `http://<your-bioshell-ip>:8787` |
+
+See the [**Interactive environments**](interactive) page for full setup instructions.
