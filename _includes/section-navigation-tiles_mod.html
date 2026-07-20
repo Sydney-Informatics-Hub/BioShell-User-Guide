@@ -1,7 +1,7 @@
 {%- assign pages_to_add_as_tiles = site.pages -%}
 <div class="page-tiles">
   <div class="page-tiles-container">
-    <div class="page-tiles-list">
+    <div class="page-tiles-list" style="--tile-cols: {{ include.col | default: 4 }};">
       {%- for page in pages_to_add_as_tiles -%}
       {%- if page.type == include.type %}
       <a href="{{ page.url | relative_url }}" class="page-tile-link">
@@ -24,8 +24,20 @@
 
   .page-tiles-list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(var(--tile-cols, 4), 1fr);
     gap: 20px;
+  }
+
+  @media (max-width: 992px) {
+    .page-tiles-list {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .page-tiles-list {
+      grid-template-columns: repeat(1, 1fr);
+    }
   }
 
   .page-tile-link {
