@@ -20,10 +20,10 @@ subitems:
         url: /nextflow
   - title: BioShell community and outcomes
     url: /community
-  - title: For trainers
-    url: /training-development
   - title: Get involved
     url: /contributing
+  - title: Setting up a training VM
+    url: /training-development
   - title: Contributors
     url: /contributors
   - title: Acceptable use policy and service terms
