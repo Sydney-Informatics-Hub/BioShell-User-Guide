@@ -18,12 +18,12 @@ subitems:
         url: /interactive
       - title: Using Nextflow with CVMFS
         url: /nextflow
+  - title: Setting up a training VM
+    url: /training-development
   - title: BioShell community and outcomes
     url: /community
   - title: Get involved
     url: /contributing
-  - title: Setting up a training VM
-    url: /training-development
   - title: Contributors
     url: /contributors
   - title: Acceptable use policy and service terms
