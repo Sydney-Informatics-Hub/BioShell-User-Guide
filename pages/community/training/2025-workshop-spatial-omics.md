@@ -3,8 +3,8 @@ title: "Spatial omics"
 type: "BioShell Training"
 description: "Jaya F, Williams S, O'Brien MJ, Matigian N, Thind AS, Wang C, Mori G (2025)"
 date: 2025
-# participants:   # AUTHOR TO SUPPLY — number of people trained (shown in the community statistics)
-doi: 10.5281/zenodo.18168944       # optional — Zenodo (or other) DOI, without the https://doi.org/ prefix
+participants: 37
+doi: 10.5281/zenodo.18168944 
 materials_url: https://swbioinf.github.io/spatial-taster-workshop/
 ---
 

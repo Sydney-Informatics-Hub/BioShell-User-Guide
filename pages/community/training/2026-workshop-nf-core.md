@@ -3,7 +3,7 @@ title: "Unlocking nf-core: customising workflows for your research"
 type: "BioShell Training"
 description: "Willet C, Geaghan M, Gagalova K, Antczak M, Samaha G, O'Brien M (2026)"
 date: 2026
-# participants:   # AUTHOR TO SUPPLY — number of people trained (shown in the community statistics)
+participants: 25
 doi: 10.5281/zenodo.20453332
 materials_url: https://sydney-informatics-hub.github.io/customising-nfcore-workshop-2026/
 ---

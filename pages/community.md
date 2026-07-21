@@ -10,13 +10,13 @@ BioShell supports nationally delivered training events and research projects acr
 Australia. This page highlights workshops delivered using BioShell and how you can get
 involved.
 
+
+## Training {#training}
+
+The following training has been delivered using BioShell as the computational environment.
+All training run by Australian BioCommons are openly available via Zenodo.
+
 {% include community-stats.html %}
-
-
-## Training workshops {#training}
-
-The following workshops have been delivered using BioShell as the computational environment.
-All training materials are openly available via Zenodo.
 
 {% include section-navigation-tiles_mod.html type="BioShell Training" col="4" %}
 

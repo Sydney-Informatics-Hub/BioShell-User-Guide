@@ -3,7 +3,7 @@ title: "Unlocking nf-core: customising workflows for your research"
 type: "BioShell Training"
 description: "Samaha G, Willet C, Hakkaart C, Beecroft S, Stott A, Ip A, Cooke S (2023)"
 date: 2023
-# participants:   # AUTHOR TO SUPPLY — number of people trained (shown in the community statistics)
+participants: 37
 doi: 10.5281/zenodo.8026170
 materials_url: https://sydney-informatics-hub.github.io/customising-nfcore-workshop/ 
 ---

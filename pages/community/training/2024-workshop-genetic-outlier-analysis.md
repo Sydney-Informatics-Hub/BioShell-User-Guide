@@ -3,7 +3,7 @@ title: "Genetic Outlier Analysis"
 type: "BioShell Training"
 description: "Stuart K, Samaha G, Barugahare A, Miller S, Deshpande N, Lu C-Y (2024)"
 date: 2024
-# participants:   # AUTHOR TO SUPPLY — number of people trained (shown in the community statistics)
+participants: 85
 doi: 10.5281/zenodo.14676276       # optional — Zenodo (or other) DOI, without the https://doi.org/ prefix
 materials_url: https://genomicsaotearoa.github.io/Outlier_Analysis_Workshop/
 ---

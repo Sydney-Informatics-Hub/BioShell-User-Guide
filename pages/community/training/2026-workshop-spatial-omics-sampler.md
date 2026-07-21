@@ -3,7 +3,7 @@ title: "Spatial omics sampler"
 type: "BioShell Training"
 description: "Williams S (2026)"
 date: 2026
-# participants:   # AUTHOR TO SUPPLY — number of people trained (shown in the community statistics)
+participants: 26
 doi: 10.5281/zenodo.18795925
 materials_url: https://swbioinf.github.io/intro-spatial-transcriptomics-workshop/index.html
 ---

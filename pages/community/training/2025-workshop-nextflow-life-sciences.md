@@ -3,8 +3,8 @@ title: "Nextflow for the life sciences"
 type: "BioShell Training"
 description: "Jaya F, Geaghan M, Xue W, Antczak M, Gauthier M-E, Beecroft S, O'Brien M, et al (2025)"
 date: 2025
-# participants:   # AUTHOR TO SUPPLY — number of people trained (shown in the community statistics)
-doi: 10.5281/zenodo.16791039       # optional — Zenodo (or other) DOI, without the https://doi.org/ prefix
+participants: 53
+doi: 10.5281/zenodo.16791039 
 materials_url: https://sydney-informatics-hub.github.io/hello-nextflow-2025/
 ---
 

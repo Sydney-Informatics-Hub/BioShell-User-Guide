@@ -3,7 +3,7 @@ title: "RNASeq: reads to differential genes and pathways"
 type: "BioShell Training"
 description: "Samaha G, Deshpande N, Lu C-Y, Chung J, Stott A, Ip A (2023)"
 date: 2023
-# participants:   # AUTHOR TO SUPPLY — number of people trained (shown in the community statistics)
+participants: 34
 doi: 10.5281/zenodo.10045628
 materials_url: https://sydney-informatics-hub.github.io/rnaseq-workshop-2023/
 ---
