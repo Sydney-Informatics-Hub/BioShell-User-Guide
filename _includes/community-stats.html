@@ -1,0 +1,65 @@
+{%- assign training = site.pages | where: "type", "BioShell Training" -%}
+{%- assign research = site.pages | where: "type", "BioShell Research" -%}
+{%- assign trained = 0 -%}
+{%- assign missing = 0 -%}
+{%- for p in training -%}
+  {%- if p.participants -%}
+    {%- assign trained = trained | plus: p.participants -%}
+  {%- else -%}
+    {%- assign missing = missing | plus: 1 -%}
+  {%- endif -%}
+{%- endfor -%}
+<div class="community-stats">
+  <div class="community-stat">
+    <span class="community-stat-number">{{ training | size }}</span>
+    <span class="community-stat-label">Training events</span>
+  </div>
+  <div class="community-stat">
+    <span class="community-stat-number">{{ trained }}{% if missing > 0 %}+{% endif %}</span>
+    <span class="community-stat-label">People trained</span>
+  </div>
+  <div class="community-stat">
+    <span class="community-stat-number">{{ research | size }}</span>
+    <span class="community-stat-label">Research projects</span>
+  </div>
+</div>
+
+<style>
+
+  .community-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin: 25px 0;
+  }
+
+  @media (max-width: 600px) {
+    .community-stats {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+
+  .community-stat {
+    background: #205a86;
+    color: #ffffff;
+    border-radius: 12px;
+    padding: 30px 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .community-stat-number {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.1;
+  }
+
+  .community-stat-label {
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin-top: 8px;
+  }
+
+</style>
