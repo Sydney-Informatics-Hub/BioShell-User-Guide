@@ -10,6 +10,8 @@ BioShell supports nationally delivered training events and research projects acr
 Australia. This page highlights workshops delivered using BioShell and how you can get
 involved.
 
+{% include community-stats.html %}
+
 
 ## Training workshops {#training}
 
