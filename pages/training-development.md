@@ -3,21 +3,40 @@ title: Training development instructions
 description: How to set up and prepare a BioShell training environment for the BioCommons Training Cooperative, including VM configuration, CVMFS use, trainee directory layout, and pre-snapshot requirements.
 ---
 
-{% include callout.html type="warning" content="**Draft:** These instructions are a work in progress. If anything is unclear, reach out to Mitchell directly. Feedback is very welcome." %}
+{% include callout.html type="warning" content="These instructions are a work in progress. If anything is unclear, reach out to the training team directly. We appreciate your support in making these as simple to follow as possible, and feedback is very welcome." %}
 
-This guide is for **training developers** (`tdevNN` users) who are setting up BioShell training environments for the BioCommons Training Cooperative. You will configure tools, build training materials, and prepare a template that gets automatically applied to trainee accounts when VMs are provisioned. When a VM is built from your snapshot by Giorgia or Mitchell, the provisioning script runs automatically: the trainee's username will be `userNN` (for example `user1`), their password is generated deterministically from their username and is unique per VM, the contents of `/etc/skel/` at snapshot time become the trainee's home directory, and `/etc/skel/` is cleared afterwards to reduce VM image size.
+This guide is for **training developers** who are setting up BioShell training environments for the BioCommons Training Cooperative. You will configure tools, build training materials, and prepare a template that gets automatically applied to trainee accounts when VMs are provisioned. 
+
+{% include callout.html type="important" content="**New to this? Key terms used throughout this guide:**<br><br>**VM (virtual machine)** — a virtual computer provisioned in the cloud that you log into and configure. Each training developer gets a dev VM, and each trainee gets their own VM built from it.<br><br>**Snapshot** — a saved image of a VM's disk at a point in time. Once your dev VM is set up exactly how you want it, it is *snapshotted* so that identical trainee VMs can be built from that image.<br><br>**Template (`/etc/skel/`)** — the skeleton directory whose contents are copied into every new user's home directory when their account is created. Whatever you place in `/etc/skel/` is exactly what trainees see on first login.<br><br>**Provisioning script** — the script that runs automatically when a trainee VM is built. It creates the `userNN` account, sets a password, and populates the home directory from `/etc/skel/`.<br><br>**CVMFS** — a read-only, on-demand network file system providing bioinformatics tools and reference data. Content used from CVMFS does not count against your VM's disk budget.<br><br>**Symlink** — a pointer to a file stored elsewhere (for example on CVMFS), used instead of copying large files into the trainee directory.<br><br>**shelley** — a helper for finding and installing containerised tools from CVMFS as loadable modules.<br><br>**cloud-init** — the service that configures a VM on first boot (hostname, network, datasource). It must be checked before snapshotting." %}
+
+## How it works {#how-it-works}
+
+At a high level, preparing a training environment follows five steps:
+
+1. **Get a dev VM** and log in (see [VM setup and access](#vm-setup)).
+2. **Build and test** your training materials in your home directory, using CVMFS tools and references wherever possible (see [Developing training materials](#developing-materials)).
+3. **Assemble the template** by copying your home directory into `/etc/skel/`, so every trainee starts with an identical setup (see [Assemble the template](#assemble-template)).
+4. **Complete the pre-snapshot checks** so trainee VMs build correctly (see [Pre-snapshot requirements](#pre-snapshot)).
+5. **Request a snapshot.** Trainee VMs are then built from that snapshot.
+
+When a trainee VM is built from your snapshot, the provisioning script runs automatically and:
+
+- creates the trainee's account, with username `userNN` (for example `user1`)
+- sets a password that is derived deterministically from the username and is unique per VM
+- copies the contents of `/etc/skel/` (as it was at snapshot time) into the trainee's home directory
+- clears `/etc/skel/` afterwards to reduce the VM image size
 
 
-## VM setup and access {#vm-setup}
+## 1. VM setup and access {#vm-setup}
 
 ### Launch a VM instance
 
-VM instances are provisioned by Giorgia or Mitchell. Each dev machine is named with the prefix `D` followed by a number (for example `D1`).
+VM instances are provisioned by the training VM manager. Each dev machine is named with the prefix `D` followed by a number (for example `D1`).
 
 
 ### Log in via SSH
 
-The training team will provide you with a username and IP address. Your username follows the format `tdevNN`, where `NN` matches your VM's prefix number.
+The training team will provide you with a username and IP address. Your username follows the format `tdevNN`, where `NN` matches your VM's prefix number (for example, on VM `D1` your username is `tdev1`).
 
 ```bash
 ssh tdevNN@<IP_Address>
@@ -35,18 +54,18 @@ Once you have an active SSH connection, open your browser and go to:
 Replace `<IP_Address>` with the IP address provided by the training team.
 
 
-## Developing training materials {#developing-materials}
+## 2. Developing training materials {#developing-materials}
 
 Set up your home directory (`/home/tdevNN`) exactly as you want trainees to experience it. Build and test your workflows there, using CVMFS containers and references throughout. The goal is a working, self-contained environment that a trainee could follow from start to finish.
 
-{% include callout.html type="tip" content="**Keep data small:** When the Australian BioCommons dataset repository is ready, it will be the main access point for training data. Like CVMFS, data stored there will not count against VM size. Until then, use the minimum input data needed to demonstrate the workflow. If your ideal dataset is too large to copy to every trainee home directory, see [If resources are not available on CVMFS](#non-cvmfs) for how to pull it at boot time instead." %}
+{% include callout.html type="tip" content="**Keep data small:** Small training datasets are best practice regardless of VM size — they download and run quickly, so trainees spend their time learning rather than waiting, and the workflow fits comfortably within a workshop session. Use the minimum input data needed to demonstrate the workflow. When the Australian BioCommons dataset repository is ready, it will be served over CVMFS (like the Galaxy reference repositories), so data accessed from it will not count against VM size. Until then, if your ideal dataset is too large to copy into every trainee home directory, see [If resources are not available on CVMFS](#non-cvmfs) for how to pull it at boot time instead." %}
 
 Once everything works end-to-end, your home directory becomes the template.
 
 
 ### Disk budget {#disk-budget}
 
-The base VM template takes up approximately **12 GB** on a **30 GB** disk, leaving roughly **16 GB** of usable space. That space has to cover:
+The base VM template takes up approximately **13 GB** on a **30 GB** disk, leaving roughly **16 GB** of usable space. That space has to cover:
 
 - Training materials saved in the template directory (`/etc/skel/`)
 - CVMFS-cached container layers and reference data (written to the CVMFS cache on first use)
@@ -65,7 +84,7 @@ Example output:
 ```
 Filesystem      Size  Used Avail Use% Mounted on
 tmpfs           197M  1.1M  196M   1% /run
-/dev/vda2        30G   12G   17G  43% /
+/dev/vda2        30G   14G   17G  43% /
 tmpfs           984M     0  984M   0% /dev/shm
 tmpfs           5.0M     0  5.0M   0% /run/lock
 tmpfs           197M   16K  197M   1% /run/user/1000
@@ -78,27 +97,25 @@ sudo apt clean                          # Clear apt cache (~640 MB saving)
 sudo rm -rf /root/.cache/go-build       # Clear Go build cache (~490 MB)
 sudo rm -rf /tmp/* /var/tmp/*           # Clear temp files
 sudo journalctl --vacuum-size=50M       # Trim system logs
+sudo cvmfs_config wipecache             # CVMFS will automatically refill it with the files as needed
 ```
 
 ### Using CVMFS resources {#cvmfs}
 
-CVMFS gives you read-only, on-demand access to reference data and Singularity containers. Importantly, CVMFS does not count against your disk budget, so you should always prefer CVMFS resources over local copies wherever possible.
+CVMFS gives you read-only, on-demand access to reference data and Singularity containers. Because it does not count against your disk budget, always prefer CVMFS resources over local copies wherever possible.
 
 For a full walkthrough of what is available and how to use it, see the [CVMFS and reference data guide](tools).
 
-#### Finding and installing tools with shelley-bio
+#### Finding and installing tools with shelley
 
-Use `shelley-bio` to search for and install tools from CVMFS-hosted Singularity images:
+Use `shelley` to search for and install tools from CVMFS-hosted Singularity images:
 
 ```bash
 # Search for available tools
-shelley-bio find <toolname>
-
-# List available versions
-shelley-bio versions <toolname>
+shelley find <toolname>
 
 # Build a module-loadable tool via its CVMFS container
-shelley-bio build <toolname>
+shelley build <toolname>
 ```
 
 #### Symlinking reference data from CVMFS {#symlinking}
@@ -120,7 +137,7 @@ ln -s /cvmfs/data.galaxyproject.org/byhand/CHM13_T2T_v2.0/seq/CHM13_T2T_v2.0.fa 
 
 ### RStudio and JupyterLab environments {#interactive-envs}
 
-If your training module uses RStudio or JupyterLab, any R packages, Python packages, or Jupyter kernels you install are written to your home directory and follow the same `/etc/skel/` workflow as everything else.
+If your training module uses RStudio or JupyterLab, any R packages, Python packages, or Jupyter kernels you install are written to your home directory, so they follow the same `/etc/skel/` workflow as everything else. Save notebooks in the state you want trainees to open them in — for example, clear all cell outputs so each notebook starts fresh.
 
 #### R packages
 
@@ -157,7 +174,7 @@ du -sh ~/.local/
 
 ### If resources are not available on CVMFS {#non-cvmfs}
 
-If a required container or reference dataset is not on CVMFS and is too large to include directly in the trainee directory, it needs to be fetched at boot time via the VM provisioning script. Prepare the required scripts and share them with Giorgia or Mitchell.
+If a required container or reference dataset is not on CVMFS and is too large to include directly in the trainee directory, it needs to be fetched at boot time via the VM provisioning script. Prepare the required scripts and share them with the training VM manager.
 
 
 #### Adding a pull step to the provisioning script
@@ -179,9 +196,13 @@ Resources pulled this way will appear in the correct location in the trainee's h
 {% include callout.html type="note" content="Boot-time pulls count toward your disk budget. Factor their size into your 30 GB total." %}
 
 
+## 3. Assemble the template {#assemble-template}
+
+With your workflow tested and working, package your home directory into the template (`/etc/skel/`) that every trainee VM is built from.
+
 ### Trainee directory layout {#directory-layout}
 
-Organise your home directory to reflect what trainees should see when they first log in. A typical layout might look like this:
+Organise your home directory to reflect what you want trainees to see when they first log in. For example:
 
 ```
 ~/
@@ -194,9 +215,9 @@ Organise your home directory to reflect what trainees should see when they first
 └── results/                   # Empty output directory for trainee use
 ```
 
-Not every module will need all of these folders. Only include what is relevant.
+Not every module will need all of these folders. Only include what is relevant. The next section covers copying this directory into the template.
 
-#### Copy your directory into the template
+### Copy your directory into the template
 
 Before copying, check how large your home directory is:
 
@@ -226,30 +247,34 @@ Once you are confident the template is correct, you can clean up your own home d
 rm -rf ~/*
 ```
 
-{% include callout.html type="tip" content="Ask Giorgia or Mitchell to take a snapshot at key checkpoints if you want a backup before making significant changes." %}
+{% include callout.html type="tip" content="Ask the training VM manager to take a snapshot at key checkpoints if you want a backup before making significant changes." %}
 
 
-## Pre-snapshot requirements {#pre-snapshot}
+## 4. Pre-snapshot requirements {#pre-snapshot}
 
 
 ### Cloud-init datasource check {#cloud-init}
 
-Running `apt upgrade` during VM setup can silently change cloud-init configuration, which causes all VMs built from your snapshot to inherit the wrong hostname. Please check and fix this before asking the VM to be snapshot.
-
-
-#### Step 1: Check for the offending apt file
+Running `apt upgrade` during VM setup can silently change the cloud-init configuration, which causes all VMs built from your snapshot to inherit the wrong hostname. Check for this before requesting a snapshot:
 
 ```bash
 ls /etc/cloud/cloud.cfg.d/
 ```
 
-A working VM should only contain `05_logging.cfg` and `README`. If `90_dpkg.cfg` is present, remove it:
+A working VM contains only `05_logging.cfg` and `README`. If that is all you see, no action is needed — continue to the [pre-snapshot checklist](#checklist).
+
+If `90_dpkg.cfg` is also present, `apt` has modified the cloud-init configuration and you must repair it using the steps below before snapshotting.
+
+<details markdown="1" id="cloud-init-fix">
+<summary>Fix: <code>apt</code> has changed the cloud-init configuration</summary>
+
+**1. Remove the offending apt file**
 
 ```bash
 sudo rm /etc/cloud/cloud.cfg.d/90_dpkg.cfg
 ```
 
-#### Step 2: Verify the datasource order
+**2. Verify the datasource order**
 
 ```bash
 cat /etc/cloud/cloud.cfg | grep -A5 "datasource_list"
@@ -263,33 +288,21 @@ datasource_list:
   - OpenStack
 ```
 
+**3. Clean cloud-init state**
 
-#### Step 3: Clean cloud-init state
+`cloud-init clean` deletes `/etc/cloud/ds-identify.cfg`, so you will need to recreate it afterwards.
 
 ```bash
 sudo cloud-init clean --logs
-```
-
-{% include callout.html type="important" content="`cloud-init clean` deletes `/etc/cloud/ds-identify.cfg`." %}
-
-You will need to recreate it:
-
-```bash
 sudo tee /etc/cloud/ds-identify.cfg << 'EOF'
 policy: enabled
 EOF
-```
-
-Verify it looks right:
-
-```bash
 cat /etc/cloud/ds-identify.cfg
 ```
 
-Expected output: `policy: enabled`
+The final command should print `policy: enabled`.
 
-
-#### Step 4: Confirm the datasource
+**4. Confirm the datasource**
 
 ```bash
 sudo cloud-init init
@@ -302,20 +315,22 @@ Look at the `detail` line in the output. It should read `DataSourceOpenStackLoca
 detail: DataSourceOpenStackLocal [net,ver=2]
 ```
 
-If it reads `DataSourceNoCloud`, work through Steps 1 to 4 again. If it still does not resolve, contact Mitchell or Giorgia.
+If it reads `DataSourceNoCloud`, work through these steps again. If it still does not resolve, contact the training team.
+
+</details>
 
 ### Pre-snapshot checklist {#checklist}
 
 Run through this before taking any snapshot:
 
 - [ ] Workflow tested end-to-end from a trainee's perspective
-- [ ] All tools use CVMFS Singularity containers installed via `shelley-bio` where available
+- [ ] All tools use CVMFS Singularity containers installed via `shelley` where available
 - [ ] All references point to CVMFS paths or symlinks where available
 - [ ] Input data is as small as practical
 - [ ] `du -sh /home/<username>/` confirms the directory size is acceptable
-- [ ] Any non-CVMFS resources that are too large to bundle have been prepared as provisioning script pull steps and shared with Giorgia or Mitchell
+- [ ] Any non-CVMFS resources that are too large to bundle have been prepared as provisioning script pull steps and shared with the training VM manager
 - [ ] `sudo cp -r /home/<username>/. /etc/skel/` completed successfully
 - [ ] `/etc/skel/` contents verified before snapshotting
 - [ ] All symlinks in `/etc/skel/` point to CVMFS paths or relative paths (no absolute paths into `/home/tdevNN/`)
-- [ ] Total estimated disk usage (base ~12 GB + skel + boot-time pulls) is comfortably under 30 GB
+- [ ] Total estimated disk usage (base ~14 GB + skel + boot-time pulls) is comfortably under 30 GB
 - [ ] `/etc/cloud/ds-identify.cfg` is present and reads `policy: enabled`
