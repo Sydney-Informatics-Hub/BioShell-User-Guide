@@ -1,7 +1,7 @@
 ---
 title: Introduction to the Linux Command Line Workshop
 type: "BioShell Training"
-description: "Jefferson Allan, Clementine Merce, Ulrich Kadolsky and Aaron Zhang"  
+description: "Allan J, Merce C, Kadolsky U, Zhang A (2026)"  
 date: 2026
 participants: 18 
 materials_url: https://datacarpentry.github.io/shell-genomics/aio.html
