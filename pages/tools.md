@@ -86,7 +86,6 @@ catalogue. You can run it directly from the command line or in interactive mode.
 ```bash
 shelley find <tool> # Look up a specific tool by name
 shelley search "<function>" # Search by keyword or function
-shelley versions <tool> # List all available versions
 shelley build <tool> # Install the tool as a loadable module
 ```
 
@@ -96,28 +95,61 @@ shelley build <tool> # Install the tool as a loadable module
 shelley interactive # Launch Shelley in interactive mode
 ```
 
-**Example: installing `samtools`**
+#### Example: installing `bwa-mem2`
+
+Use `shelley` to look up `bwa-mem2` and the versions available for it:
 
 ```bash
-shelley find samtools
-# samtools: Tools for manipulating next-generation sequencing data
-
-shelley versions samtools
-# samtools/1.21
-# samtools/1.20
-# samtools/1.19.2
-# ...
-
-shelley build samtools/1.21
-# Installing samtools/1.21 from CVMFS...
-# Module samtools/1.21 was created.
+shelley find bwa-mem2
 ```
 
-![](images/bioshell/SCREENSHOT_NEEDED_bioshelley_build.png)
+<details markdown="1">
+<summary>Example output</summary>
 
-_Fig 3. Using `Shelley build samtools/1.21` to install a tool module._
+![](assets/img/shelley_find_bwa-mem2.png)
 
-{% include callout.html type="tip" content="Use `Shelley search` when you know what you want to do but not the tool name. For example, `Shelley search 'variant calling'` returns tools relevant to that task." %}
+</details>
+
+Build a loadable module:
+
+```bash
+shelley build bwa-mem2/2.3
+```
+
+<details markdown="1">
+<summary>Example output</summary>
+
+![](assets/img/shelley_build_bwa-mem2.png)
+
+</details>
+
+Confirm the module was built succesfully:
+
+```bash
+module avail
+```
+
+<details markdown="1">
+<summary>Example output</summary>
+
+![](assets/img/module_avail.png)
+
+</details>
+
+Load the module:
+
+```bash
+module load bwa-mem2
+```
+
+Finally, run `bwa-mem2`:
+
+```bash
+bwa-mem2 version
+# 2.2.1
+```
+
+{% include callout.html type="tip" content="Use `shelley search` when you know what you want to do but not the tool name. For example, `shelley search 'variant calling'` returns tools relevant to that task." %}
 
 ### Why Shelley over manual sHPC? {#why-shelley}
 
@@ -131,7 +163,7 @@ create and register a local registry, ensure it takes precedence, then run the i
 With Shelley, regardless of whether the version is in the sHPC registry or not it handles the registry check, CVMFS path resolution, local entry creation, and the sHPC installation.
 
 ```bash
-shelley build samtools/1.20
+shelley build bwa-mem2/2.3
 ```
 
 The result is identical: a working `module load` command,
