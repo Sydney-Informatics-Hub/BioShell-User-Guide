@@ -8,7 +8,6 @@ BioShell gives you access to thousands of bioinformatics tools and reference dat
 two underlying systems, **CVMFS** and **sHPC**, and a built-in assistant called **Shelley**
 that automates working with both.
 
-
 ## How the tooling stack works {#tooling-stack}
 
 ### CVMFS {#cvmfs}
@@ -62,7 +61,7 @@ samtools --version
 
 sHPC turns containers into clean, versioned modules without requiring you to know how containers work. On BioShell, sHPC should be configured so that installations point at containers already present in CVMFS, so nothing is re-downloaded.
 
-### Shelley {#Shelley}
+### Introducing Shelley :turtle: {#Shelley}
 
 Working with CVMFS paths and sHPC registry recipes by hand is tedious and error-prone,
 particularly for older tool versions not listed in the standard registry. **Shelley** is
@@ -70,236 +69,99 @@ BioShell's command-line assistant that automates the entire workflow: it searche
 BioContainers index, identifies the correct container version, creates any missing registry
 entries, and runs the sHPC install, all from a single command.
 
----
+{% include callout.html type="tip" content="**Recommended:** use Shelley rather than sHPC directly. The rest of this guide walks through how Shelley can be used to find, install, and run tools without interacting with the CVMFS or sHPC directly!" %}
 
-## Installing tools {#installing-tools}
+## Getting started with Shelley {#getting-started-with-shelley}
 
-{% include callout.html type="important" content="Use the manual CVMFS/sHPC methods only if you need finer control or are troubleshooting." %}
+Shelley indexes **over 700 tools and 118,000 container versions** from the BioContainers
+catalogue, and you can run it directly from the command line or in an interactive mode.
+This tutorial walks through finding and installing a bioinformatics tool on a BioShell VM
+for the first time.
 
-### Recommended: Shelley {#shelley}
-
-Shelley indexes over 700 tools and 118,000 container versions from the BioContainers
-catalogue. You can run it directly from the command line or in interactive mode.
-
-**From the command line:**
+Before you start, confirm Shelley is available:
 
 ```bash
-shelley find <tool> # Look up a specific tool by name
-shelley search "<function>" # Search by keyword or function
-shelley build <tool> # Install the tool as a loadable module
+shelley --help
 ```
 
-**In interactive mode:**
+You will see a list of available commands.
+
+TODO: user to add screenshot
+
+#### Finding a tool you already know by name
+
+Say you already know you need `fastqc`. Look it up with `find`:
 
 ```bash
-shelley interactive # Launch Shelley in interactive mode
+shelley find fastqc
 ```
 
-#### Example: installing `bwa-mem2`
+TODO: User to add screenshot
 
-Use `shelley` to look up `bwa-mem2` and the versions available for it:
+Shelley returns the tool's description together with its most recent container versions,
+plus whether it is installed as a module yet. `find` is forgiving about
+naming case, hyphens, and underscores are all handled for you, so `shelley find STAR`,
+`shelley find bwa-mem2`, and `shelley find samtools` all work as expected.
+
+#### Searching when you only know the task
+
+Sometimes you know what you want to do but not which tool does it. That's what `search`
+is for:
 
 ```bash
-shelley find bwa-mem2
+shelley search "quality control"
+shelley search "variant calling"
+shelley search "de novo assembly"
 ```
 
-<details markdown="1">
-<summary>Example output</summary>
+Each result will show you the tool name and a brief description of what it does. **Shorter and more species phrases tend to work better than full sentences.**
 
-![](assets/img/shelley_find_bwa-mem2.png)
 
-</details>
+{% include callout.html type="note" content="Search is under active development. Results are currently alphabetical rather than ranked by relevance." %}
+TODO: Also returns a lot of files.
 
-Build a loadable module:
+### Checking every available version
+
+By default `find` only shows the most recent versions of a tool. If you need to pin
+an exact version for reproducibility, or to match a pipeline's requirements, you can add the
+`-v` (verbose) flag to see every available container, sorted newest-first:
 
 ```bash
-shelley build bwa-mem2/2.3
+shelley find fastq -v
 ```
 
-<details markdown="1">
-<summary>Example output</summary>
+TODO: Add screenshot
 
-![](assets/img/shelley_build_bwa-mem2.png)
+### Building a module
 
-</details>
-
-Confirm the module was built succesfully:
+Once you know the tool and version you want, build its Lmod module with `shelley build`:
 
 ```bash
-module avail
+shelley build fastqc
 ```
 
-<details markdown="1">
-<summary>Example output</summary>
+This installs the most recent available version by default.
 
-![](assets/img/module_avail.png)
 
-</details>
+TODO: screenshot
 
-Load the module:
+TODO: Call out tip: to use `build` <tool>/<version>` for a specific version install.
+
+### Loading and running the tool
+
+After a successful build, load the module the same way you would on any HPC system and
+run the tool:
 
 ```bash
-module load bwa-mem2
+module load fastqc
+fastqc --version
 ```
 
-Finally, run `bwa-mem2`:
+That's the whole loop: search, find, build, load, and run. This is the same loop you'll use
+for any tool in the BioContainers catalogue.
 
-```bash
-bwa-mem2 version
-# 2.2.1
-```
-
-{% include callout.html type="tip" content="Use `shelley search` when you know what you want to do but not the tool name. For example, `shelley search 'variant calling'` returns tools relevant to that task." %}
-
-### Why Shelley over manual sHPC? {#why-shelley}
-
-The manual sHPC method requires you to load the module, search the registry, identify the
-correct entry, check available versions, construct the install command with the right CVMFS
-path and flags, then load the result. If the version you need is not in the registry (common
-for anything older than the latest release), you also need to check CVMFS directly for the
-image, compute its checksum, fetch the registry YAML, edit it to add the missing version,
-create and register a local registry, ensure it takes precedence, then run the install.
-
-With Shelley, regardless of whether the version is in the sHPC registry or not it handles the registry check, CVMFS path resolution, local entry creation, and the sHPC installation.
-
-```bash
-shelley build bwa-mem2/2.3
-```
-
-The result is identical: a working `module load` command,
-without requiring you to know how the underlying machinery works.
-
-{% include callout.html type="tip" content="If Shelley cannot find a tool, fall back to the manual sHPC method below." %}
-
-<details markdown="1" id="shpc-manual">
-<summary>Advanced: manual installation</summary>
-
-#### Using sHPC directly {#shpc-direct}
-
-If Shelley cannot find what you need, or you prefer direct sHPC control, use the steps
-below. This example uses `plink` throughout.
-
-**Load sHPC:**
-
-```bash
-module load shpc
-```
-
-**Search for a tool and view versions:**
-
-```bash
-shpc show -f plink
-shpc show quay.io/biocontainers/plink
-```
-
-**Verify container path on CVMFS:**
-
-```bash
-ls /cvmfs/singularity.galaxyproject.org/all/plink*
-```
-
-**Install a module directly from CVMFS:**
-
-```bash
-shpc install quay.io/biocontainers/plink:1.90b7.7--h18e278d_1 \
-  /cvmfs/singularity.galaxyproject.org/all/plink:1.90b7.7--h18e278d_1 \
-  --keep-path
-```
-
-The `--keep-path` flag tells sHPC to use the container already present in CVMFS rather than
-downloading a fresh copy. The tag numbers must match.
-
-**Load and use the module:**
-
-```bash
-module use ~/shpc/modules
-module load quay.io/biocontainers/plink/1.90b7.7--h18e278d_1
-plink --version
-```
-
-**Or run the container directly without a module:**
-
-```bash
-singularity exec \
-  /cvmfs/singularity.galaxyproject.org/all/plink:1.90b7.7--h18e278d_1 \
-  plink --version
-```
-
-For full documentation see the
-[sHPC user guide](https://singularity-hpc.readthedocs.io/en/latest/getting_started/user-guide.html).
-
-#### Installing older or unlisted versions {#older-versions}
-
-Some older tool versions exist in CVMFS but are not listed in the default sHPC registry.
-Shelley handles this automatically, but if you need to do it manually, follow these steps.
-
-**1. Check CVMFS for the version:**
-
-```bash
-ls /cvmfs/singularity.galaxyproject.org/all/plink:1.90b4*
-```
-
-**2. Get its checksum:**
-
-```bash
-sha256sum /cvmfs/singularity.galaxyproject.org/all/plink:1.90b4--h0a6d026_2
-```
-
-**3. Create a local registry entry:**
-
-```bash
-sudo mkdir -p /apps/local/quay.io/biocontainers/plink
-
-# Fetch the existing remote recipe as a base
-curl -fsSL \
-  https://raw.githubusercontent.com/singularityhub/shpc-registry/main/quay.io/biocontainers/plink/container.yaml \
-  -o /apps/local/quay.io/biocontainers/plink/container.yaml
-
-# Edit the YAML to add the missing version tag and its checksum
-```
-
-**4. Register your local registry:**
-
-```bash
-sudo shpc config add registry /apps/local
-```
-
-Verify your local registry appears first (it must take precedence over the remote registry):
-
-```bash
-shpc config get registry
-# ['/apps/local', 'https://github.com/singularityhub/shpc-registry']
-```
-
-**5. Install from CVMFS:**
-
-```bash
-sudo shpc install quay.io/biocontainers/plink:1.90b4--h0a6d026_2 \
-  /cvmfs/singularity.galaxyproject.org/all/plink:1.90b4--h0a6d026_2 \
-  --keep-path
-```
-
-{% include callout.html type="tip" content="If Shelley recognises the container path but the version is not in the registry, `Shelley build` handles the local registry creation automatically." %}
-
-</details>
-
----
-
-## Loading modules {#load-tool}
-
-Once Shelley or sHPC has installed a module, load it with:
-
-```bash
-module load <tool>/<version>
-```
-
-Verify the tool is ready:
-
-```bash
-<tool> --version
-```
-
----
+Once you've got the hang of this, the [**How to use Shelley**](shelley-howto) guide covers
+the other use cases that will come in handy!
 
 ## Reference datasets {#reference-data}
 
@@ -358,14 +220,19 @@ sHPC requires Singularity to execute containers.
 
 Try `search` with different keywords, for example `Shelley search "alignment"` instead
 of a specific tool name. If the container exists in CVMFS but Shelley does not index it,
-fall back to the manual sHPC method above.
+fall back to installing the module manually with `shpc install` - see the
+[sHPC user guide](https://singularity-hpc.readthedocs.io/en/latest/getting_started/user-guide.html).
 
 ---
 
 ## Further reading {#further-reading}
 
+**CVMFS, sHPC, and reference data**
+
 - [sHPC user guide](https://singularity-hpc.readthedocs.io/en/latest/getting_started/user-guide.html)
 - [BioContainers registry](https://biocontainers.pro/registry)
-- [Shelley on GitHub](https://github.com/Sydney-Informatics-Hub/Shelley)
 - [CVMFS documentation](https://cvmfs.readthedocs.io/en/stable/)
 - [Galaxy Project CVMFS repositories](https://galaxyproject.org/admin/cvmfs/)
+- [**How to use Shelley**](shelley-howto) - task-oriented steps, including a worked example installing `bwa-mem2`
+- [Full CLI reference](https://github.com/Sydney-Informatics-Hub/shelley/blob/main/docs/reference/cli.md)
+- [Design rationale](https://github.com/Sydney-Informatics-Hub/shelley/tree/main/docs/explanation)
