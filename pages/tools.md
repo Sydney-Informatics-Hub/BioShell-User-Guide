@@ -61,7 +61,7 @@ samtools --version
 
 sHPC turns containers into clean, versioned modules without requiring you to know how containers work. On BioShell, sHPC should be configured so that installations point at containers already present in CVMFS, so nothing is re-downloaded.
 
-### Introducing Shelley :turtle: {#Shelley}
+## Introducing Shelley :turtle: {#Shelley}
 
 Working with CVMFS paths and sHPC registry recipes by hand is tedious and error-prone,
 particularly for older tool versions not listed in the standard registry. **Shelley** is
@@ -71,7 +71,7 @@ entries, and runs the sHPC install, all from a single command.
 
 {% include callout.html type="tip" content="**Recommended:** use Shelley rather than sHPC directly. The rest of this guide walks through how Shelley can be used to find, install, and run tools without interacting with the CVMFS or sHPC directly!" %}
 
-## Getting started with Shelley {#getting-started-with-shelley}
+### Getting started with Shelley {#getting-started-with-shelley}
 
 Shelley indexes **over 700 tools and 118,000 container versions** from the BioContainers
 catalogue, and you can run it directly from the command line or in an interactive mode.
@@ -114,11 +114,9 @@ shelley search "variant calling"
 shelley search "de novo assembly"
 ```
 
-Each result will show you the tool name and a brief description of what it does. **Shorter and more species phrases tend to work better than full sentences.**
+Each result will show you the tool name and a brief description of what it does. **Shorter, more specific phrases tend to work better than full sentences.**
 
-
-{% include callout.html type="note" content="Search is under active development. Results are currently alphabetical rather than ranked by relevance." %}
-TODO: Also returns a lot of files.
+{% include callout.html type="note" content="Search is under active development. All results are broad, and currently presented alphabetically. We recommend using shorter and more specific phrases as each extra word broadens the match rather than narrowing it, so a broad query like &quot;dna sequence quality control&quot; can return a large number of tools. Use the fewest, most specific terms you know, and remove words rather than adding them if you get too many results." %}
 
 ### Checking every available version
 
@@ -127,7 +125,7 @@ an exact version for reproducibility, or to match a pipeline's requirements, you
 `-v` (verbose) flag to see every available container, sorted newest-first:
 
 ```bash
-shelley find fastq -v
+shelley find fastqc -v
 ```
 
 TODO: Add screenshot
@@ -142,10 +140,9 @@ shelley build fastqc
 
 This installs the most recent available version by default.
 
-
 TODO: screenshot
 
-TODO: Call out tip: to use `build` <tool>/<version>` for a specific version install.
+{% include callout.html type="tip" content="To install a specific version instead of the most recent one, give `build` the same `<tool>/<version>` spec that `find -v` showed you, for example `shelley build fastqc/0.12.1`." %}
 
 ### Loading and running the tool
 
