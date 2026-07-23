@@ -15,7 +15,28 @@ sidebar: false
 
 ## Getting started
 
-{% include section-navigation-tiles_mod.html type="Getting started" col="1" %}
+<div class="page-tiles">
+  <div class="page-tiles-container">
+    <div class="page-tiles-list" style="--tile-cols: 3;">
+      <a href="{{ 'why-bioshell' | relative_url }}" class="page-tile-link">
+        <div class="page-tile-item">
+          <div class="page-tile-content">
+            <h3 class="page-tile-title" style="margin-top: 0.0rem">Why use a cloud workspace for bioinformatics?</h3>
+            <p class="page-tile-description">An introduction to virtual machines, cloud computing, and why BioShell is a great starting point for life-science researchers and workshop participants.</p>
+          </div>
+        </div>
+      </a>
+      <a href="{{ 'community' | relative_url }}" class="page-tile-link">
+        <div class="page-tile-item">
+          <div class="page-tile-content">
+            <h3 class="page-tile-title" style="margin-top: 0.0rem">Check out the community</h3>
+            <p class="page-tile-description">See the training workshops and research outcomes supported by BioShell, and how you can get involved.</p>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
 
 
 ## Using BioShell

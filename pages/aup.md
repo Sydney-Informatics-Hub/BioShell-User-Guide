@@ -61,7 +61,7 @@ BioShell defers to its infrastructure partners for planned maintenance schedulin
 - ARDC Nectar: [https://status.rc.nectar.org.au/outages/](https://status.rc.nectar.org.au/outages/)
 - NCI Nirin: [https://opus.nci.org.au/spaces/Help/pages/399802963/System+Maintenance+and+Notices](https://opus.nci.org.au/spaces/Help/pages/399802963/System+Maintenance+and+Notices)
 
-BioShell will communicate any platform-level maintenance affecting provisioning to registered users via the helpdesk email channel, with notice periods meeting or exceeding those provided by infrastructure partners. For unscheduled maintenance, BioShell will make every effort to give users as much advance notice as possible to limit disruption.
+BioShell will communicate any platform-level maintenance affecting provisioning to registered users via email, with notice periods meeting or exceeding those provided by infrastructure partners. For unscheduled maintenance, BioShell will make every effort to give users as much advance notice as possible to limit disruption.
 
 ### Managing storage quotas
 
@@ -96,7 +96,7 @@ The BioShell operations team retains administrative access to provisioned VMs fo
 
 **Support requests**
 
-When you submit a support request to BioShell, we collect your email address and any additional information you provide as part of the support process. Support request data is stored in our instance of Freshdesk; please refer to the [Freshworks Privacy Policy](https://www.freshworks.com/privacy/) for further information. Note that Freshdesk data may be stored outside Australia.
+Support requests and other interactions with BioShell are collected through Google Forms. When you complete a form, we collect the information you provide as part of the support or administrative process. Providing your name and email address is optional, though we may be unable to respond to or action your request without them. Google Forms data may be stored outside Australia.
 
 **Analytics**
 
@@ -106,5 +106,5 @@ BioShell does not currently use third-party analytics tools. Aggregate usage sta
 
 All BioShell VM environments and associated storage volumes are hosted on Australian infrastructure provided by NCI and ARDC Nectar. Data stored on your VM does not leave Australia except in the following circumstances:
 
-- Support request data managed via Freshdesk may be stored outside Australia
+- Support request data collected through Google Forms may be stored outside Australia
 - Any data you choose to export or share externally is your own responsibility
