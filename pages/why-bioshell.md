@@ -39,11 +39,15 @@ BioShell solves this by using open standards. All tools come from BioContainers 
 | **Truly reproducible** | Because BioShell is version-controlled and BioContainers are public, you can rebuild your entire analysis identically on any machine, share it with colleagues, or return to it years later. No more environment inconsistency between laptops, HPCs, or VMs |
 
 
-## HPC: an alternative for large-scale work {#cloud-vs-hpc}
+## BioShell vs HPC {#cloud-vs-hpc}
 
-You may also have heard of HPC, short for High-Performance Computing. An HPC system is a large, shared computer, such as the NCI Gadi supercomputer, that many researchers use simultaneously. While both cloud workspaces and HPC systems are powerful tools, they're suited to different kinds of work.
 
-The main difference is how you use them. On cloud machines like BioShell, you work interactively, the way you would on your own computer. On HPC, you write out the steps of your analysis like a recipe, submit it to a shared queue, and wait for the results. HPC is efficient for very large jobs, but it has a steeper learning curve.
+You may also have heard of HPC, short for High-Performance Computing. An HPC system is a large, shared computer, such as the NCI Gadi supercomputer, that many researchers use simultaneously.
+
+HPC and cloud workspaces are both powerful, but they work differently. On cloud machines like BioShell, you work interactively, the way you would on your own computer. On HPC, you write out the steps of your analysis like a recipe, submit it to a shared queue, and wait for the results. HPC is efficient for very large jobs, but it has a steeper learning curve.
+
+BioShell lets you work with familiar tools like RStudio or Jupyter notebooks while getting the computational power you need. It's also a low-pressure environment to learn the command line, without the complexity of a shared HPC system.
+
 
 | | BioShell (cloud) | HPC (e.g. NCI Gadi) |
 |--|-----------------|---------------------|
