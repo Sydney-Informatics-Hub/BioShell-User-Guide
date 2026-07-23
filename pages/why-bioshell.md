@@ -12,12 +12,14 @@ computing is, when to use it, and why BioShell makes it easy to get started.
 
 ## What is a virtual machine? {#what-is-a-vm}
 
-A virtual machine is a computer that runs inside another computer, delivered to you over the
-internet. You connect to it from your laptop or desktop, and it behaves like a full computer
-you have complete control over. You do not need to worry about your own hardware specs or
-operating system, and unlike an HPC system, you have the administrator access to install and
-configure software yourself, no need to work around module systems or wait on sysadmin
-approval. [Shelley](tools) is there to make that installation step fast.
+A virtual machine (or VM) is a computer that lives on a server somewhere else and that you use
+over the internet. You connect to it from your own laptop or desktop, and from then on it works
+just like a normal computer, one that happens to be much more powerful than your laptop.
+
+Because the VM is your own space, you are free to set it up however you like. You can install
+whatever software you need and change any setting, without asking anyone for permission or
+waiting for a helpdesk to do it for you. [Shelley](tools), the tool that comes built into
+BioShell, makes installing that software quick and simple.
 
 {% include callout.html type="tip" content="It's like booking a fully equipped lab bench. The facility handles all the infrastructure, the bench is cleared, powered, common use instruments are maintained and ready to go. You bring your samples and your experimental protocol, and run your work. Need extra equipment or more bench space? You request it and get it immediately without waiting for installation. When you're finished, you collect your results, clear out your samples, and the bench gets cleaned and reset for the next researcher." %}
 
@@ -57,7 +59,7 @@ teaching. BioShell solves this.
 
 | Feature | What it means for you |
 |---------|----------------------|
-| **Ready on any device** | Every participant gets the same preconfigured environment regardless of whether they are on Windows, macOS, or Linux with no device-specific setup required |
+| **Ready on any device** | Every user gets the same preconfigured environment regardless of whether they are on Windows, macOS, or Linux with no device-specific setup required |
 | **More power than your laptop** | Use familiar tools like RStudio and JupyterLab, but backed by cloud compute that is not competing with your browser, email, or background applications |
 | **Tool discovery built in** | [Shelley](tools), BioShell's command-line assistant, makes finding and installing tools from a catalogue of over 20,000 containers as simple as `Shelley build <tool>`, no container knowledge needed |
 | **Reproducible workshops** | Version-controlled environments mean you can build a workshop once and rerun it identically next year, or share it with another trainer at another institution |
