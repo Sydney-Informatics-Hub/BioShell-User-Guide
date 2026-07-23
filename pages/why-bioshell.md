@@ -4,80 +4,60 @@ type: Getting started
 description: An introduction to virtual machines, cloud computing, and why BioShell is a great starting point for life-science researchers and workshop participants.
 ---
 
-If you are new to bioinformatics and the world of high computing, this page explains what cloud
-computing is, when to use it, and why BioShell makes it easy to get started.
+New to bioinformatics or high-performance computing? This page explains what a cloud workspace is, when it's the right tool, and why BioShell is an easy place to start.
 
-{% include callout.html type="note" content="Why 'cloud'? The name comes from old network diagrams, engineers would draw a cloud symbol for the internet or any infrastructure whose exact physical location did not matter to the diagram. The name stuck: your data and computing actually run on real servers in a data centre somewhere, but you do not need to know or care where, you just connect over the internet and use it." %}
+{% include callout.html type="note" content="Why 'cloud'? The name comes from old network diagrams, where engineers would draw a cloud symbol for the internet or any infrastructure whose exact physical location didn't matter to the diagram. The name stuck. Your work really does run on physical computers in a data centre somewhere, but you never need to know where. You just connect over the internet and use them." %}
 
 
 ## What is a virtual machine? {#what-is-a-vm}
 
-A virtual machine (or VM) is a computer that lives on a server somewhere else and that you use
-over the internet. You connect to it from your own laptop or desktop, and from then on it works
-just like a normal computer, one that happens to be much more powerful than your laptop.
+A virtual machine (or VM) is a computer hosted in a data centre that you access over the internet. You connect from your own laptop, and it behaves like a normal computer, just far more powerful than your own.
 
-Because the VM is your own space, you are free to set it up however you like. You can install
-whatever software you need and change any setting, without asking anyone for permission or
-waiting for a helpdesk to do it for you. [Shelley](tools), the tool that comes built into
-BioShell, makes installing that software quick and simple.
+It's your own private space. You can set it up however you like and install any software you need without asking for permission or waiting for administrator help. If something goes wrong, it only affects your own machine.
 
-{% include callout.html type="tip" content="It's like booking a fully equipped lab bench. The facility handles all the infrastructure, the bench is cleared, powered, common use instruments are maintained and ready to go. You bring your samples and your experimental protocol, and run your work. Need extra equipment or more bench space? You request it and get it immediately without waiting for installation. When you're finished, you collect your results, clear out your samples, and the bench gets cleaned and reset for the next researcher." %}
+{% include callout.html type="tip" content="Think of it like having your own research lab. You don't need to worry about installing the lights or plumbing. That's all already there and working. You walk in, set up your workspace the way you like it, and get to work on what actually matters: your research. If you need a new tool or more space, you just ask and it's there. Best of all, you have the freedom to experiment and learn without worrying about breaking something someone else depends on. It's your space to make your own." %}
 
-With a virtual machine you can:
+A VM like this lets you:
 
-- Get more computing power than your laptop for data analysis
+- Use far more computing power than your laptop can offer
+- Keep long analyses running even after you close your laptop
+- Work in a Linux environment, the operating system most bioinformatics tools are built for, even if you normally use Windows or macOS
 - Share the same environment with colleagues or workshop participants
-- Run long jobs overnight without worrying about power outages or closing your laptop
-- Use a Linux environment even if you normally use Windows or macOS
 - Have administrator access to install software and configure the system
-- Host services such as databases or web servers
-
-
-## Cloud vs HPC - which should I use? {#cloud-vs-hpc}
-
-Both cloud computing and High-Performance Computing (HPC) systems such as NCI Gadi are
-powerful research tools, but they suit different types of work.
-
-| | Cloud (BioShell) | HPC (e.g. NCI Gadi) |
-|--|-----------------|---------------------|
-| **Session type** | Interactive - work in real time | Batch - submit jobs and come back later |
-| **Interfaces** | JupyterLab, RStudio, CLI | CLI only (PBS/Slurm schedulers) |
-| **Setup required** | You install your own tools (Shelley makes this quick), with full admin control and none of an HPC's module or approval restrictions | Familiarity with job schedulers required |
-| **Best for** | Learning, workshops, exploratory analysis | Large-scale, tightly coupled, or long-running workloads |
-| **Scaling** | Flexible - choose your VM size on demand | Fixed allocations managed through project quotas |
-
-**Not sure which to use?** If you are learning bioinformatics, running a workshop, or
-exploring a new analysis, start with cloud. BioShell is the right choice. You can move to
-HPC later once your workflow is established and you need more compute power.
-
 
 ## Why BioShell? {#why-bioshell}
 
-Getting started on the command line is often the hardest part. Software installs break.
-Environments differ between computers. Trainers spend hours configuring machines instead of
-teaching. BioShell solves this.
+Bioinformatics analyses typically require many specialised tools chained together, each with its own dependencies. Version conflicts are common because one tool might need an older version of a library while another needs a newer one. This makes setting up all these tools time-consuming, and once you do, your analysis is difficult to reproduce on a different machine.
 
-| Feature | What it means for you |
-|---------|----------------------|
-| **Ready on any device** | Every user gets the same preconfigured environment regardless of whether they are on Windows, macOS, or Linux with no device-specific setup required |
-| **More power than your laptop** | Use familiar tools like RStudio and JupyterLab, but backed by cloud compute that is not competing with your browser, email, or background applications |
-| **Tool discovery built in** | [Shelley](tools), BioShell's command-line assistant, makes finding and installing tools from a catalogue of over 20,000 containers as simple as `Shelley build <tool>`, no container knowledge needed |
-| **Reproducible workshops** | Version-controlled environments mean you can build a workshop once and rerun it identically next year, or share it with another trainer at another institution |
-| **Easier access than HPC** | Getting time on a national HPC requires project allocation, queue estimates, and job scheduler knowledge. BioShell access is fast, self-service, and does not require you to know in advance exactly what you will run |
-| **Admin access, safely sandboxed** | You have full administrator privileges on your own VM, install anything and break things without affecting other users or needing HPC sysadmin approval |
+BioShell solves this by using open standards. All tools come from BioContainers (the same public repository that Galaxy uses), retrieved and installed by Shelley. Because BioShell itself is version-controlled and built on public infrastructure, your analysis stays reproducible and portable. You skip the installation overhead and get a research environment that travels with you.
+
+| | What it means for you |
+|--|----------------------|
+| **Ready to use** | Every user gets the same pre-configured environment. No setup needed before you start |
+| **Built on open standards** | You get access to tools that are already built, vetted, and documented by the bioinformatics community |
+| **Find and install tools easily** | [Shelley](tools) handles the work of retrieving containers, installing them, and showing you what each tool does. Install any of 20,000+ bioinformatics tools with a single command: `shelley build <tool>` |
+| **Truly reproducible** | Because BioShell is version-controlled and BioContainers are public, you can rebuild your entire analysis identically on any machine, share it with colleagues, or return to it years later. No more environment inconsistency between laptops, HPCs, or VMs |
 
 
-## How does BioShell fit with HPC? {#bioshell-and-hpc}
+## HPC: an alternative for large-scale work {#cloud-vs-hpc}
 
-BioShell is not a replacement for large-scale HPC, it complements it. Think of it as the
-place where you learn, develop, and test your workflows before scaling up. It helps fill the gap between working on your laptop and moving onto a HPC
+You may also have heard of HPC, short for High-Performance Computing. An HPC system is a large, shared computer, such as the NCI Gadi supercomputer, that many researchers use simultaneously. While both cloud workspaces and HPC systems are powerful tools, they're suited to different kinds of work.
 
-1. **Learn and explore on BioShell** - get comfortable with the command line, tools, and
-   your data in a low-pressure environment.
-2. **Develop and test your workflow** - build and validate your Nextflow or Snakemake
-   pipeline using BioShell's pre-installed tools and example datasets.
-3. **Scale up to HPC when ready** - once your workflow is confirmed and your data needs are
-   clear, move to NCI Gadi or another HPC system for large-scale runs.
+The main difference is how you use them. On cloud machines like BioShell, you work interactively, the way you would on your own computer. On HPC, you write out the steps of your analysis like a recipe, submit it to a shared queue, and wait for the results. HPC is efficient for very large jobs, but it has a steeper learning curve.
 
+| | BioShell (cloud) | HPC (e.g. NCI Gadi) |
+|--|-----------------|---------------------|
+| **How you work** | Interactively, in real time | Submit jobs to a queue and retrieve results later |
+| **How you connect** | Web tools (JupyterLab, RStudio) or the command line | Command line only |
+| **Getting set up** | Self-service and quick; you install your own tools | Requires an approved allocation and administrator setup; knowledge of job queues needed |
+| **Best for** | Learning, workshops, and exploring new analyses | Large-scale or long-running analyses that benefit from parallel processing |
+
+## When to use BioShell {#when-to-use}
+
+If you are learning bioinformatics, running a workshop, or exploring a new analysis, BioShell is a good choice:
+
+1. **Learn and explore on BioShell.** Get comfortable with the command line, your tools, and your data.
+2. **Build and test your analysis.** Put together your analysis pipeline (for example, one written in Nextflow) and check that it works using BioShell's ready-to-go tools and example data.
+3. **Move to HPC if needed.** If your analysis requires significant computing power or will run for extended periods, a HPC system like NCI Gadi is better suited to those demands.
 
 ## [Ready to get started? Check your eligibility and apply →](access#eligibility) {#get-started} 
