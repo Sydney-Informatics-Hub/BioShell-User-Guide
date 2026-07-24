@@ -32,14 +32,14 @@ prefixing every call with `shelley`.
 
 This worked example uses `bwa-mem2` to demonstrate the steps to use and apply to any tool in the CVMFS catalogue.
 
-**1.** Use `shelley` to look up `bwa-mem2` and the versions available for it
+**1.** Use `shelley` to look up `bwa-mem2` and the available versions
 
 ```bash
 shelley find bwa-mem2
 ```
 
 <details markdown="1">
-<summary>Example output</summary>
+<summary>Show output</summary>
 ![](assets/img/shelley_find_bwa-mem2.png)
 <br>
 </details>
@@ -64,8 +64,10 @@ shelley build bwa-mem2/2.3
 module avail
 ```
 
+`bwa-mem2` is listed alongside the other pre-built BioShell modules.
+
 <details markdown="1">
-<summary>Example output</summary>
+<summary>Show output</summary>
 ![](assets/img/module_avail.png)
 <br>
 </details>
@@ -141,14 +143,10 @@ Shelley builds each tool in the file in sequence, showing a progress table as it
 </details>
 <br>
 
-Use the arrow keys to select a build, then press Enter to continue the batch.
+Use the arrow keys to select a build, then press Enter to continue building the tools.
 
 **4.** Once every tool has been built, Shelley prints a summary, and the modules are
 available to load.
-
-```bash
-module avail
-```
 
 <details markdown="1">
 <summary>Show output</summary>
@@ -156,6 +154,10 @@ module avail
 <br>
 </details>
 <br>
+
+```bash
+module avail
+```
 
 ```
 ---------------------------------------------------------- /apps/Modules/modulefiles ----------------------------------------------------------
@@ -204,7 +206,7 @@ sHPC's [shpc-registry](https://github.com/singularityhub/shpc-registry) supplies
 for most tools, but it doesn't cover every version. Very new containers, and containers
 built before a tool was added to the registry, often have no entry at all.
 
-**You don't need to know whether a version is registered as `shelley build` checks for you
+**You don't need to know whether a version is registered, as `shelley build` checks for you
 and will build this on-the-fly.**
 
 ```bash
@@ -216,7 +218,7 @@ are the tool's own, so the module's aliases don't get cluttered with every binar
 bundled inside the container:
 
 <details markdown="1">
-<summary>Example output</summary>
+<summary>Show output</summary>
 ```
 Generating diff for /cvmfs/singularity.galaxyproject.org/all/bowtie2:2.5.1--py39h6fed5c7_2
 <truncated>
@@ -252,8 +254,8 @@ completes:
 shelley build vcftools/0.1.12b--pl5262h2e03b76_2 -i
 ```
 
-**1.** Shelley first lists every binary in the container as a candidate alias — without
-curation, all of these would be exposed by the module:
+**1.** Shelley first lists every binary in the container as a candidate alias. Without
+curation, all of these would be exposed by the module.
 
 <details markdown="1">
 <summary>Example output</summary>
@@ -271,10 +273,10 @@ curation, all of these would be exposed by the module:
 </details>
 <br>
 
-**3.** Toggle each one you want with space, then press Enter once they're all selected:
+**3.** Toggle each one you want by pressing Space, then press Enter once they're all selected:
 
 <details markdown="1">
-<summary>Example output</summary>
+<summary>Show output</summary>
 ![](assets/img/shelley_build_vcftools_alias-selected.png)
 <br>
 </details>
@@ -291,7 +293,7 @@ the selection as-is:
 **5.** The module builds with only the curated aliases exposed:
 
 <details markdown="1">
-<summary>Example output</summary>
+<summary>Show output</summary>
 ![](assets/img/shelley_build_vcftools_complete.png)
 <br>
 </details>

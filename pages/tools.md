@@ -248,8 +248,6 @@ of a specific tool name. If the container exists in CVMFS but Shelley does not i
 fall back to installing the module manually with `shpc install` - see the
 [sHPC user guide](https://singularity-hpc.readthedocs.io/en/latest/getting_started/user-guide.html).
 
----
-
 ## Further reading {#further-reading}
 
 **CVMFS, sHPC, and reference data**
@@ -258,6 +256,6 @@ fall back to installing the module manually with `shpc install` - see the
 - [BioContainers registry](https://biocontainers.pro/registry)
 - [CVMFS documentation](https://cvmfs.readthedocs.io/en/stable/)
 - [Galaxy Project CVMFS repositories](https://galaxyproject.org/admin/cvmfs/)
-- [**How to use Shelley**](shelley-howto) snippets for Shelley use cases
+- [**How to use Shelley**](shelley-howto) - snippets for various use cases
 - [Full CLI reference](https://github.com/Sydney-Informatics-Hub/shelley/blob/main/docs/reference/cli.md)
 - [Design rationale](https://github.com/Sydney-Informatics-Hub/shelley/tree/main/docs/explanation)
