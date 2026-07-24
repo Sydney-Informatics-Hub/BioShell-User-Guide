@@ -16,6 +16,19 @@ If you have not yet generated and submitted your SSH key, see the
 
 ## Connect via SSH {#ssh-connect}
 
+You connect to BioShell over **SSH** (Secure Shell), so you will need an SSH client on your
+local machine. Most operating systems now ship with one built in, and a few graphical clients
+are also popular on Windows. Choose whichever suits your platform:
+
+| Platform | SSH client |
+|----------|------------|
+| **macOS** | The built-in **Terminal** app (`Terminal.app`) includes the `ssh` command. |
+| **Linux** | Your terminal emulator with the built-in OpenSSH `ssh` command. |
+| **Windows** | The built-in `ssh` command in **Windows Terminal** or PowerShell, or a graphical client such as [**MobaXterm**](https://mobaxterm.mobatek.net/), [**PuTTY**](https://putty.org/index.html), or an X server client. |
+| **Any platform** | [**Visual Studio Code**](https://code.visualstudio.com/) with the **Remote - SSH** extension, which connects and lets you edit files and run terminals inside your BioShell environment. |
+
+{% include callout.html type="tip" content="On macOS, Linux, and modern Windows the `ssh` command is available directly from the terminal, so the command-line examples below work as-is. Graphical clients such as MobaXterm and PuTTY ask for the same details (host, username, and your private key file) through their connection dialogs instead." %}
+
 Add an entry to `~/.ssh/config` so SSH automatically uses your BioShell key without needing
 to specify it each time:
 
@@ -40,8 +53,12 @@ ssh -i ~/.ssh/bioshell_key <username>@<your-bioshell-ip>
 
 ## First login {#first-login}
 
-When you connect for the first time you will land in your home directory. Confirm where you
-are with `pwd`:
+When you connect for the first time you are greeted by the BioShell welcome message and land
+in your home directory:
+
+![](assets/img/BioShell_welcome_message.png)
+
+Confirm where you are with `pwd`:
 
 ```bash
 pwd
