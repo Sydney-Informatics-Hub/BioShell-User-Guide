@@ -81,12 +81,16 @@ for the first time.
 Before you start, confirm Shelley is available:
 
 ```bash
-shelley --help
+shelley help
 ```
 
 You will see a list of available commands.
 
-TODO: user to add screenshot
+<details markdown="1">
+<summary>Example output</summary>
+![](assets/img/shelley_help.png)
+<br>
+</details>
 
 #### Finding a tool you already know by name
 
@@ -96,7 +100,11 @@ Say you already know you need `fastqc`. Look it up with `find`:
 shelley find fastqc
 ```
 
-TODO: User to add screenshot
+<details markdown="1">
+<summary>Example output</summary>
+![](assets/img/shelley_find_fastqc.png)
+<br>
+</details>
 
 Shelley returns the tool's description together with its most recent container versions,
 plus whether it is installed as a module yet. `find` is forgiving about
@@ -116,6 +124,12 @@ shelley search "de novo assembly"
 
 Each result will show you the tool name and a brief description of what it does. **Shorter, more specific phrases tend to work better than full sentences.**
 
+<details markdown="1">
+<summary>Example output</summary>
+![](assets/img/shelley_search_de-novo-assembly.png)
+<br>
+</details>
+
 {% include callout.html type="note" content="Search is under active development. All results are broad, and currently presented alphabetically. We recommend using shorter and more specific phrases as each extra word broadens the match rather than narrowing it, so a broad query like &quot;dna sequence quality control&quot; can return a large number of tools. Use the fewest, most specific terms you know, and remove words rather than adding them if you get too many results." %}
 
 ### Checking every available version
@@ -128,7 +142,11 @@ an exact version for reproducibility, or to match a pipeline's requirements, you
 shelley find fastqc -v
 ```
 
-TODO: Add screenshot
+<details markdown="1">
+<summary>Example output</summary>
+![](assets/img/shelley_find_fastqc_v.png)
+<br>
+</details>
 
 ### Building a module
 
@@ -140,7 +158,11 @@ shelley build fastqc
 
 This installs the most recent available version by default.
 
-TODO: screenshot
+<details markdown="1">
+<summary>Example output</summary>
+![](assets/img/shelley_build_fastqc.png)
+<br>
+</details>
 
 {% include callout.html type="tip" content="To install a specific version instead of the most recent one, give `build` the same `<tool>/<version>` spec that `find -v` showed you, for example `shelley build fastqc/0.12.1`." %}
 
@@ -152,6 +174,7 @@ run the tool:
 ```bash
 module load fastqc
 fastqc --version
+# FastQC v0.12.1
 ```
 
 That's the whole loop: search, find, build, load, and run. This is the same loop you'll use
@@ -230,6 +253,6 @@ fall back to installing the module manually with `shpc install` - see the
 - [BioContainers registry](https://biocontainers.pro/registry)
 - [CVMFS documentation](https://cvmfs.readthedocs.io/en/stable/)
 - [Galaxy Project CVMFS repositories](https://galaxyproject.org/admin/cvmfs/)
-- [**How to use Shelley**](shelley-howto) - task-oriented steps, including a worked example installing `bwa-mem2`
+- [**How to use Shelley**](shelley-howto) snippets for Shelley use cases
 - [Full CLI reference](https://github.com/Sydney-Informatics-Hub/shelley/blob/main/docs/reference/cli.md)
 - [Design rationale](https://github.com/Sydney-Informatics-Hub/shelley/tree/main/docs/explanation)
