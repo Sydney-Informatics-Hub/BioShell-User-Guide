@@ -43,7 +43,7 @@ shelley find bwa-mem2
 ![](assets/img/shelley_find_bwa-mem2.png)
 <br>
 </details>
-
+<br>
 
 **2.** Build a loadable module
 
@@ -56,6 +56,7 @@ shelley build bwa-mem2/2.3
 ![](assets/img/shelley_build_bwa-mem2.png)
 <br>
 </details>
+<br>
 
 **3.** Confirm the module was built succesfully
 
@@ -68,6 +69,7 @@ module avail
 ![](assets/img/module_avail.png)
 <br>
 </details>
+<br>
 
 **4.** Load the module
 
@@ -127,6 +129,7 @@ Shelley builds each tool in the file in sequence, showing a progress table as it
 ![](assets/img/shelley_build_tools-txt.png)
 <br>
 </details>
+<br>
 
 **3.** If a tool has more than one build for the same version (for example, several
 `--hash` builds of `samtools/1.21`), Shelley pauses and asks you to pick one.
@@ -136,6 +139,7 @@ Shelley builds each tool in the file in sequence, showing a progress table as it
 ![](assets/img/shelley_build_multiple-builds-prompt.png)
 <br>
 </details>
+<br>
 
 Use the arrow keys to select a build, then press Enter to continue the batch.
 
@@ -151,6 +155,7 @@ module avail
 ![](assets/img/shelley_build_tools-txt_summary.png)
 <br>
 </details>
+<br>
 
 ```
 ---------------------------------------------------------- /apps/Modules/modulefiles ----------------------------------------------------------
@@ -180,6 +185,7 @@ shelley find fastqc -v
 ![](assets/img/shelley_find_fastqc_v.png)
 <br>
 </details>
+<br>
 
 Each row corresponds to one `--hash` build of a version, with its buildable/installed
 status and the path you can copy into a config file, such as:
@@ -222,6 +228,7 @@ docker.io/library/busybox:1.34: removed 90 shared paths.
 ![](assets/img/shelley_build_bowtie2_unregistered.png)
 <br>
 </details>
+<br>
 
 If the version is missing from the upstream registry, Shelley creates a local registry
 entry from the CVMFS container itself and retries the install. This is transparent and
@@ -253,6 +260,7 @@ curation, all of these would be exposed by the module:
 ![](assets/img/shelley_build_vcftools_alias-select-all.png)
 <br>
 </details>
+<br>
 
 **2.** Type to filter the list down to the ones relevant to `vcftools`, for example `vcf`:
 
@@ -261,6 +269,7 @@ curation, all of these would be exposed by the module:
 ![](assets/img/shelley_build_vcftools_alias-filter-vcf.png)
 <br>
 </details>
+<br>
 
 **3.** Toggle each one you want with space, then press Enter once they're all selected:
 
@@ -269,6 +278,7 @@ curation, all of these would be exposed by the module:
 ![](assets/img/shelley_build_vcftools_alias-selected.png)
 <br>
 </details>
+<br>
 
 **4.** Shelley then asks whether to add or rename any aliases. Answer `n` to both to keep
 the selection as-is:
@@ -285,4 +295,5 @@ the selection as-is:
 ![](assets/img/shelley_build_vcftools_complete.png)
 <br>
 </details>
+<br>
 

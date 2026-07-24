@@ -91,6 +91,7 @@ You will see a list of available commands.
 ![](assets/img/shelley_help.png)
 <br>
 </details>
+<br>
 
 #### Finding a tool you already know by name
 
@@ -105,6 +106,7 @@ shelley find fastqc
 ![](assets/img/shelley_find_fastqc.png)
 <br>
 </details>
+<br>
 
 Shelley returns the tool's description together with its most recent container versions,
 plus whether it is installed as a module yet. `find` is forgiving about
@@ -129,6 +131,7 @@ Each result will show you the tool name and a brief description of what it does.
 ![](assets/img/shelley_search_de-novo-assembly.png)
 <br>
 </details>
+<br>
 
 {% include callout.html type="note" content="Search is under active development. All results are broad, and currently presented alphabetically. We recommend using shorter and more specific phrases as each extra word broadens the match rather than narrowing it, so a broad query like &quot;dna sequence quality control&quot; can return a large number of tools. Use the fewest, most specific terms you know, and remove words rather than adding them if you get too many results." %}
 
@@ -147,6 +150,7 @@ shelley find fastqc -v
 ![](assets/img/shelley_find_fastqc_v.png)
 <br>
 </details>
+<br>
 
 ### Building a module
 
@@ -163,6 +167,7 @@ This installs the most recent available version by default.
 ![](assets/img/shelley_build_fastqc.png)
 <br>
 </details>
+<br>
 
 {% include callout.html type="tip" content="To install a specific version instead of the most recent one, give `build` the same `<tool>/<version>` spec that `find -v` showed you, for example `shelley build fastqc/0.12.1`." %}
 
