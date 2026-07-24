@@ -32,7 +32,7 @@ prefixing every call with `shelley`.
 
 This worked example uses `bwa-mem2` to demonstrate the steps to use and apply to any tool in the CVMFS catalogue.
 
-1. Use `shelley` to look up `bwa-mem2` and the versions available for it:
+**1.** Use `shelley` to look up `bwa-mem2` and the versions available for it
 
 ```bash
 shelley find bwa-mem2
@@ -45,7 +45,7 @@ shelley find bwa-mem2
 </details>
 
 
-2. Build a loadable module:
+**2.** Build a loadable module
 
 ```bash
 shelley build bwa-mem2/2.3
@@ -57,7 +57,7 @@ shelley build bwa-mem2/2.3
 <br>
 </details>
 
-3. Confirm the module was built succesfully:
+**3.** Confirm the module was built succesfully
 
 ```bash
 module avail
@@ -69,20 +69,20 @@ module avail
 <br>
 </details>
 
-4. Load the module:
+**4.** Load the module
 
 ```bash
 module load bwa-mem2
 ```
 
-5. Finally, run `bwa-mem2`:
+**5.** Finally, run `bwa-mem2`
 
 ```bash
 bwa-mem2 version
 # 2.2.1
 ```
 
-You now have a loadable `bwa-mem2` module built from the BioContainers catalogue.
+You now have a working `bwa-mem2` module built from the BioContainers catalogue.
 The same five steps: find, build, confirm, load, run - apply to any tool available
 through Shelley.
 
@@ -92,26 +92,77 @@ through Shelley.
 
 If you need several modules built at once, for example, all the tools a pipeline
 depends on, you can pass `shelley build` a plain-text file listing one tool spec per line
-instead of building each tool individually:
+instead of building each tool individually.
+
+**1.** Create `tools.txt` with the following contents
+
+```md
+# qc tools
+fastqc
+
+# Core alignment tools
+# some tools have versions specified for reproducibility
+samtools/1.21
+bowtie2/2.5.1
+bwa-mem2
+```
+
+Each line accepts the same format as a single-tool `build` call:
+- `<tool>`,
+- `<tool>/<version>`, or
+- `<tool>:<version>--<hash>`
+
+Blank lines and `#` comments are ignored, so you can group and annotate the list.
+
+**2.** Run the `build` command:
 
 ```bash
 shelley build tools.txt
 ```
 
-Each line follows the same format as a single-tool `build` call — `<tool>`,
-`<tool>/<version>`, or `<tool>:<version>--<hash>`. Blank lines and `#` comments are
-ignored, so you can group and annotate the list:
+Shelley builds each tool in the file in sequence, showing a progress table as it goes.
+
+<details markdown="1">
+<summary>Show output</summary>
+![](assets/img/shelley_build_tools-txt.png)
+<br>
+</details>
+
+**3.** If a tool has more than one build for the same version (for example, several
+`--hash` builds of `samtools/1.21`), Shelley pauses and asks you to pick one.
+
+<details markdown="1">
+<summary>Show output</summary>
+![](assets/img/shelley_build_multiple-builds-prompt.png)
+<br>
+</details>
+
+Use the arrow keys to select a build, then press Enter to continue the batch.
+
+**4.** Once every tool has been built, Shelley prints a summary, and the modules are
+available to load.
+
+```bash
+module avail
+```
+
+<details markdown="1">
+<summary>Show output</summary>
+![](assets/img/shelley_build_tools-txt_summary.png)
+<br>
+</details>
 
 ```
-# Core alignment tools
-samtools/1.21
-bwa
-bowtie2/2.5.1  # pinned for reproducibility
-fastqc
-```
+---------------------------------------------------------- /apps/Modules/modulefiles ----------------------------------------------------------
+   R/4.3.3           bowtie2/2.5.1--py39h6fed5c7_2    fastqc/0.12.1--hdfd78af_0    nextflow/25.10.4    rstudio/2023.12.1
+   ansible/2.16.3    bwa-mem2/2.3--he70b90d_0         jupyter/2026.04              nf-core/3.5.2       samtools/1.21--h96c455f_1
 
-Shelley detects that the argument is a file rather than a tool name, and builds every
-entry in sequence, showing a progress table and a results summary at the end.
+---------------------------------------------------------- /opt/Modules/modulefiles -----------------------------------------------------------
+   shpc (L)    singularity (L)
+
+  Where:
+   L:  Module is loaded
+```
 
 ## How-to find the full CVMFS path of containers {#find-cvmfs-path}
 
@@ -124,7 +175,11 @@ with its full CVMFS image path:
 shelley find fastqc -v
 ```
 
-TODO: screenshot
+<details markdown="1">
+<summary>Show output</summary>
+![](assets/img/shelley_find_fastqc_v.png)
+<br>
+</details>
 
 Each row corresponds to one `--hash` build of a version, with its buildable/installed
 status and the path you can copy into a config file, such as:
@@ -143,12 +198,30 @@ sHPC's [shpc-registry](https://github.com/singularityhub/shpc-registry) supplies
 for most tools, but it doesn't cover every version. Very new containers, and containers
 built before a tool was added to the registry, often have no entry at all.
 
-You don't need to know whether a version is registered as `shelley build` checks for you
-and will build this for you on-the-fly:
+**You don't need to know whether a version is registered as `shelley build` checks for you
+and will build this on-the-fly.**
 
 ```bash
-shelley build <tool>/<version> #TODO later: add version
+shelley build bowtie2/2.5.1
 ```
+
+Shelley diffs the container against its base-image manifests to work out which files
+are the tool's own, so the module's aliases don't get cluttered with every binary
+bundled inside the container:
+
+<details markdown="1">
+<summary>Example output</summary>
+```
+Generating diff for /cvmfs/singularity.galaxyproject.org/all/bowtie2:2.5.1--py39h6fed5c7_2
+<truncated>
+docker://docker.io/anaconda/miniconda:latest: removed 98 shared paths.
+docker.io/library/busybox:1.34: removed 90 shared paths.
+<truncated>
+```
+
+![](assets/img/shelley_build_bowtie2_unregistered.png)
+<br>
+</details>
 
 If the version is missing from the upstream registry, Shelley creates a local registry
 entry from the CVMFS container itself and retries the install. This is transparent and
@@ -169,8 +242,47 @@ the aliases a module exposes such as deselecting, renaming, or adding them; befo
 completes:
 
 ```bash
-shelley build <tool>/<version> -i
+shelley build vcftools/0.1.12b--pl5262h2e03b76_2 -i
 ```
 
-TODO: user to add a worked example (vcftools)
+**1.** Shelley first lists every binary in the container as a candidate alias — without
+curation, all of these would be exposed by the module:
+
+<details markdown="1">
+<summary>Example output</summary>
+![](assets/img/shelley_build_vcftools_alias-select-all.png)
+<br>
+</details>
+
+**2.** Type to filter the list down to the ones relevant to `vcftools`, for example `vcf`:
+
+<details markdown="1">
+<summary>Example output</summary>
+![](assets/img/shelley_build_vcftools_alias-filter-vcf.png)
+<br>
+</details>
+
+**3.** Toggle each one you want with space, then press Enter once they're all selected:
+
+<details markdown="1">
+<summary>Example output</summary>
+![](assets/img/shelley_build_vcftools_alias-selected.png)
+<br>
+</details>
+
+**4.** Shelley then asks whether to add or rename any aliases. Answer `n` to both to keep
+the selection as-is:
+
+```
+? Add new aliases? (y/n)No
+? Rename any aliases? (y/n)No
+```
+
+**5.** The module builds with only the curated aliases exposed:
+
+<details markdown="1">
+<summary>Example output</summary>
+![](assets/img/shelley_build_vcftools_complete.png)
+<br>
+</details>
 
