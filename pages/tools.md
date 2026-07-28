@@ -73,7 +73,7 @@ entries, and runs the sHPC install, all from a single command.
 
 ### Getting started with Shelley {#getting-started-with-shelley}
 
-Shelley indexes **over 700 tools and 118,000 container versions** from the BioContainers
+Shelley indexes **over 13,000 tools and 118,000 container versions** from the BioContainers
 catalogue, and you can run it directly from the command line or in an interactive mode.
 This tutorial walks through finding and installing a bioinformatics tool on a BioShell VM
 for the first time.
