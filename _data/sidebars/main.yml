@@ -14,6 +14,8 @@ subitems:
         url: /connecting
       - title: Tools and reference data
         url: /tools
+      - title: How to use Shelley
+        url: /shelley-howto
       - title: Interactive environments
         url: /interactive
       - title: Using Nextflow with CVMFS
