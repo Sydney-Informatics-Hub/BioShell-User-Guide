@@ -40,7 +40,7 @@ BioShell solves this. All tools come from BioContainers (the same tool library t
 
 You may also have used a High-Performance Computer (or HPC). HPCs are large, shared cluster of computers, that many researchers use simultaneously.
 
-HPC and cloud workspaces are both powerful, but they work differently. On VMs like BioShell, you can work interactively, the way you would on your own computer. On HPC, you write out the steps of your analysis like a recipe, submit it to a shared queue, and wait for the results. HPC is efficient for large batch processing jobs, but it has a steeper learning curve.
+HPC and cloud workspaces are both powerful, but they work differently. On VMs like BioShell, you can work interactively, the way you would on your own computer. On HPC, you write out the steps of your analysis like a recipe, submit it to a shared queue, and wait for the results. HPC is efficient for very large batch processing jobs, but it has a steeper learning curve.
 
 BioShell lets you work with familiar tools like RStudio or Jupyter notebooks while getting the computational power you need. It's also a low-pressure environment to learn the command line, without the complexity of a shared HPC system.
 

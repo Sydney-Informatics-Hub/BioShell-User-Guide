@@ -3,26 +3,26 @@ subitems:
     url: /index
   - title: Getting started
     url: /why-bioshell
-  - title: Accessing BioShell
+  - title: Access BioShell
     url: /access
-  - title: Using BioShell
+  - title: BioShell for research
     url: /using-bioshell
     subitems:
-      - title: Choosing an environment size
+      - title: Choose an environment size
         url: /flavours
-      - title: Connecting to BioShell
+      - title: Connect to BioShell
         url: /connecting
-      - title: Tools and reference data
+      - title: Find tools and reference data
         url: /tools
-      - title: How to use Shelley
+      - title: Use Shelley
         url: /shelley-howto
-      - title: Interactive environments
+      - title: Use interactive environments
         url: /interactive
-      - title: Using Nextflow with CVMFS
+      - title: Use Nextflow with our tool library
         url: /nextflow
-  - title: Setting up a training VM
+  - title: BioShell for training
     url: /training-development
-  - title: BioShell community and outcomes
+  - title: Community and outcomes
     url: /community
   - title: Get involved
     url: /contributing
