@@ -3,11 +3,11 @@ subitems:
     url: /index
   - title: Getting started
     url: /why-bioshell
+  - title: Accessing BioShell
+    url: /access
   - title: Using BioShell
     url: /using-bioshell
     subitems:
-      - title: Accessing BioShell
-        url: /access
       - title: Choosing an environment size
         url: /flavours
       - title: Connecting to BioShell
