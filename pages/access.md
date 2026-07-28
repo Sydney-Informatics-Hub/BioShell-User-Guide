@@ -32,6 +32,8 @@ By submitting an access request you agree to the [**BioShell acceptable use poli
 
 ### What does access include? {#quotas}
 
+{% include callout.html type="note" content="The default storage quota is 100 GB, and you can request up to 1 TB with justification. To request more storage, contact [**BioShell support**](https://docs.google.com/forms/d/e/1FAIpQLSc6Tr2FAponrwYuMXfqspuzcXnssbM5gQ9ChLUqzh5yUxWJuQ/viewform). Requests are subject to availability and review and cannot be guaranteed." %}
+
 | | Research | Development |
 |---|---|---|---|
 | Data analysis and visualisation | Yes | Yes |
@@ -41,20 +43,15 @@ By submitting an access request you agree to the [**BioShell acceptable use poli
 | Allocation period | 3 months | 3 months |
 | Renewal | Yes, subject to review | Yes, subject to review |
 
-
-{% include callout.html type="note" content="The default storage quota is 100 GB, and you can request up to 1 TB with justification. Quotas are controled by BioShell support, so it is not possible to exceed your allocation. To request more storage, contact [**BioShell support**](https://docs.google.com/forms/d/e/1FAIpQLSc6Tr2FAponrwYuMXfqspuzcXnssbM5gQ9ChLUqzh5yUxWJuQ/viewform). Requests are subject to availability and review and cannot be guaranteed." %}
-
 ### Access duration and renewal {#duration}
 
-For research and development projects access is granted for 3 months and is renewable. Renewal
-requires demonstrated usage and continued progress against the aims stated in your original
-application. 
+For research and development projects access is granted for 3 months and is renewable. Renewal requires demonstrated usage and continued progress against the aims stated in your original application. 
 
-Check out the [**project renewal form**](https://docs.google.com/forms/d/e/1FAIpQLSdhQzizqnQ7f5Os7TCDpXviiIVs1nbmtWweDzGH4r0poZlxxw/viewform?usp=header) for more information or to make a request.
+Complete the [**project renewal form**](https://docs.google.com/forms/d/e/1FAIpQLSdhQzizqnQ7f5Os7TCDpXviiIVs1nbmtWweDzGH4r0poZlxxw/viewform?usp=header) for more information or to make a request.
 
 ## Training events
 
 If you are planning a workshop or training event and wish to use BioShell, contact the
-[**BioCommons Training Team**](mailto:training@biocommons.org.au). Check out the Australian BioCommons [event support page](https://www.biocommons.org.au/event-support) for additional information on how we support training.
+[**BioCommons Training Team**](mailto:training@biocommons.org.au). Check out the Australian BioCommons [**event support page**](https://www.biocommons.org.au/event-support) for additional information on how we support training.
 
-{% include callout.html type="note" content="BioShell is the goto environment for running command-line training for details about workshops that have been run on BioShell see the **BioShell community and outcomes page**." %}
+{% include callout.html type="note" content="BioShell is the environment Australian BioCommons uses for all command-line-based training. For details about workshops that have been run on BioShell see the [**BioShell community and outcomes page**](community)." %}
