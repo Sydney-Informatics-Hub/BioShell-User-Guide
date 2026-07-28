@@ -35,7 +35,7 @@ BioShell solves this by using open standards. All tools come from BioContainers 
 |--|----------------------|
 | **Ready to use** | Every user gets the same pre-configured environment. No setup needed before you start |
 | **Built on open standards** | You get access to tools that are already built, vetted, and documented by the bioinformatics community |
-| **Find and install tools easily** | [Shelley](tools) handles the work of retrieving containers, installing them, and showing you what each tool does. Install any of 20,000+ bioinformatics tools with a single command: `shelley build <tool>` |
+| **Find and install tools easily** | [Shelley](tools) handles the work of retrieving containers, installing them, and showing you what each tool does. Install any of 13,000+ bioinformatics tools with a single command: `shelley build <tool>` |
 | **Truly reproducible** | Because BioShell is version-controlled and BioContainers are public, you can rebuild your entire analysis identically on any machine, share it with colleagues, or return to it years later. No more environment inconsistency between laptops, HPCs, or VMs |
 
 
