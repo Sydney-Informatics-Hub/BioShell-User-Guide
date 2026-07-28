@@ -11,7 +11,10 @@
                 <a href="{{ item.url | relative_url }}" class="simple-tile-link">
                     <div class="simple-tile-item">
                         <div class="simple-tile-content">
-                            <p class="simple-tile-title" style="font-size: 1.3rem; text-align: center">{{ item.title }}</p>
+                            <p class="simple-tile-title" style="font-size: 1.3rem; text-align: left"><strong>{{ item.title }}</strong></p>
+                            {%- if item.description %}
+                            <p class="simple-tile-description">{{ item.description }}</p>
+                            {%- endif %}
                         </div>
                     </div>
                 </a>
@@ -52,9 +55,17 @@
 
   .simple-tile-title {
            color: inherit;
-           font-weight: 400;
+           font-weight: 700;
            margin-top: 0px;
+           margin-bottom: 6px;
+  }
+
+  .simple-tile-description {
+           color: inherit;
+           font-size: 0.9rem;
+           text-align: left;
            margin-bottom: 0px;
+           opacity: 0.85;
   }
 
 </style>

@@ -17,7 +17,7 @@ sidebar: false
 
 <div class="page-tiles">
   <div class="page-tiles-container">
-    <div class="page-tiles-list" style="--tile-cols: 3;">
+    <div class="page-tiles-list" style="--tile-cols: 2;">
       <a href="{{ 'why-bioshell' | relative_url }}" class="page-tile-link">
         <div class="page-tile-item">
           <div class="page-tile-content">
@@ -42,14 +42,17 @@ sidebar: false
           </div>
         </div>
       </a>
+      <a href="{{ 'using-bioshell' | relative_url }}" class="page-tile-link">
+        <div class="page-tile-item">
+          <div class="page-tile-content">
+            <h3 class="page-tile-title" style="margin-top: 0.0rem">Use BioShell</h3>
+            <p class="page-tile-description">Instructions for using software, moving data, running workflows.</p>
+          </div>
+        </div>
+      </a>
     </div>
   </div>
 </div>
-
-
-## Using BioShell
-
-{% include section-navigation-tiles_mod.html type="Using BioShell" col="3" %}
 
 
 ## Support
@@ -99,7 +102,7 @@ sidebar: false
 
 As part of the [acceptable use policy and service terms](aup#acknowledging-the-service) for accessing BioShell, you need to acknowledge use of BioShell in relevant research, training, and innovation outputs using the format:
 
-> "This work is supported by BioShell, a service provided by Australian BioCommons and its partners. The service receives NCRIS funding through Bioplatforms Australia as well as The University of Sydney"
+> "This work is supported by BioShell, a service provided by Australian BioCommons and Sydney Informatics Hub, University of Sydney. BioShell is funded by NCRIS via Bioplatforms Australia. The authors acknowledge the technical assistance provided by the Sydney Informatics Hub, a Core Research Facility of the University of Sydney and the Australian BioCommons which is enabled by NCRIS via Bioplatforms Australia."
 
 ## How to cite
 

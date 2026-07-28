@@ -36,6 +36,69 @@ h2 {
 /*-----Copied and adapted from https://github.com/elixir-europe/infectious-diseases-toolkit/blob/main/_sass/_custom_classes.scss-----*/
 /*-----Section navigation tiles-----*/
 
+/*-----Page tiles (section-navigation-tiles_mod.html)-----*/
+
+.page-tiles-list {
+  display: grid;
+  grid-template-columns: repeat(var(--tile-cols, 4), 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 992px) {
+  .page-tiles-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .page-tiles-list {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.page-tile-link {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+}
+
+.page-tile-item {
+  border-radius: 12px;
+  padding: 25px;
+  transition: all 0.3s ease;
+  background: #f0f3fa;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid #ffffff;
+  color: #012152;
+
+  &:hover {
+    background: #012152;
+    color: #ffffff;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    border: 1px solid #000000;
+  }
+}
+
+.page-tile-title {
+  color: inherit;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.page-tile-description {
+  color: inherit;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  flex-grow: 1;
+}
+
+/*-----Section navigation tiles-----*/
+
 .navigation-tiles {
     .card:hover {
         box-shadow: $box-shadow;
