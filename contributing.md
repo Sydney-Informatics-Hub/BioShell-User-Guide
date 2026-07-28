@@ -30,30 +30,29 @@ See the [ELIXIR Toolkit theme markdown cheat sheet](https://elixir-belgium.githu
 
 #### Rendering locally {#rendering-locally}
 
-You'll need Ruby and [Bundler](https://bundler.io/) installed. This site uses the `github-pages` gem, which needs Ruby 2.7–3.2 — a newer Ruby (3.4+) will fail with "cannot load such file" errors for gems like `csv` and `webrick` that were removed from Ruby's default library.
+You'll need Ruby and [Bundler](https://bundler.io/) installed. This site uses the `github-pages` gem, which needs Ruby 2.7–3.2.
 
 **macOS (Homebrew):**
 
 ```bash
 brew install ruby@3.2
-export PATH="/opt/homebrew/opt/ruby@3.2/bin:$PATH"
 ```
 
-{% include callout.html type="tip" content="Add the `export PATH` line to your `~/.zshrc` or `~/.bash_profile` so it persists across terminal sessions." %}
-
-**Install dependencies and Bundler:**
+`ruby@3.2` is keg-only, so it won't override your system Ruby automatically. Rather than relying on `PATH` (which tools like conda can silently reorder between terminals), call it explicitly:
 
 ```bash
-gem install bundler
-bundle install
+/opt/homebrew/opt/ruby@3.2/bin/gem install bundler
+/opt/homebrew/opt/ruby@3.2/bin/bundle install
 ```
 
-**Start the local server:**
+{% include callout.html type="tip" content="Sanity check before installing: run <code>/opt/homebrew/opt/ruby@3.2/bin/ruby -v</code> and confirm it prints 3.2.x. If a plain <code>ruby -v</code> already prints 3.2.x, you can drop the full paths and just use <code>gem</code>/<code>bundle</code> directly." %}
+
+**Start the local server, with live-reload so the browser updates automatically on save:**
 
 ```bash
-bundle exec jekyll serve
+/opt/homebrew/opt/ruby@3.2/bin/bundle exec jekyll serve --livereload
 ```
 
-Then open the printed URL (e.g. `http://127.0.0.1:4000/BioShell-User-Guide/`) in your browser. Jekyll watches for file changes and rebuilds automatically — refresh the page to see edits.
+Then open the printed URL (e.g. `http://127.0.0.1:4000/BioShell-User-Guide/`) in your browser. Every time you save a page, Jekyll rebuilds it and the open browser tab refreshes on its own — no need to restart the server or reload manually.
 
-{% include callout.html type="note" content="If bundle install fails with a dependency resolution error, delete Gemfile.lock and try again." %}
+{% include callout.html type="note" content="If bundle install fails with a dependency resolution error (e.g. a bundler version mismatch in Gemfile.lock), delete Gemfile.lock and run bundle install again." %}
