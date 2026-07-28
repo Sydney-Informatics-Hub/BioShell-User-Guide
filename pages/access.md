@@ -1,8 +1,8 @@
 ---
 title: Access BioShell
+type: getting started
 description:
-  How to check your eligibility, request access to BioShell, and connect to your
-  environment for the first time.
+  How to check your eligibility and request access to BioShell
 ---
 
 <p style="text-align:center; margin-bottom: 3rem;"> <a href="https://docs.google.com/forms/d/e/1FAIpQLScOVZjZTvdZC65cnUN2BmasQhxYjTzDjJu2bleIZKQZyB7LrA/viewform?usp=dialog" class="btn btn-primary btn-lg" style="padding: 0.75rem 2.5rem;">Request access</a></p>
@@ -23,7 +23,7 @@ By submitting an access request you agree to the [**BioShell acceptable use poli
 
 {% include callout.html type="tip" content="If you are running batch processing workloads with little need for interactivity, an HPC may be a better fit. The [**Australian BioCommons Leadership Share (ABLeS)**](https://australianbiocommons.github.io/ables/index) is a complementary programme that provides access to National HPC infrastructure." %}
 
-## What types of projects are supported?
+## Supported projects
 
 | User type            | Description                                                                   |
 | -------------------- | ----------------------------------------------------------------------------- |
@@ -48,6 +48,12 @@ By submitting an access request you agree to the [**BioShell acceptable use poli
 For research and development projects access is granted for 3 months and is renewable. Renewal requires demonstrated usage and continued progress against the aims stated in your original application. 
 
 Complete the [**project renewal form**](https://docs.google.com/forms/d/e/1FAIpQLSdhQzizqnQ7f5Os7TCDpXviiIVs1nbmtWweDzGH4r0poZlxxw/viewform?usp=header) for more information or to make a request.
+
+## Choose a flavour
+
+
+
+## Submit your application
 
 ## Training events
 

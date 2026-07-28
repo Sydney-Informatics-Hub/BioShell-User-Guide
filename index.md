@@ -21,8 +21,8 @@ sidebar: false
       <a href="{{ 'why-bioshell' | relative_url }}" class="page-tile-link">
         <div class="page-tile-item">
           <div class="page-tile-content">
-            <h3 class="page-tile-title" style="margin-top: 0.0rem">Why use a cloud workspace for bioinformatics?</h3>
-            <p class="page-tile-description">An introduction to virtual machines, cloud computing, and why BioShell is a great starting point for life-science researchers and workshop participants.</p>
+            <h3 class="page-tile-title" style="margin-top: 0.0rem">BioShell for bioinformatics</h3>
+            <p class="page-tile-description">An introduction to BioShell as a starting point for life-science researchers and workshop participants.</p>
           </div>
         </div>
       </a>
@@ -30,7 +30,15 @@ sidebar: false
         <div class="page-tile-item">
           <div class="page-tile-content">
             <h3 class="page-tile-title" style="margin-top: 0.0rem">Check out the community</h3>
-            <p class="page-tile-description">See the training workshops and research outcomes supported by BioShell, and how you can get involved.</p>
+            <p class="page-tile-description">Workshops and research outcomes supported by BioShell, and how you can get involved.</p>
+          </div>
+        </div>
+      </a>
+      <a href="{{ 'access' | relative_url }}" class="page-tile-link">
+        <div class="page-tile-item">
+          <div class="page-tile-content">
+            <h3 class="page-tile-title" style="margin-top: 0.0rem">Access BioShell</h3>
+            <p class="page-tile-description">Eligibility criteria, access registration, and flavour options.</p>
           </div>
         </div>
       </a>
