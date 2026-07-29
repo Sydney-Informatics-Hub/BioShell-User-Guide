@@ -66,7 +66,7 @@ BioShell admin email so your account can be set up.
 
 Your BioShell username is your first initial followed by your surname, all lowercase — so
 Berenice Ioshell becomes `bioshell`. You will receive your
-connection details by email once your environment is provisioned — then head to
+connection details by email once your environment is provisioned, then head to
 [Connecting to BioShell](connecting) to log in for the first time.
 
 {% include callout.html type="important" content="If you run into any issues, contact [AUTHOR TO SUPPLY — helpdesk email or link]." %}
