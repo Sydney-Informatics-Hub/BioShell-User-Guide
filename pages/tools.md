@@ -4,62 +4,12 @@ type: Using BioShell
 description: How to find, install, and load bioinformatics tools and reference datasets in BioShell using CVMFS, Shelley, and sHPC.
 ---
 
+
+BioShell is developed to cater to bioinformatics users who prefer to have their instances pre-installed with software, tools and datasets commonly used in the bioinformatics domain.
+
 BioShell gives you access to thousands of bioinformatics tools and reference datasets through
-two underlying systems, **CVMFS** and **sHPC**, and a built-in assistant called **Shelley**
+three underlying systems, **[CernVM-FS (CVMFS)](https://cvmfs.readthedocs.io/en/stable/)**, **[sHPC](https://singularity-hpc.readthedocs.io/en/latest/getting_started/user-guide.html)** and **[Lmod](https://lmod.readthedocs.io/en/latest/)**, all managed by a built-in assistant called **Shelley**
 that automates working with both.
-
-## How the tooling stack works {#tooling-stack}
-
-### CVMFS {#cvmfs}
-
-**[CernVM-FS (CVMFS)](https://cvmfs.readthedocs.io/en/stable/)** is a read-only,
-network-backed file system originally developed at CERN for distributing scientific software
-at scale. Rather than downloading tools and datasets upfront, CVMFS fetches only what you
-actually access, on demand, and caches it locally. 
-
-From your perspective it looks like a
-regular directory at `/cvmfs/`: you can `ls` it, browse it, and point workflows at files
-inside it. Nothing is stored permanently on the VM itself, and you cannot write to CVMFS: it
-is a shared, read-only resource.
-
-BioShell mounts two CVMFS repositories automatically:
-
-| Repository                      | Contents                                                                      |
-| ------------------------------- | ----------------------------------------------------------------------------- |
-| `singularity.galaxyproject.org` | 120,000+ containerised tools from [BioContainers](https://biocontainers.pro/) |
-| `data.galaxyproject.org`        | Reference genome builds and pre-built indexes from the Galaxy Project         |
-
-
-The repositories BioShell connects to are maintained by the BioContainers and Galaxy
-communities: thousands of tools, kept up to date, versioned, and tested. You get access to
-all of it without compiling software, managing dependencies, or tracking down container images
-yourself.
-
-Run the probe command to confirm CVMFS is connected:
-
-```bash
-cvmfs_config probe
-```
-
-You should see `OK` for each repository. If a repository shows `Failed!`, wait a moment and
-try again. Contact [Australian BioCommons support](https://www.biocommons.org.au/helpdesk)
-if the problem persists.
-
-{% include callout.html type="note" content="The first time you access a path in CVMFS it may take a moment while metadata is fetched and cached. Subsequent access is fast." %}
-
-### sHPC {#shpc}
-
-The containers in CVMFS are [encapsulated software components](https://biocontainers-edu.readthedocs.io/en/latest/what_is_container.html) called images. You could run them directly with `singularity` which is installed on BioShell, but that requires knowing the
-exact container path and syntax for every tool, every time. **[Singularity-HPC (sHPC)](https://singularity-hpc.readthedocs.io/)**
-solves this by wrapping containers as standard environment modules, so you can discover and
-load tools the same way you would on any HPC system:
-
-```bash
-module load samtools/1.21
-samtools --version
-```
-
-sHPC turns containers into clean, versioned modules without requiring you to know how containers work. On BioShell, sHPC should be configured so that installations point at containers already present in CVMFS, so nothing is re-downloaded.
 
 ## Introducing Shelley :turtle: {#Shelley}
 
@@ -188,6 +138,45 @@ for any tool in the BioContainers catalogue.
 Once you've got the hang of this, the [**How to use Shelley**](shelley-howto) guide covers
 the other use cases that will come in handy!
 
+## How the tooling stack works {#tooling-stack}
+
+### CVMFS {#cvmfs}
+
+**[CernVM-FS (CVMFS)](https://cvmfs.readthedocs.io/en/stable/)** is a read-only,
+network-backed file system originally developed at CERN for distributing scientific software
+at scale. Rather than downloading tools and datasets upfront, CVMFS fetches only what you
+actually access, on demand, and caches it locally. 
+
+From your perspective it looks like a
+regular directory at `/cvmfs/`: you can `ls` it, browse it, and point workflows at files
+inside it. Nothing is stored permanently on the VM itself, and you cannot write to CVMFS: it
+is a shared, read-only resource.
+
+BioShell mounts two CVMFS repositories automatically:
+
+| Repository                      | Contents                                                                      |
+| ------------------------------- | ----------------------------------------------------------------------------- |
+| `singularity.galaxyproject.org` | 120,000+ containerised tools from [BioContainers](https://biocontainers.pro/) |
+| `data.galaxyproject.org`        | Reference genome builds and pre-built indexes from the Galaxy Project         |
+
+
+The repositories BioShell connects to are maintained by the BioContainers and Galaxy
+communities: thousands of tools, kept up to date, versioned, and tested. You get access to
+all of it without compiling software, managing dependencies, or tracking down container images
+yourself.
+
+Run the probe command to confirm CVMFS is connected:
+
+```bash
+cvmfs_config probe
+```
+
+You should see `OK` for each repository. If a repository shows `Failed!`, wait a moment and
+try again. Contact [Australian BioCommons support](https://www.biocommons.org.au/helpdesk)
+if the problem persists.
+
+{% include callout.html type="note" content="The first time you access a path in CVMFS it may take a moment while metadata is fetched and cached. Subsequent access is fast." %}
+
 ## Reference datasets {#reference-data}
 
 CVMFS also provides access to reference genome builds and pre-built indexes from the Galaxy
@@ -222,6 +211,23 @@ ls /cvmfs/data.galaxyproject.org/byhand/CHM13_T2T_v2.0/
 {% include callout.html type="note" content="The reference datasets available through CVMFS are maintained by the Galaxy Project and may not be comprehensive. This is not a replacement for your institution's primary data access methods." %}
 
 ---
+
+### sHPC {#shpc}
+
+The containers in CVMFS are [encapsulated software components](https://biocontainers-edu.readthedocs.io/en/latest/what_is_container.html) called images. You could run them directly with `singularity` which is installed on BioShell, but that requires knowing the
+exact container path and syntax for every tool, every time. **[Singularity-HPC (sHPC)](https://singularity-hpc.readthedocs.io/)**
+solves this by wrapping containers as standard environment modules, so you can discover and
+load tools the same way you would on any HPC system:
+
+```bash
+module load samtools/1.21
+samtools --version
+```
+
+sHPC turns containers into clean, versioned modules without requiring you to know how containers work. On BioShell, sHPC should be configured so that installations point at containers already present in CVMFS, so nothing is re-downloaded.
+
+
+
 
 ## Troubleshooting {#troubleshooting}
 

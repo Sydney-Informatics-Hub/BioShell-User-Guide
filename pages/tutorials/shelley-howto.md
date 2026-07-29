@@ -1,6 +1,6 @@
 ---
 title: How to use Shelley
-type: Using BioShell
+type: Tutorial
 description: A collection of guides for finding, building, and installing bioinformatics tools with Shelley
 ---
 

@@ -12,16 +12,19 @@ subitems:
         url: /flavours
       - title: Connect to BioShell
         url: /connecting
-      - title: Find tools and reference data
+      - title: Find tools and datasets
         url: /tools
-      - title: Use Shelley
-        url: /shelley-howto
       - title: Use interactive environments
         url: /interactive
-      - title: Use Nextflow with our tool library
-        url: /nextflow
   - title: BioShell for training
     url: /training-development
+  - title: Tutorials
+    url: /tutorials
+    subitems:
+      - title: Use Shelley
+        url: /tutorials/shelley-howto
+      - title: Use Nextflow in BioShell
+        url: /tutorials/nextflow-howto
   - title: Community and outcomes
     url: /community
   - title: Get involved

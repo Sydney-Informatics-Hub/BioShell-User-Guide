@@ -11,15 +11,9 @@ tiles:
   - title: "Use BioShell tool library"
     url: /tools
     description: "Browse and load the curated collection of bioinformatics tools."
-  - title: "Use Shelley"
-    url: /shelley-howto
-    description: "Get help from Shelley, BioShell's command-line companion."
   - title: "Work in Jupyter or RStudio"
     url: /interactive
     description: "Launch interactive coding environments for Python and R."
-  - title: "Run a Nextflow workflow"
-    url: /nextflow
-    description: "Execute reproducible pipelines using BioShell's container stack."
 ---
 
 BioShell users have access to a curated library of bioinformatics tools, interactive coding environments, and a helpful command-line companion. See our user guides for detailed information on the services offered by BioShell. 

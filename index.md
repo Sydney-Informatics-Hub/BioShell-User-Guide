@@ -57,7 +57,7 @@ sidebar: false
 
 ## Support
 
-<div class="row row-cols-1 row-cols-md-4 g-4 my-3">
+<div class="row row-cols-1 row-cols-md-5 g-4 my-3">
   <div class="col">
     <div class="card h-100">
       <div class="card-body d-flex flex-column">
@@ -70,7 +70,7 @@ sidebar: false
   <div class="col">
     <div class="card h-100">
       <div class="card-body d-flex flex-column">
-        <h5 class="card-title">Image support</h5>
+        <h5 class="card-title">Report an issue</h5>
         <p class="card-text flex-grow-1">Bug reports and feature requests for the BioShell VM image.</p>
         <a href="https://github.com/AustralianBioCommons/BioShell/issues" class="btn btn-outline-primary mt-3">Open an issue</a>
       </div>
@@ -94,7 +94,17 @@ sidebar: false
       </div>
     </div>
   </div>
+  <div class="col">
+    <div class="card h-100">
+      <div class="card-body d-flex flex-column">
+        <h5 class="card-title">Tutorials</h5>
+        <p class="card-text flex-grow-1">Guides for using BioShell applications and services.</p>
+        <a href="{{ 'tutorials' | relative_url }}" class="btn btn-outline-primary mt-3">View tutorials</a>
+      </div>
+    </div>
+  </div>
 </div>
+
 
 
 ## Operational partners
