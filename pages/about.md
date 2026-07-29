@@ -48,6 +48,7 @@ https://doi.org/10.5281/zenodo.10139651
 | Ziad Al Bkhetan  | [@ziadbkh](https://github.com/ziadbkh)             | [0000-0002-4032-5331](https://orcid.org/0000-0002-4032-5331) |
 | Andy Botting     | [@andybotting](https://github.com/andybotting)     | —                                                            |
 | Johan Gustafsson | [@supernord](https://github.com/supernord)         | [0000-0002-2977-5032](https://orcid.org/0000-0002-2977-5032) |
+| Giorgia Mori     | [@giorgiamori](https://github.com/GiorgiaMori)     | [0000-0003-3469-5632](https://orcid.org/0000-0003-3469-5632) |
 
 
 ## Acknowledgements {#acknowledgements}
