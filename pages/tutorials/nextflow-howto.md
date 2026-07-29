@@ -64,3 +64,4 @@ Pass your config file on the command line when running the workflow:
 ```bash
 nextflow run main.nf -profile singularity -config cvmfs_path.config
 ```
+## nf-core {#nfcore}

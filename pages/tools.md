@@ -4,8 +4,7 @@ type: Using BioShell
 description: How to find, install, and load bioinformatics tools and reference datasets on BioShell using Shelley.
 ---
 
-BioShell instances arrive with the software and reference data that bioinformatics work usually
-needs already in place. You don't have to compile tools, manage dependencies, or track down
+BioShell instances arrive with bioinformatics software and some reference data already installed. You don't have to compile tools, manage dependencies, or track down
 container images before you can start.
 
 ## What's already installed {#preinstalled}
@@ -19,6 +18,8 @@ Every instance comes with a core set of tools:
 | **[JupyterLab](interactive#jupyterlab)** | Browser-based notebooks holding code, plots, and notes in one place |
 | **[RStudio](interactive#rstudio)** | Browser-based development environment for R |
 | **[Nextflow](nextflow-howto)** | Runs reproducible, scalable analysis pipelines |
+| **[nf-core](nextflow-howto#nfcore)** | Utilities and configurations for running nf-core pipelines |
+|**[Globus Connect Personal](globus)**| Make your VM a Globus end point for easy data movement |
 
 Some of these are on your `PATH` and ready to type; others are modules you load first. To see
 everything available on your instance:
