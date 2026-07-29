@@ -21,6 +21,8 @@ subitems:
   - title: Tutorials
     url: /tutorials
     subitems:
+      - title: Generate ssh keys
+        url: /tutorials/ssh-keys
       - title: Use Shelley
         url: /tutorials/shelley-howto
       - title: Use Nextflow in BioShell

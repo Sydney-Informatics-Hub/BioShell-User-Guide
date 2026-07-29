@@ -2,6 +2,9 @@
 title: Tutorials
 description: Step-by-step guides for using features of bioshell
 tiles:
+  - title: "Generate ssh keys for access"
+    url: /ssh-keys
+    description: "Create an ssh key to access your BioShell environment."
   - title: "Use the Shelley CLI companion"
     url: /shelley-howto
     description: "Learn how to access BioShell via SSH, web portal, or other methods."
