@@ -13,7 +13,7 @@ tiles:
     description: "Browse and load the curated collection of bioinformatics tools."
   - title: "Use Shelley"
     url: /shelley-howto
-    description: "Get help from Shelley, BioShell's command-line AI companion."
+    description: "Get help from Shelley, BioShell's command-line companion."
   - title: "Work in Jupyter or RStudio"
     url: /interactive
     description: "Launch interactive coding environments for Python and R."
