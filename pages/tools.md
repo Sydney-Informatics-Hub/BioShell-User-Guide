@@ -11,6 +11,8 @@ BioShell gives you access to thousands of bioinformatics tools and reference dat
 three underlying systems, **[CernVM-FS (CVMFS)](https://cvmfs.readthedocs.io/en/stable/)**, **[sHPC](https://singularity-hpc.readthedocs.io/en/latest/getting_started/user-guide.html)** and **[Lmod](https://lmod.readthedocs.io/en/latest/)**, all managed by a built-in assistant called **Shelley**
 that automates working with both.
 
+![](assets/img/Jupyter_starting_page.png)
+
 ## Introducing Shelley :turtle: {#Shelley}
 
 Working with CVMFS paths and sHPC registry recipes by hand is tedious and error-prone,
