@@ -96,21 +96,6 @@ sidebar: false
   </div>
 </div>
 
----
-
-## Acknowledging BioShell
-
-As part of the [acceptable use policy and service terms](aup#acknowledging-the-service) for accessing BioShell, you need to acknowledge use of BioShell in relevant research, training, and innovation outputs using the format:
-
-> "This work is supported by BioShell, a service provided by Australian BioCommons and Sydney Informatics Hub, University of Sydney. BioShell is funded by NCRIS via Bioplatforms Australia. The authors acknowledge the technical assistance provided by the Sydney Informatics Hub, a Core Research Facility of the University of Sydney and the Australian BioCommons which is enabled by NCRIS via Bioplatforms Australia."
-
-## How to cite
-
-If you use BioShell in your research or training, please cite it as:
-
-> O'Brien MJ, Jaya F, Xue W, Al Bkhetan Z, Botting A, Ward N, Gustafsson J, Samaha G. (2026).
-> **BioShell how-to guide**. Australian BioCommons.
-> [AUTHOR TO SUPPLY — Zenodo DOI once minted]
 
 ## Operational partners
 

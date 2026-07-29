@@ -5,13 +5,9 @@ description: How to cite this guide, contributor acknowledgements, and reference
 
 ## How to cite and acknowledge BioShell {#cite}
 
-Acknowledge use of BioShell in relevant research, training, and innovation outputs using:
+Please see our [**acceptable use policy and service terms**](./aup.md) for instructions on how to acknowledge BioShell in your research outputs. 
 
-```
-This work is supported by BioShell, a service provided by Australian BioCommons and its
-partners. The service receives NCRIS funding through Bioplatforms Australia as well as
-The University of Sydney.
-```
+BioShell is available through [**ARDC Nectar Research Cloud**](https://ardc.edu.au/services/ardc-nectar-research-cloud/) and [**NCI Nirin**](https://nci.org.au/our-systems/cloud-computing).
 
 And cite:
 
@@ -19,21 +15,6 @@ And cite:
 O'Brien M, Jaya F, Xue W, Al Bkhetan Z, Botting A, Gustafsson J. Samaha G (2026).
 BioShell How-to Guide. Australian BioCommons.
 [AUTHOR TO SUPPLY — Zenodo DOI once minted]
-```
-
-If you're a researcher, your BioShell access has been provisioned through the ABLeS programme. Please also include:
-
-```
-The authors acknowledge the provision of computing and data resources provided by the
-Australian BioCommons Leadership Share (ABLeS) program.
-```
-
-And cite ABLeS as:
-
-```
-Gustafsson et al. (2023). Enabling national step changes in bioinformatics through ABLeS,
-the Australian BioCommons Leadership Share (3.0). Zenodo.
-https://doi.org/10.5281/zenodo.10139651
 ```
 
 
@@ -50,17 +31,3 @@ https://doi.org/10.5281/zenodo.10139651
 | Johan Gustafsson | [@supernord](https://github.com/supernord)         | [0000-0002-2977-5032](https://orcid.org/0000-0002-2977-5032) |
 | Giorgia Mori     | [@giorgiamori](https://github.com/GiorgiaMori)     | [0000-0003-3469-5632](https://orcid.org/0000-0003-3469-5632) |
 
-
-## Acknowledgements {#acknowledgements}
-
-The authors acknowledge the support of Australian BioCommons which is enabled by NCRIS via
-Bioplatforms Australia funding.
-
-BioShell is available through [ARDC Nectar Research Cloud](https://ardc.edu.au/services/ardc-nectar-research-cloud/) and [NCI Nirin](https://nci.org.au/our-systems/cloud-computing).
-
-
-## References {#references}
-
-1. Gustafsson J, et al. (2023). Enabling national step changes in bioinformatics through
-   ABLeS, the Australian BioCommons Leadership Share (3.0). Zenodo.
-   https://doi.org/10.5281/zenodo.10139651
