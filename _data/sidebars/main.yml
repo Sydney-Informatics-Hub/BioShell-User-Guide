@@ -26,10 +26,12 @@ subitems:
       - title: Use Nextflow in BioShell
         url: /tutorials/nextflow-howto
   - title: Community and outcomes
-    url: /community
-  - title: Get involved
-    url: /contributing
-  - title: Contributors
-    url: /contributors
+    subitems:
+      - title: Community
+        url: /community
+      - title: Get involved
+        url: /contributing
+      - title: Contributors
+        url: /contributors
   - title: Acceptable use policy and service terms
     url: /aup
