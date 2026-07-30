@@ -7,7 +7,7 @@ description: How to find, install, and load bioinformatics tools and reference d
 BioShell instances arrive with bioinformatics software and some reference data already installed. You don't have to compile tools, manage dependencies, or track down
 container images before you can start.
 
-## What's already installed {#preinstalled}
+## What's installed {#preinstalled}
 
 Every instance comes with a core set of tools:
 
@@ -29,28 +29,26 @@ module avail
 ```
 
 Then load what you need, for example `module load jupyter` or `module load rstudio`. Anything
-not listed, you can install yourself with Shelley.
+not listed, you can install yourself with [**Shelley**](tutorials/shelley-howto).
 
-## How BioShell manages tools {#tooling-stack}
+## How BioShell manages bioinformatics software {#tooling-stack}
 
-BioShell manages tools in three layers so you don't have to:
+Bioinformatics often requires us to use many different software including command-line software, R and Python packages. BioShell gives you access to over 100,000 bioinformatics packages, managed in three layers for you:
 
-- **[CernVM-FS](https://cvmfs.readthedocs.io/en/stable/)** holds 13,000+ tools and 118,000+
-  versions from [BioContainers](https://biocontainers.pro/registry) in one shared repository and mounted read-only at `/cvmfs/`. It looks like an ordinary folder, and files
-  are fetched only when you use them, so they don't count against your disk.
-- **[sHPC](https://singularity-hpc.readthedocs.io/)** translates those containers into modules
-  that Lmod understands.
-- **[Lmod](https://lmod.readthedocs.io/en/latest/)** lets you load and switch between tools with
-  simple `module` commands.
+- **[CernVM-FS](https://cvmfs.readthedocs.io/en/stable/)** is a read only filesystem that acts as a repository for 13,000+ tools and 118,000+
+  versions from [BioContainers](https://biocontainers.pro/registry). It is available in your BioShell VM at `/cvmfs/`. It looks like an ordinary folder, and files
+  are fetched only when you use them, to help you manage your disk space.
+- **[sHPC](https://singularity-hpc.readthedocs.io/)** packages containers in cvmfs into installable modules
+- **[Lmod](https://lmod.readthedocs.io/en/latest/)** is the system behind the `module` command you use to load and switch tools
 
-**Shelley**, BioShell's command-line assistant, drives all three for you. It searches the
-tools, picks the right container version, creates any sHPC registry entry that is
-missing, and installs the module: one command to find a tool, one to install it. You never need
-to know container syntax or work with CernVM-FS and sHPC directly.
+You don't need to undersand any of this to use BioShell because **Shelley**, BioShell's command-line assistant, drives all three for you. She:
+
+* Searches the tool library
+* Picks the right container version
+* Creates any sHPC registry entry that is missing
+* Installs the module: one command to find a tool, one to install it
 
 ![](assets/img/shelley-orchestrator.png)
-*Fig 1. Shelley finds a tool in CernVM-FS, installs it with sHPC, and gives you a module to load.*
-
 
 ## Finding and installing tools with Shelley :turtle: {#getting-started-with-shelley}
 
