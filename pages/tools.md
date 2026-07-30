@@ -35,8 +35,7 @@ not listed, you can install yourself with Shelley.
 BioShell manages tools in three layers so you don't have to:
 
 - **[CernVM-FS](https://cvmfs.readthedocs.io/en/stable/)** holds 13,000+ tools and 118,000+
-  versions from [BioContainers](https://biocontainers.pro/registry) in one shared repository,
-  built at CERN and mounted read-only at `/cvmfs/`. It looks like an ordinary folder, and files
+  versions from [BioContainers](https://biocontainers.pro/registry) in one shared repository and mounted read-only at `/cvmfs/`. It looks like an ordinary folder, and files
   are fetched only when you use them, so they don't count against your disk.
 - **[sHPC](https://singularity-hpc.readthedocs.io/)** translates those containers into modules
   that Lmod understands.
@@ -44,7 +43,7 @@ BioShell manages tools in three layers so you don't have to:
   simple `module` commands.
 
 **Shelley**, BioShell's command-line assistant, drives all three for you. It searches the
-CernVM-FS index, picks the right container version, creates any sHPC registry entry that is
+tools, picks the right container version, creates any sHPC registry entry that is
 missing, and installs the module: one command to find a tool, one to install it. You never need
 to know container syntax or work with CernVM-FS and sHPC directly.
 
@@ -90,6 +89,24 @@ installed as a module yet. `find` is forgiving about naming: case, hyphens, and 
 all handled for you, so `shelley find STAR`, `shelley find bwa-mem2`, and `shelley find samtools`
 all work as expected.
 
+### See every available version
+
+By default `find` shows only the most recent versions of a tool. To pin an exact version for
+reproducibility, or to match a pipeline's requirements, add the `-v` (verbose) flag to see every
+available container, newest first:
+
+```bash
+shelley find fastqc -v
+```
+
+<details markdown="1">
+<summary>Example output</summary>
+![](assets/img/shelley_find_fastqc_v.png)
+<br>
+</details>
+<br>
+
+
 ### Search when you only know the task
 
 Sometimes you know what you want to do but not which tool does it. That's what `search` is for:
@@ -113,22 +130,6 @@ than narrowing it, so remove words rather than adding them if you get too many r
 
 {% include callout.html type="note" content="Search is under active development. Results are broad and currently presented alphabetically." %}
 
-### See every available version
-
-By default `find` shows only the most recent versions of a tool. To pin an exact version for
-reproducibility, or to match a pipeline's requirements, add the `-v` (verbose) flag to see every
-available container, newest first:
-
-```bash
-shelley find fastqc -v
-```
-
-<details markdown="1">
-<summary>Example output</summary>
-![](assets/img/shelley_find_fastqc_v.png)
-<br>
-</details>
-<br>
 
 ### Build the module
 
