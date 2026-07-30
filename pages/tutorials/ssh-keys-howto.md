@@ -1,12 +1,12 @@
 ---
-title: Generating an SSH key
+title: Create an SSH key
 description: How to generate an SSH key pair on macOS, Linux, and Windows to authenticate with BioShell.
 ---
 
 BioShell uses SSH key authentication for access. You generate a key pair once on your own machine, then
 share the public half with the BioShell team. It takes about two minutes.
 
-## Quick start {#quick-start}
+## Step 1: Generate your key files {#generate}
 
 ### macOS and Linux
 
@@ -35,7 +35,7 @@ cat $env:USERPROFILE\.ssh\id_ed25519.pub
 {% include callout.html type="tip" content="Pressing **Enter** at the passphrase prompt creates a key with no passphrase, which is fine to start with. Adding a passphrase encrypts your private key at rest and is worth doing if you can." %}
 
 
-## Step 1: Check your key files {#verify}
+## Step 2: Check your key files {#verify}
 
 Two files are created. Only ever share the `.pub` one.
 
@@ -55,7 +55,7 @@ dir $env:USERPROFILE\.ssh\   # Windows
 ```
 
 
-## Step 2: Share your public key with BioShell {#submit}
+## Step 3: Share your public key with BioShell {#submit}
 
 Once your project application has been approved, email your **public key** to
 BioShell admin email so your account can be set up.

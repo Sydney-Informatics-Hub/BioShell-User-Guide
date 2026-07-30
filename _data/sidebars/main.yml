@@ -22,11 +22,13 @@ subitems:
     url: /tutorials
     subitems:
       - title: Generate ssh keys
-        url: /tutorials/ssh-keys
+        url: ssh-keys-howto
       - title: Use Shelley
-        url: /tutorials/shelley-howto
+        url: /shelley-howto
       - title: Use Nextflow in BioShell
-        url: /tutorials/nextflow-howto
+        url: nextflow-howto
+      - title: Move data in and out of BioShell
+        url: globus-howto
   - title: Community and outcomes
     subitems:
       - title: Community
