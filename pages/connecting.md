@@ -11,7 +11,7 @@ your access request.
 {% include callout.html type="important" content="Your connection details are provided as part of your provisioning notification. Keep them secure and do not share them publicly." %}
 
 If you have not yet generated and submitted your SSH key, see the
-[**SSH key generation guide**](ssh-keys) first.
+[**SSH key generation tutorial**](ssh-keys) first.
 
 
 ## Connect via SSH {#ssh-connect}
@@ -56,7 +56,7 @@ ssh -i ~/.ssh/bioshell_key <username>@<your-bioshell-ip>
 When you connect for the first time you are greeted by the BioShell welcome message and land
 in your home directory:
 
-![](assets/img/BioShell_welcome_message.png)
+![](assets/img/shelley_motd.png)
 
 Confirm where you are with `pwd`:
 
@@ -73,9 +73,9 @@ You should see your home directory path:
 Once you are logged in, verify the two things you will rely on most: the software file
 system (CVMFS) and your storage volumes.
 
-### CVMFS access {#cvmfs-access}
+### Software and data access {#cvmfs-access}
 
-BioShell delivers its bioinformatics tools and reference data through **CVMFS**, a read-only
+BioShell delivers its bioinformatics tools and reference data through a read-only
 network file system mounted at `/cvmfs/`. Confirm the repositories are connected by running
 the probe command:
 

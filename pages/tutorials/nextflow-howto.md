@@ -1,6 +1,6 @@
 ---
-title: Using Nextflow with CVMFS
-type: Using BioShell
+title: How to use Nextflow with BioShell
+type: Tutorial
 description: How to run Nextflow workflows on BioShell using containers already available in CVMFS instead of downloading them.
 ---
 
@@ -27,6 +27,19 @@ process {
 }
 ```
 
+{% include callout.html type="tip" content= "To find the full path to the relevant container use:
+```
+shelley find fastqc -v
+```
+" %}
+<details markdown="1">
+<summary>Show example output</summary>
+![](assets/img/shelley_find_fastqc_v.png)
+<br>
+</details>
+<br> 
+
+
 
 ## Using an installed SHPC module {#shpc-module}
 
@@ -51,3 +64,4 @@ Pass your config file on the command line when running the workflow:
 ```bash
 nextflow run main.nf -profile singularity -config cvmfs_path.config
 ```
+

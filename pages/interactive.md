@@ -8,7 +8,7 @@ BioShell supports two browser-based interactive environments for notebook and sc
 work. Both run on your BioShell instance and are accessible through your browser once you
 have connected via SSH.
 
-{% include callout.html type="important" content="You must have an active SSH connection to your BioShell instance before opening either environment in your browser. See [Connecting to BioShell](access#connecting)." %}
+{% include callout.html type="important" content="You must have an active SSH connection to your BioShell instance before opening either environment in your browser. See [Connecting to BioShell](connecting)." %}
 
 
 ## JupyterLab {#jupyterlab}

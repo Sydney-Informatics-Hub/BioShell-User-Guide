@@ -3,30 +3,39 @@ subitems:
     url: /index
   - title: Getting started
     url: /why-bioshell
-  - title: Using BioShell
+  - title: Access BioShell
+    url: /access
+  - title: BioShell for research
     url: /using-bioshell
     subitems:
-      - title: Accessing BioShell
-        url: /access
-      - title: Choosing an environment size
+      - title: Choose the right environment
         url: /flavours
-      - title: Connecting to BioShell
+      - title: Connect to BioShell
         url: /connecting
-      - title: Tools and reference data
+      - title: Find tools and datasets
         url: /tools
-      - title: How to use Shelley
-        url: /shelley-howto
-      - title: Interactive environments
+      - title: Use interactive environments
         url: /interactive
-      - title: Using Nextflow with CVMFS
-        url: /nextflow
-  - title: Setting up a training VM
+  - title: BioShell for training
     url: /training-development
-  - title: BioShell community and outcomes
-    url: /community
-  - title: Get involved
-    url: /contributing
-  - title: Contributors
-    url: /contributors
+  - title: Tutorials
+    url: /tutorials
+    subitems:
+      - title: Generate ssh keys
+        url: ssh-keys-howto
+      - title: Use Shelley
+        url: /shelley-howto
+      - title: Use Nextflow in BioShell
+        url: nextflow-howto
+      - title: Move data in and out of BioShell
+        url: globus-howto
+  - title: Community and outcomes
+    subitems:
+      - title: Community
+        url: /community
+      - title: Get involved
+        url: /contributing
+      - title: Contributors
+        url: /contributors
   - title: Acceptable use policy and service terms
     url: /aup

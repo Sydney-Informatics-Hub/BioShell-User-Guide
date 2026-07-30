@@ -1,25 +1,22 @@
 ---
 title: Using BioShell
-description: Overview of BioShell's core features — tools, interactive environments, reference data, and workflow integration.
+description: Overview of BioShell's core features- tools, interactive environments, reference data, and workflow integration.
 tiles:
-  - title: "Accessing BioShell"
-    url: /access
-  - title: "Choose the right VM size (i.e. flavour) for my analysis"
+  - title: "Choose the right environment"
     url: /flavours
-  - title: "Connecting to BioShell"
+    description: "Select the BioShell flavour that best fits your analysis needs."
+  - title: "Connect to BioShell"
     url: /connecting
-  - title: "Find, install, and load a bioinformatics tool"
+    description: "Learn how to access BioShell via SSH, web portal, or other methods."
+  - title: "Use BioShell tool library"
     url: /tools
-  - title: "Work in a Jupyter or RStudio notebook"
+    description: "Browse and load the curated collection of bioinformatics tools."
+  - title: "Work in Jupyter or RStudio"
     url: /interactive
-  - title: "Run a Nextflow workflow using CVMFS containers"
-    url: /nextflow
+    description: "Launch interactive coding environments for Python and R."
 ---
 
-Once you are connected to your BioShell environment, you have access to a curated library
-of bioinformatics tools, interactive coding environments, and an AI-assisted support agent.
-
-#### Use the tiles below to find what you need
+BioShell users have access to a curated library of bioinformatics tools, interactive coding environments, and a helpful command-line companion. See our user guides for detailed information on the services offered by BioShell. 
 
 {% include tiles-simple.html target = "tiles" col = "2" %}
 

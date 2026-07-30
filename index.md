@@ -17,12 +17,12 @@ sidebar: false
 
 <div class="page-tiles">
   <div class="page-tiles-container">
-    <div class="page-tiles-list" style="--tile-cols: 3;">
+    <div class="page-tiles-list" style="--tile-cols: 2;">
       <a href="{{ 'why-bioshell' | relative_url }}" class="page-tile-link">
         <div class="page-tile-item">
           <div class="page-tile-content">
-            <h3 class="page-tile-title" style="margin-top: 0.0rem">Why use a cloud workspace for bioinformatics?</h3>
-            <p class="page-tile-description">An introduction to virtual machines, cloud computing, and why BioShell is a great starting point for life-science researchers and workshop participants.</p>
+            <h3 class="page-tile-title" style="margin-top: 0.0rem">BioShell for bioinformatics</h3>
+            <p class="page-tile-description">An introduction to BioShell as a starting point for life-science researchers and workshop participants.</p>
           </div>
         </div>
       </a>
@@ -30,7 +30,23 @@ sidebar: false
         <div class="page-tile-item">
           <div class="page-tile-content">
             <h3 class="page-tile-title" style="margin-top: 0.0rem">Check out the community</h3>
-            <p class="page-tile-description">See the training workshops and research outcomes supported by BioShell, and how you can get involved.</p>
+            <p class="page-tile-description">Workshops and research outcomes supported by BioShell, and how you can get involved.</p>
+          </div>
+        </div>
+      </a>
+      <a href="{{ 'access' | relative_url }}" class="page-tile-link">
+        <div class="page-tile-item">
+          <div class="page-tile-content">
+            <h3 class="page-tile-title" style="margin-top: 0.0rem">Access BioShell</h3>
+            <p class="page-tile-description">Eligibility criteria, access registration, and flavour options.</p>
+          </div>
+        </div>
+      </a>
+      <a href="{{ 'using-bioshell' | relative_url }}" class="page-tile-link">
+        <div class="page-tile-item">
+          <div class="page-tile-content">
+            <h3 class="page-tile-title" style="margin-top: 0.0rem">Use BioShell</h3>
+            <p class="page-tile-description">Instructions for using software, moving data, running workflows.</p>
           </div>
         </div>
       </a>
@@ -39,14 +55,9 @@ sidebar: false
 </div>
 
 
-## Using BioShell
-
-{% include section-navigation-tiles_mod.html type="Using BioShell" col="3" %}
-
-
 ## Support
 
-<div class="row row-cols-1 row-cols-md-4 g-4 my-3">
+<div class="row row-cols-1 row-cols-md-5 g-4 my-3">
   <div class="col">
     <div class="card h-100">
       <div class="card-body d-flex flex-column">
@@ -59,7 +70,7 @@ sidebar: false
   <div class="col">
     <div class="card h-100">
       <div class="card-body d-flex flex-column">
-        <h5 class="card-title">Image support</h5>
+        <h5 class="card-title">Report an issue</h5>
         <p class="card-text flex-grow-1">Bug reports and feature requests for the BioShell VM image.</p>
         <a href="https://github.com/AustralianBioCommons/BioShell/issues" class="btn btn-outline-primary mt-3">Open an issue</a>
       </div>
@@ -83,23 +94,18 @@ sidebar: false
       </div>
     </div>
   </div>
+  <div class="col">
+    <div class="card h-100">
+      <div class="card-body d-flex flex-column">
+        <h5 class="card-title">Tutorials</h5>
+        <p class="card-text flex-grow-1">Guides for using BioShell applications and services.</p>
+        <a href="{{ 'tutorials' | relative_url }}" class="btn btn-outline-primary mt-3">View tutorials</a>
+      </div>
+    </div>
+  </div>
 </div>
 
----
 
-## Acknowledging BioShell
-
-As part of the [acceptable use policy and service terms](aup#acknowledging-the-service) for accessing BioShell, you need to acknowledge use of BioShell in relevant research, training, and innovation outputs using the format:
-
-> "This work is supported by BioShell, a service provided by Australian BioCommons and its partners. The service receives NCRIS funding through Bioplatforms Australia as well as The University of Sydney"
-
-## How to cite
-
-If you use BioShell in your research or training, please cite it as:
-
-> O'Brien MJ, Jaya F, Xue W, Al Bkhetan Z, Botting A, Ward N, Gustafsson J, Samaha G. (2026).
-> **BioShell how-to guide**. Australian BioCommons.
-> [AUTHOR TO SUPPLY — Zenodo DOI once minted]
 
 ## Operational partners
 

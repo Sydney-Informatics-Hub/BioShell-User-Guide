@@ -1,90 +1,66 @@
 ---
 title: Tools and reference data
 type: Using BioShell
-description: How to find, install, and load bioinformatics tools and reference datasets in BioShell using CVMFS, Shelley, and sHPC.
+description: How to find, install, and load bioinformatics tools and reference datasets on BioShell using Shelley.
 ---
 
-BioShell gives you access to thousands of bioinformatics tools and reference datasets through
-two underlying systems, **CVMFS** and **sHPC**, and a built-in assistant called **Shelley**
-that automates working with both.
+BioShell instances arrive with bioinformatics software and some reference data already installed. You don't have to compile tools, manage dependencies, or track down
+container images before you can start.
 
-## How the tooling stack works {#tooling-stack}
+## What's installed {#preinstalled}
 
-### CVMFS {#cvmfs}
+Every instance comes with a core set of tools:
 
-**[CernVM-FS (CVMFS)](https://cvmfs.readthedocs.io/en/stable/)** is a read-only,
-network-backed file system originally developed at CERN for distributing scientific software
-at scale. Rather than downloading tools and datasets upfront, CVMFS fetches only what you
-actually access, on demand, and caches it locally. 
+| Tool | Purpose |
+|------|---------|
+| **Python 3** | General-purpose scripting, and the language much of bioinformatics is built on |
+| **R** | Statistical analysis and visualisation |
+| **[JupyterLab](interactive#jupyterlab)** | Browser-based notebooks holding code, plots, and notes in one place |
+| **[RStudio](interactive#rstudio)** | Browser-based development environment for R |
+| **[Nextflow](nextflow-howto)** | Runs reproducible, scalable analysis pipelines |
+| **[nf-core](nextflow-howto#nfcore)** | Utilities and configurations for running nf-core pipelines |
+|**[Globus Connect Personal](globus)**| Make your VM a Globus end point for easy data movement |
 
-From your perspective it looks like a
-regular directory at `/cvmfs/`: you can `ls` it, browse it, and point workflows at files
-inside it. Nothing is stored permanently on the VM itself, and you cannot write to CVMFS: it
-is a shared, read-only resource.
-
-BioShell mounts two CVMFS repositories automatically:
-
-| Repository                      | Contents                                                                      |
-| ------------------------------- | ----------------------------------------------------------------------------- |
-| `singularity.galaxyproject.org` | 120,000+ containerised tools from [BioContainers](https://biocontainers.pro/) |
-| `data.galaxyproject.org`        | Reference genome builds and pre-built indexes from the Galaxy Project         |
-
-
-The repositories BioShell connects to are maintained by the BioContainers and Galaxy
-communities: thousands of tools, kept up to date, versioned, and tested. You get access to
-all of it without compiling software, managing dependencies, or tracking down container images
-yourself.
-
-Run the probe command to confirm CVMFS is connected:
+Some of these are on your `PATH` and ready to type; others are modules you load first. To see
+everything available on your instance:
 
 ```bash
-cvmfs_config probe
+module avail
 ```
 
-You should see `OK` for each repository. If a repository shows `Failed!`, wait a moment and
-try again. Contact [Australian BioCommons support](https://www.biocommons.org.au/helpdesk)
-if the problem persists.
+Then load what you need, for example `module load jupyter` or `module load rstudio`. Anything
+not listed, you can install yourself with [**Shelley**](tutorials/shelley-howto).
 
-{% include callout.html type="note" content="The first time you access a path in CVMFS it may take a moment while metadata is fetched and cached. Subsequent access is fast." %}
+## How BioShell manages bioinformatics tools {#tooling-stack}
 
-### sHPC {#shpc}
+Bioinformatics often requires us to use many different software including command-line software, R and Python packages. BioShell gives you access to over 100,000 bioinformatics packages, managed in three layers for you:
 
-The containers in CVMFS are [encapsulated software components](https://biocontainers-edu.readthedocs.io/en/latest/what_is_container.html) called images. You could run them directly with `singularity` which is installed on BioShell, but that requires knowing the
-exact container path and syntax for every tool, every time. **[Singularity-HPC (sHPC)](https://singularity-hpc.readthedocs.io/)**
-solves this by wrapping containers as standard environment modules, so you can discover and
-load tools the same way you would on any HPC system:
+- **[CernVM-FS](https://cvmfs.readthedocs.io/en/stable/)** is a read only filesystem that acts as a repository for 13,000+ tools and 118,000+
+  versions from [BioContainers](https://biocontainers.pro/registry). It is available in your BioShell VM at `/cvmfs/`. It looks like an ordinary folder, and files
+  are fetched only when you use them, to help you manage your disk space.
+- **[sHPC](https://singularity-hpc.readthedocs.io/)** packages containers in cvmfs into installable modules
+- **[Lmod](https://lmod.readthedocs.io/en/latest/)** is the system behind the `module` command you use to load and switch tools
 
-```bash
-module load samtools/1.21
-samtools --version
-```
 
-sHPC turns containers into clean, versioned modules without requiring you to know how containers work. On BioShell, sHPC should be configured so that installations point at containers already present in CVMFS, so nothing is re-downloaded.
+![](assets/img/shelley-orchestrator.png)
 
-## Introducing Shelley :turtle: {#Shelley}
+You don't need to undersand any of this to use BioShell because **Shelley**, BioShell's command-line assistant, drives all three for you. She:
 
-Working with CVMFS paths and sHPC registry recipes by hand is tedious and error-prone,
-particularly for older tool versions not listed in the standard registry. **Shelley** is
-BioShell's command-line assistant that automates the entire workflow: it searches the CVMFS
-BioContainers index, identifies the correct container version, creates any missing registry
-entries, and runs the sHPC install, all from a single command.
+* Searches the tool library
+* Picks the right container version
+* Creates any sHPC registry entry that is missing
+* Installs the module: one command to find a tool, one to install it
 
-{% include callout.html type="tip" content="**Recommended:** use Shelley rather than sHPC directly. The rest of this guide walks through how Shelley can be used to find, install, and run tools without interacting with the CVMFS or sHPC directly!" %}
 
-### Getting started with Shelley {#getting-started-with-shelley}
+## Shelley basic usage :turtle: {#basic-usage}
 
-Shelley indexes **over 13,000 tools and 118,000 container versions** from the BioContainers
-catalogue, and you can run it directly from the command line or in an interactive mode.
-This tutorial walks through finding and installing a bioinformatics tool on a BioShell VM
-for the first time.
+Shelley runs from the command line or in an interactive mode. It can be used to manage your bioinformatics tool containers. We currently only support command-line tools and are working on extending this functionality out to R and Python packages. 
 
-Before you start, confirm Shelley is available:
+Run Shelley with:
 
 ```bash
 shelley help
 ```
-
-You will see a list of available commands.
 
 <details markdown="1">
 <summary>Example output</summary>
@@ -93,117 +69,36 @@ You will see a list of available commands.
 </details>
 <br>
 
-#### Finding a tool you already know by name
-
-Say you already know you need `fastqc`. Look it up with `find`:
+**From the command line:**
 
 ```bash
-shelley find fastqc
+shelley find <tool> # Look up a specific tool by name
+shelley search "<function>" # Search by keyword or function
+shelley build <tool> # Install the tool as a loadable module
 ```
 
-<details markdown="1">
-<summary>Example output</summary>
-![](assets/img/shelley_find_fastqc.png)
-<br>
-</details>
-<br>
-
-Shelley returns the tool's description together with its most recent container versions,
-plus whether it is installed as a module yet. `find` is forgiving about
-naming case, hyphens, and underscores are all handled for you, so `shelley find STAR`,
-`shelley find bwa-mem2`, and `shelley find samtools` all work as expected.
-
-#### Searching when you only know the task
-
-Sometimes you know what you want to do but not which tool does it. That's what `search`
-is for:
+**In interactive mode:**
 
 ```bash
-shelley search "quality control"
-shelley search "variant calling"
-shelley search "de novo assembly"
+shelley interactive # Launch Shelley in interactive mode
 ```
 
-Each result will show you the tool name and a brief description of what it does. **Shorter, more specific phrases tend to work better than full sentences.**
+Interactive mode works the same way as the command line. The `find`, `search`, and `build`
+behave identically, except you type just the command name and its arguments, without
+prefixing every call with `shelley`.
 
-<details markdown="1">
-<summary>Example output</summary>
-![](assets/img/shelley_search_de-novo-assembly.png)
-<br>
-</details>
-<br>
+{% include callout.html type="tip" content="Follow our [Shelley tutorial](tutorials/shelley-howto.md) to practice using Shelley to find, search, and build modules." %}
 
-{% include callout.html type="note" content="Search is under active development. All results are broad, and currently presented alphabetically. We recommend using shorter and more specific phrases as each extra word broadens the match rather than narrowing it, so a broad query like &quot;dna sequence quality control&quot; can return a large number of tools. Use the fewest, most specific terms you know, and remove words rather than adding them if you get too many results." %}
+## Reference genomes and indexes {#reference-data}
 
-### Checking every available version
-
-By default `find` only shows the most recent versions of a tool. If you need to pin
-an exact version for reproducibility, or to match a pipeline's requirements, you can add the
-`-v` (verbose) flag to see every available container, sorted newest-first:
+Reference genome builds and pre-built indexes, managed and maintained by the
+[Galaxy Project](https://galaxyproject.org/admin/cvmfs/), sit in two directories:
 
 ```bash
-shelley find fastqc -v
+ls /cvmfs/data.galaxyproject.org/byhand/    # by genome build, then index type
+ls /cvmfs/data.galaxyproject.org/managed/   # by index type, then genome build
 ```
 
-<details markdown="1">
-<summary>Example output</summary>
-![](assets/img/shelley_find_fastqc_v.png)
-<br>
-</details>
-<br>
-
-### Building a module
-
-Once you know the tool and version you want, build its Lmod module with `shelley build`:
-
-```bash
-shelley build fastqc
-```
-
-This installs the most recent available version by default.
-
-<details markdown="1">
-<summary>Example output</summary>
-![](assets/img/shelley_build_fastqc.png)
-<br>
-</details>
-<br>
-
-{% include callout.html type="tip" content="To install a specific version instead of the most recent one, give `build` the same `<tool>/<version>` spec that `find -v` showed you, for example `shelley build fastqc/0.12.1`." %}
-
-### Loading and running the tool
-
-After a successful build, load the module the same way you would on any HPC system and
-run the tool:
-
-```bash
-module load fastqc
-fastqc --version
-# FastQC v0.12.1
-```
-
-That's the whole loop: search, find, build, load, and run. This is the same loop you'll use
-for any tool in the BioContainers catalogue.
-
-Once you've got the hang of this, the [**How to use Shelley**](shelley-howto) guide covers
-the other use cases that will come in handy!
-
-## Reference datasets {#reference-data}
-
-CVMFS also provides access to reference genome builds and pre-built indexes from the Galaxy
-Project. You can browse the full repository at
-[datacache.galaxyproject.org](http://datacache.galaxyproject.org) before triggering any
-downloads on the VM. On BioShell, the same content is available at:
-
-```bash
-ls /cvmfs/data.galaxyproject.org/byhand/
-ls /cvmfs/data.galaxyproject.org/managed/
-```
-
-| Directory  | Contents                                                                                       |
-| ---------- | ---------------------------------------------------------------------------------------------- |
-| `/managed` | Datasets generated with Galaxy Data Manager tools. Organised by index type, then genome build. |
-| `/byhand`  | Older, manually curated datasets. Organised by genome build, then index type.                  |
 
 To use a reference file in your analysis, pass its absolute path directly to your tool or
 pipeline config. For example, the human CHM13 T2T v2.0 FASTA file is at:
@@ -219,9 +114,8 @@ ls /cvmfs/data.galaxyproject.org/byhand/CHM13_T2T_v2.0/
 # bowtie2_index/  bwa_mem_index/  bwameth_index/  hisat2_index/  len/  rnastar/  seq/
 ```
 
-{% include callout.html type="note" content="The reference datasets available through CVMFS are maintained by the Galaxy Project and may not be comprehensive. This is not a replacement for your institution's primary data access methods." %}
+{% include callout.html type="note" content="The reference datasets available through CVMFS are maintained by the Galaxy Project and may not be comprehensive." %}
 
----
 
 ## Troubleshooting {#troubleshooting}
 
@@ -243,19 +137,18 @@ sHPC requires Singularity to execute containers.
 
 **Shelley cannot find a tool**
 
-Try `search` with different keywords, for example `Shelley search "alignment"` instead
-of a specific tool name. If the container exists in CVMFS but Shelley does not index it,
-fall back to installing the module manually with `shpc install` - see the
+Try `search` with broader keywords, for example `shelley search "alignment"` instead of a
+specific tool name. If the container exists in CernVM-FS but Shelley does not index it, install
+the module manually with `shpc install` — see the
 [sHPC user guide](https://singularity-hpc.readthedocs.io/en/latest/getting_started/user-guide.html).
+
 
 ## Further reading {#further-reading}
 
-**CVMFS, sHPC, and reference data**
-
-- [sHPC user guide](https://singularity-hpc.readthedocs.io/en/latest/getting_started/user-guide.html)
-- [BioContainers registry](https://biocontainers.pro/registry)
-- [CVMFS documentation](https://cvmfs.readthedocs.io/en/stable/)
-- [Galaxy Project CVMFS repositories](https://galaxyproject.org/admin/cvmfs/)
-- [**How to use Shelley**](shelley-howto) - snippets for various use cases
+- [**How to use Shelley**](shelley-howto) — snippets for various use cases
 - [Full CLI reference](https://github.com/Sydney-Informatics-Hub/shelley/blob/main/docs/reference/cli.md)
 - [Design rationale](https://github.com/Sydney-Informatics-Hub/shelley/tree/main/docs/explanation)
+- [BioContainers registry](https://biocontainers.pro/registry)
+- [Galaxy Project CVMFS repositories](https://galaxyproject.org/admin/cvmfs/)
+- [CVMFS documentation](https://cvmfs.readthedocs.io/en/stable/)
+- [sHPC user guide](https://singularity-hpc.readthedocs.io/en/latest/getting_started/user-guide.html)

@@ -1,18 +1,14 @@
 ---
-title: Choosing the right environment size
+title: Choose the right environment
 type: Using BioShell
 description: How to choose the right number of CPUs, memory, and storage for your BioShell environment.
 ---
 
-{% include callout.html type="note" content="A flavour is the combination of virtual CPUs and memory allocated to your BioShell environment, essentially the “spec” of your cloud computer. Different flavours suit different workloads, just as you might choose a lightweight laptop for email but a workstation for video editing. You pick a flavour when you request access and can request a change later if your needs grow." %}
+{% include callout.html type="note" content="A flavour is the combination of virtual CPUs and memory allocated to your BioShell environment, essentially the “spec” of your virtual machine. Different flavours suit different workloads." %} 
 
-Cloud systems are shared research resources. As a general principle, you are encouraged to
-request resources that closely match your actual needs. This supports fair access for all
-users and preserves capacity for everyone.
+As a general principle, we encourage you to request resources that closely match your actual needs. 
 
-Estimating requirements can be challenging, particularly at the start of a project you may
-not yet know which software tools you will use or how demanding they will be. The guidance
-below is designed to help you make a reasonable first choice and adjust from there.
+Estimating requirements can be challenging, particularly at the start of a project you may not yet know which software tools you will use or how demanding they will be. The guidance below is designed to help you make a reasonable first choice and adjust from there.
 
 
 ## A familiar starting point {#familiar-starting-point}
@@ -27,8 +23,7 @@ background applications.
 
 If you are new to BioShell, or unsure of your requirements, starting with a
 **laptop-equivalent size** (4 CPUs / 8–16 GB RAM) is a reasonable default. You can always
-request a larger environment if you find you need it.
-
+request a larger VM flavour when you need it.
 
 ## Suggested sizes by workload {#workload-sizes}
 
@@ -49,14 +44,14 @@ datasets.
 | **Memory** | 4–8 GB |
 | **Storage** | Up to 100 GB |
 
-**Example:** John is starting a research project analysing drought-resistant genes from 20
+**Example:** Fred is starting a research project analysing drought-resistant genes from 20
 crop samples (~140 GB raw data). His pipeline runs quality control (`FASTQC`), adapter
 trimming (`cutadapt`), alignment and annotation (`blast`, `SPAdes`), and phylogenetic tree
 construction (`MrBayes`). Of these, `blast` and `SPAdes` are the most CPU- and
-memory-intensive tools in the pipeline, but because John is selecting out a small set of
+memory-intensive tools in the pipeline, but because Fred is selecting out a small set of
 drought-resistant genes rather than whole genomes, each run only needs 2–4 CPUs and
 under 10 GB of RAM. A balanced environment at this size handles the pipeline
-comfortably. If John later extends the analysis to many more genes, those steps become more
+comfortably. If Fred later extends the analysis to many more genes, those steps become more
 CPU-bound and he should move to the medium size below with more cores.
 
 
@@ -73,7 +68,7 @@ particularly those involving large in-memory data objects.
 | **Storage** | Variable, depends on sample count |
 
 **Example:** Michael is running the
-[**SIH scRNAvigator notebooks**](https://github.com/Sydney-Informatics-Hub/scrna-analysis) in
+[**scRNAvigator notebooks**](https://github.com/Sydney-Informatics-Hub/scrna-analysis) in
 RStudio. The workflow covers quality control, doublet detection, dataset integration, cell
 annotation, differential gene expression, and pathway enrichment analysis. Integration and
 doublet detection steps load large data objects into memory simultaneously, making this
@@ -189,16 +184,10 @@ installed by default on almost every Linux system, useful if `htop` isn't availa
 ## Beyond a single environment: when to consider HPC {#beyond-single-environment}
 
 BioShell environments are well suited to interactive work and moderate-scale pipelines, but
-they have a ceiling. If your workload keeps growing, more samples in parallel, whole genomes
-rather than subsets, cohorts scaling into the hundreds, a single environment may no longer
+they have a ceiling. If your workload keeps growing, a single environment may no longer
 be the most efficient option.
-
-
-{% include callout.html type="tip" content="Before requesting a very large environment, test your pipeline end-to-end on a small subset of your data (a handful of samples, or a reduced reference) on a modest environment. This confirms the pipeline runs correctly and gives you a realistic estimate of per-sample time and resource use, information you’ll need whether you stay on BioShell or move to an HPC system." %}
-
 
 Once your pipeline is validated, high-throughput or many-sample workloads are often better
 suited to a national HPC facility than to a single cloud environment. The
 [**Australian BioCommons Leadership Share (ABLeS)**](https://australianbiocommons.github.io/ables/index)
-programme, offering access to HPC infrastructure, specialist expertise, and best-practice
-support, can help you plan that transition.
+programme can help you plan that transition.

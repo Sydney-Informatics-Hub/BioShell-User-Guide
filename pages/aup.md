@@ -22,9 +22,9 @@ Submission of a BioShell access request, and use of the BioShell service followi
 
 ## Acknowledging the Service {#acknowledging-the-service}
 
-You shall acknowledge use of BioShell in relevant research, training, and innovation outputs using the format:
+You shall acknowledge use of BioShell in relevant research, training, and innovation outputs with the statement:
 
-> "This work is supported by BioShell, a service provided by Australian BioCommons and its partners. The service receives NCRIS funding through Bioplatforms Australia as well as The University of Sydney"
+> "This work is supported by BioShell, a service provided by Australian BioCommons and Sydney Informatics Hub, University of Sydney. BioShell is funded by NCRIS via Bioplatforms Australia. The authors acknowledge the technical assistance provided by the Sydney Informatics Hub, a Core Research Facility of the University of Sydney and the Australian BioCommons which is enabled by NCRIS via Bioplatforms Australia."
 
 
 ## Service commitments {#service-commitments}

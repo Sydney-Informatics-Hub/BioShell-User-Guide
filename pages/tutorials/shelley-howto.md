@@ -1,6 +1,6 @@
 ---
 title: How to use Shelley
-type: Using BioShell
+type: Tutorial
 description: A collection of guides for finding, building, and installing bioinformatics tools with Shelley
 ---
 
@@ -8,25 +8,100 @@ This page collects several use cases for Shelley to find and build tools. If you
 it fits together, see the [**Getting started with Shelley**](tools#getting-started-with-shelley)
 tutorial first.
 
-## Basic usage {#basic-usage}
+### Find a tool you know by name
 
-**From the command line:**
-
-```bash
-shelley find <tool> # Look up a specific tool by name
-shelley search "<function>" # Search by keyword or function
-shelley build <tool> # Install the tool as a loadable module
-```
-
-**In interactive mode:**
+Say you already know you need `fastqc`. Look it up with `find`:
 
 ```bash
-shelley interactive # Launch Shelley in interactive mode
+shelley find fastqc
 ```
 
-Interactive mode works the same way as the command line. The `find`, `search`, and `build`
-behave identically, except you type just the command name and its arguments, without
-prefixing every call with `shelley`.
+<details markdown="1">
+<summary>Example output</summary>
+![](assets/img/shelley_find_fastqc.png)
+<br>
+</details>
+<br>
+
+Shelley returns the tool's description, its most recent container versions, and whether it is
+installed as a module yet. `find` is forgiving about naming: case, hyphens, and underscores are
+all handled for you, so `shelley find STAR`, `shelley find bwa-mem2`, and `shelley find samtools`
+all work as expected.
+
+### See every available version
+
+By default `find` shows only the most recent versions of a tool. To pin an exact version for
+reproducibility, or to match a pipeline's requirements, add the `-v` (verbose) flag to see every
+available container, newest first:
+
+```bash
+shelley find fastqc -v
+```
+
+<details markdown="1">
+<summary>Example output</summary>
+![](assets/img/shelley_find_fastqc_v.png)
+<br>
+</details>
+<br>
+
+
+### Search when you only know the task
+
+Sometimes you know what you want to do but not which tool does it. That's what `search` is for:
+
+```bash
+shelley search "quality control"
+shelley search "variant calling"
+shelley search "de novo assembly"
+```
+
+Each result shows the tool name and a brief description of what it does. **Shorter, more
+specific phrases work better than full sentences** — every extra word broadens the match rather
+than narrowing it, so remove words rather than adding them if you get too many results.
+
+<details markdown="1">
+<summary>Example output</summary>
+![](assets/img/shelley_search_de-novo-assembly.png)
+<br>
+</details>
+<br>
+
+{% include callout.html type="note" content="Search is under active development. Results are broad and currently presented alphabetically." %}
+
+
+### Build the module
+
+Once you know the tool and version you want, build its module with `shelley build`:
+
+```bash
+shelley build fastqc
+```
+
+This installs the most recent available version by default.
+
+<details markdown="1">
+<summary>Example output</summary>
+![](assets/img/shelley_build_fastqc.png)
+<br>
+</details>
+<br>
+
+{% include callout.html type="tip" content="To install a specific version instead of the most recent one, give `build` the same `<tool>/<version>` spec that `find -v` showed you, for example `shelley build fastqc/0.12.1`." %}
+
+### Load and run the tool
+
+Load the module the same way you would on any HPC system, then run the tool:
+
+```bash
+module load fastqc
+fastqc --version
+# FastQC v0.12.1
+```
+
+That's the whole loop, and it is the same for every tool: find, build, load, run. When you are
+ready for more, [**How to use Shelley**](shelley-howto) covers the other use cases that will
+come in handy.
 
 ## How-to install `bwa-mem2` {#how-to-install-bwa-mem2}
 
