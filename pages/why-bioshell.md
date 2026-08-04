@@ -25,7 +25,7 @@ A VM like this lets you:
 
 Bioinformatics analyses typically require many specialised tools chained together, each with its own dependencies. Version conflicts are common because one tool might need an older version of a library while another needs a newer one. This makes setting up all these tools time-consuming, and once you do, your analysis is difficult to reproduce on a different machine.
 
-BioShell solves this. All tools come from BioContainers (the same tool library that Galaxy uses), retrieved and installed by our command-line companion, [:turtle: Shelley](./shelley-howto.md). Because BioShell is version-controlled and built on public infrastructure, your analysis stays reproducible and portable. You skip the installation overhead and get a research environment that travels with you.
+BioShell solves this. All tools come from BioContainers (the same tool library that Galaxy uses), retrieved and installed by our command-line companion, [:turtle: Shelley](shelley-howto). Because BioShell is version-controlled and built on public infrastructure, your analysis stays reproducible and portable. You skip the installation overhead and get a research environment that travels with you.
 
 | | What it means for you |
 |--|----------------------|
