@@ -11,7 +11,7 @@ your access request.
 {% include callout.html type="important" content="Your connection details are provided as part of your provisioning notification. Keep them secure and do not share them publicly." %}
 
 If you have not yet generated and submitted your SSH key, see the
-[**SSH key generation tutorial**](ssh-keys) first.
+[**SSH key generation tutorial**](ssh-keys-howto) first.
 
 
 ## Connect via SSH {#ssh-connect}
