@@ -40,11 +40,17 @@ BioShell runs on research-grade infrastructure contributed by our computational 
 - ARDC Nectar: [https://status.rc.nectar.org.au/](https://status.rc.nectar.org.au/)
 - NCI Nirin: [https://nci.org.au/our-systems/status](https://nci.org.au/our-systems/status)
 
-### Service capacity
+### Service capacity {#service-capacity}
 
 BioShell provisions dedicated virtual machine environments for each approved project. Storage quotas are enforced at the infrastructure level — it is not possible to exceed your allocated storage quota. Additional storage cannot be guaranteed and must be requested through the BioShell helpdesk, subject to availability and review.
 
+BioShell's total capacity is a finite allocation from our infrastructure partners. When that allocation is fully committed, new environments and requests for additional resources may be queued until capacity is released by projects that have finished or expired. Approval of a project does not guarantee immediate provisioning. Where we expect a delay, we will advise you of the likely wait at the time of your request.
+
 No backup of VM data is provided by BioShell or its infrastructure partners. Users are responsible for ensuring their data is exported and stored appropriately.
+
+### Allocation period {#allocation-period}
+
+Access to a BioShell environment is granted for an allocation period of 3 months from the date your environment is provisioned. Allocations are renewable on request, subject to demonstrated usage, continued progress against the aims stated in your application, and available capacity. Renewal is not automatic and cannot be guaranteed.
 
 ### Service lifetime
 

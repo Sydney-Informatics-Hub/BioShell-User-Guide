@@ -57,6 +57,8 @@ To request access to BioShell, you will need to provide us with some details abo
 
 <p style="text-align:center; margin-bottom: 3rem;"> <a href="https://docs.google.com/forms/d/e/1FAIpQLScOVZjZTvdZC65cnUN2BmasQhxYjTzDjJu2bleIZKQZyB7LrA/viewform?usp=dialog" class="btn btn-primary btn-lg" style="padding: 0.75rem 2.5rem;">Request access</a></p>
 
+{% include callout.html type="important" content="BioShell's capacity is a finite allocation from our infrastructure partners, so approval does not always mean immediate provisioning. See [service capacity](aup#service-capacity) for more." %}
+
 
 ## Training events
 
