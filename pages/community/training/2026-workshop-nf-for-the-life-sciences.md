@@ -1,5 +1,5 @@
 ---
-title: Intro to Nextflow (rerun)
+title: Nextflow for the life sciences (rerun)
 type: "BioShell Training"
 description: "Lupat R and Li S (2026)"
 date: 2026

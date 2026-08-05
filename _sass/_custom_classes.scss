@@ -41,6 +41,7 @@ h2 {
 .page-tiles-list {
   display: grid;
   grid-template-columns: repeat(var(--tile-cols, 4), 1fr);
+  grid-auto-rows: 1fr;
   gap: 20px;
 }
 
