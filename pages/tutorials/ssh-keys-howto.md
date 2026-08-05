@@ -69,4 +69,4 @@ Berenice Ioshell becomes `bioshell`. You will receive your
 connection details by email once your environment is provisioned, then head to
 [Connecting to BioShell](connecting) to log in for the first time.
 
-{% include callout.html type="important" content="If you run into any issues, contact [AUTHOR TO SUPPLY — helpdesk email or link]." %}
+{% include callout.html type="important" content="If you run into any issues, fill in a [support request form](https://docs.google.com/forms/d/e/1FAIpQLSc6Tr2FAponrwYuMXfqspuzcXnssbM5gQ9ChLUqzh5yUxWJuQ/viewform?usp=dialog)." %}
