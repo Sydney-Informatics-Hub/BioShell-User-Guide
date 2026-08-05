@@ -44,7 +44,7 @@ Bioinformatics often requires us to use many different software including comman
 
 ![](assets/img/shelley-orchestrator.png)
 
-You don't need to undersand any of this to use BioShell because **Shelley**, BioShell's command-line assistant, drives all three for you. She:
+You don't need to undersand any of this to use BioShell because [**Shelley**](https://github.com/Sydney-Informatics-Hub/shelley), BioShell's command-line assistant, drives all three for you. She:
 
 * Searches the tool library
 * Picks the right container version

@@ -4,7 +4,7 @@ type: Tutorial
 description: A collection of guides for finding, building, and installing bioinformatics tools with Shelley
 ---
 
-This page collects several use cases for Shelley to find and build tools. If you are new to Shelley and want a guided tour of how
+This page collects several use cases for [Shelley](https://github.com/Sydney-Informatics-Hub/shelley) to find and build tools. If you are new to Shelley and want a guided tour of how
 it fits together, see the [**Getting started with Shelley**](tools#getting-started-with-shelley)
 tutorial first.
 
