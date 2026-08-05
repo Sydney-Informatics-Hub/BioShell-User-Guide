@@ -4,14 +4,13 @@ type: Using BioShell
 description: How to connect to your BioShell environment via SSH and what to expect on first login.
 ---
 
-Once your environment is provisioned you will receive connection details by email. BioShell
-uses SSH key authentication, you will need the key pair you generated and submitted during
-your access request.
+BioShell uses SSH key authentication. Before your environment can be set up, you need to
+generate an SSH key pair and email the public key to the BioShell team. If you have not done
+this yet, follow the [**SSH key generation tutorial**](ssh-keys-howto) first.
 
-{% include callout.html type="important" content="Your connection details are provided as part of your provisioning notification. Keep them secure and do not share them publicly." %}
+Once your environment is provisioned, the BioShell team will email you your connection details.
 
-If you have not yet generated and submitted your SSH key, see the
-[**SSH key generation tutorial**](ssh-keys-howto) first.
+{% include callout.html type="important" content="Keep your private key and your connection details secure, and do not share them publicly. Only ever send the **public** half of your key pair (the `.pub` file)." %}
 
 
 ## Connect via SSH {#ssh-connect}
