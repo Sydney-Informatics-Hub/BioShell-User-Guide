@@ -1,5 +1,4 @@
-# see https://github.com/AustralianBioCommons/human-omics-data-sharing-field-guide/blob/main/_data/footer.yml
-copyright: Add copyright notice here!
+copyright: The content of this website is licensed under a [Creative Commons Attribution 4.0 International (CC BY 4.0) License](https://url.au.m.mimecastprotect.com/s/5KlkCZY1Nqix5KNQYszfVXhBpYz3?domain=creativecommons.org/) \| [Privacy](https://url.au.m.mimecastprotect.com/s/EcbJC1WLPxcOMJYqXFGhp5hVukJY?domain=biocommons.org.au) \| [Cookies](https://url.au.m.mimecastprotect.com/s/5MKnC2xMQzi6p5w8QIBi3zh5Sb7w?domain=biocommons.org.au)
 columns:
   - type: links
     width: 3
