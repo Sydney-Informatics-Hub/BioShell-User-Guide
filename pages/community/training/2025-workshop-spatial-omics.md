@@ -5,7 +5,7 @@ description: "Jaya F, Williams S, O'Brien MJ, Matigian N, Thind AS, Wang C, Mori
 date: 2025
 participants: 37
 doi: 10.5281/zenodo.18168944 
-materials_url: https://swbioinf.github.io/spatial-taster-workshop/
+materials_url: https://swbioinf.github.io/intro-spatial-transcriptomics-workshop/index.html
 ---
 
 This workshop provides a practical introduction to comparative analysis of spatial omics data. Starting with a pre-processed in situ spatial dataset, we will undertake some basic differential expression, look at differences of proportions of cell types, and exploratory plotting. We will work in R, using mostly Bioconductor tools. We will use a cosMx dataset, but these approaches are applicable to other technologies like Xenium or vizgen.
