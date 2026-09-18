@@ -5,7 +5,7 @@ description: "Williams S (2026)"
 date: 2026
 participants: 26
 doi: 10.5281/zenodo.18795925
-materials_url: https://swbioinf.github.io/intro-spatial-transcriptomics-workshop/index.html
+materials_url: https://swbioinf.github.io/spatial-taster-workshop/
 ---
 
 Spatial omics provides unprecedented opportunities for the understanding of cells, tissues and systems by combining omics and imaging technologies.
