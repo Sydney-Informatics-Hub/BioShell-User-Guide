@@ -7,8 +7,7 @@ description: Training workshops, research outcomes, and community achievements e
 ## Overview
 
 BioShell supports nationally delivered training events and research projects across
-Australia. This page highlights workshops delivered using BioShell and how you can get
-involved.
+Australia.
 
 
 ## Training {#training}
@@ -21,11 +20,13 @@ All training run by Australian BioCommons are openly available via Zenodo.
 {% include section-navigation-tiles_mod.html type="BioShell Training" col="4" %}
 
 
-## Research outcomes {#research}
+## Supported research {#research}
 
 BioShell has supported research projects across a range of molecular life sciences
 disciplines. This section highlights projects that have used BioShell as part of their
 research.
+
+{% include research-stats.html %}
 
 {% include section-navigation-tiles_mod.html type="BioShell Research" col="4" %}
 

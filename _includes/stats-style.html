@@ -1,0 +1,50 @@
+{%- comment -%}
+Shared styling for the community statistics blocks (community-stats.html and
+research-stats.html). Column count is set per-block via the --stat-cols custom
+property on .community-stats.
+{%- endcomment -%}
+<style>
+
+  .community-stats {
+    display: grid;
+    grid-template-columns: repeat(var(--stat-cols, 2), 1fr);
+    gap: 20px;
+    margin: 25px 0;
+  }
+
+  @media (max-width: 900px) {
+    .community-stats {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .community-stats {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+
+  .community-stat {
+    background: #205a86;
+    color: #ffffff;
+    border-radius: 12px;
+    padding: 30px 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .community-stat-number {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.1;
+  }
+
+  .community-stat-label {
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin-top: 8px;
+  }
+
+</style>

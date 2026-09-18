@@ -1,0 +1,33 @@
+{%- comment -%}
+Researcher credits for a "BioShell Research" project page, in either front-matter shape.
+
+  One person:
+    researcher: "Dr Mumta Chhetri"
+    affiliation: "The University of Sydney"
+
+  Several people on the one project tile:
+    affiliation: "The University of Sydney"   # default for anyone with no affiliation of their own
+    researchers:
+      - name: "Dr Mumta Chhetri"
+      - name: "Dezerae Cox"
+        affiliation: "University of Wollongong"
+
+`researchers` wins when both shapes are present, so delete `researcher:` when you convert
+a page to several people — otherwise that person is credited nowhere on the page.
+
+Keep this in step with _includes/research-stats.html, which counts the same two shapes.
+{%- endcomment -%}
+{%- if page.researchers -%}
+**Researchers**
+
+{% for person in page.researchers -%}
+{%- if person.name -%}
+{%- assign person_affiliation = person.affiliation | default: page.affiliation -%}
+- {{ person.name }}{% if person_affiliation %} — {{ person_affiliation }}{% endif %}
+{% endif -%}
+{%- endfor %}
+{%- else -%}
+**Researcher:** {{ page.researcher }}
+
+**Affiliation:** {{ page.affiliation }}
+{%- endif -%}

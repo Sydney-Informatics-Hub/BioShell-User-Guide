@@ -1,0 +1,60 @@
+{%- comment -%}
+Research statistics, generated from every page with type: "BioShell Research".
+
+  Projects     — number of research pages.
+  Researchers  — unique researcher names, counted across both front-matter shapes:
+                 a single `researcher`, or a `researchers` list of `- name:` entries.
+  Institutions — unique affiliations: each person's own `affiliation` where they have
+                 one, otherwise the page-level `affiliation`.
+
+Names are collected into a "|"-separated string because Liquid has no way to push onto
+an array. `uniq` then means exact string match, so keep a person's or an institution's
+name spelled identically across pages or they will be counted twice.
+
+Deliberately no compute/allocation figures: this repository is public, so per-project
+VM size, storage and start dates are kept out of the guide entirely.
+{%- endcomment -%}
+{%- assign research = site.pages | where: "type", "BioShell Research" -%}
+{%- assign researcher_names = "" -%}
+{%- assign institution_names = "" -%}
+{%- for project in research -%}
+  {%- if project.researchers -%}
+    {%- for person in project.researchers -%}
+      {%- if person.name -%}
+        {%- assign researcher_names = researcher_names | append: person.name | append: "|" -%}
+      {%- endif -%}
+      {%- assign person_affiliation = person.affiliation | default: project.affiliation -%}
+      {%- if person_affiliation -%}
+        {%- assign institution_names = institution_names | append: person_affiliation | append: "|" -%}
+      {%- endif -%}
+    {%- endfor -%}
+  {%- elsif project.researcher -%}
+    {%- comment -%} `join` also flattens a list, so `researcher:` tolerates one. {%- endcomment -%}
+    {%- assign project_researcher = project.researcher | join: "|" -%}
+    {%- assign researcher_names = researcher_names | append: project_researcher | append: "|" -%}
+  {%- endif -%}
+  {%- unless project.researchers -%}
+    {%- if project.affiliation -%}
+      {%- assign project_affiliation = project.affiliation | join: "|" -%}
+      {%- assign institution_names = institution_names | append: project_affiliation | append: "|" -%}
+    {%- endif -%}
+  {%- endunless -%}
+{%- endfor -%}
+{%- assign researchers = researcher_names | split: "|" | uniq -%}
+{%- assign institutions = institution_names | split: "|" | uniq -%}
+<div class="community-stats" style="--stat-cols: 3;">
+  <div class="community-stat">
+    <span class="community-stat-number">{{ research | size }}</span>
+    <span class="community-stat-label">Research projects</span>
+  </div>
+  <div class="community-stat">
+    <span class="community-stat-number">{{ researchers | size }}</span>
+    <span class="community-stat-label">Researchers supported</span>
+  </div>
+  <div class="community-stat">
+    <span class="community-stat-number">{{ institutions | size }}</span>
+    <span class="community-stat-label">Institutions</span>
+  </div>
+</div>
+
+{% include stats-style.html %}

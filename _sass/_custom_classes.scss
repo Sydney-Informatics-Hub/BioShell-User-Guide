@@ -98,6 +98,38 @@ h2 {
   flex-grow: 1;
 }
 
+/* Names line under the description — the researcher(s) credited on a research tile. */
+.page-tile-meta {
+  color: inherit;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  font-style: italic;
+  opacity: 0.75;
+  margin: 8px 0 0;
+}
+
+/*-----Community tiles (section-navigation-tiles_mod.html)-----*/
+/* Smaller type than the default tiles: community tiles sit in a 4-column grid
+   and carry long workshop and research project titles. */
+
+.page-tiles-community {
+  .page-tiles-list {
+    gap: 8px;
+  }
+
+  .page-tile-title {
+    font-size: 1.0rem;
+  }
+
+  .page-tile-description {
+    font-size: 0.825rem;
+  }
+
+  .page-tile-meta {
+    font-size: 0.75rem;
+  }
+}
+
 /*-----Section navigation tiles-----*/
 
 .navigation-tiles {
@@ -118,3 +150,15 @@ h2 {
     }
 }
 
+
+/*-----Footer alignment-----*/
+/* Centre only the copyright bar; the theme splits it to the outer edges with
+   justify-content-between. The link column keeps the theme's left alignment.
+   Bootstrap utilities carry !important, so the override needs it too. */
+
+#footer {
+  .copyright .container {
+    justify-content: center !important;
+    text-align: center;
+  }
+}
