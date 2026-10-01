@@ -1,0 +1,314 @@
+##########################################################################
+### ANZSRC 2020 Fields of Research (FoR) — divisions and groups        ###
+##########################################################################
+
+### Source: https://www.abs.gov.au/statistics/classifications/australian-and-new-zealand-standard-research-classification-anzsrc/latest-release
+### Used by _includes/research-fields.html and _includes/research-fields-summary.html
+### to turn the `fields_of_research:` codes on "BioShell Research" pages into names.
+### Complete list of all 23 divisions and their 4-digit groups.
+
+
+- code: "30"
+  name: "Agricultural, veterinary and food sciences"
+  fields:
+    - { code: "3001", name: "Agricultural biotechnology" }
+    - { code: "3002", name: "Agriculture, land and farm management" }
+    - { code: "3003", name: "Animal production" }
+    - { code: "3004", name: "Crop and pasture production" }
+    - { code: "3005", name: "Fisheries sciences" }
+    - { code: "3006", name: "Food sciences" }
+    - { code: "3007", name: "Forestry sciences" }
+    - { code: "3008", name: "Horticultural production" }
+    - { code: "3009", name: "Veterinary sciences" }
+    - { code: "3099", name: "Other agricultural, veterinary and food sciences" }
+
+- code: "31"
+  name: "Biological sciences"
+  fields:
+    - { code: "3101", name: "Biochemistry and cell biology" }
+    - { code: "3102", name: "Bioinformatics and computational biology" }
+    - { code: "3103", name: "Ecology" }
+    - { code: "3104", name: "Evolutionary biology" }
+    - { code: "3105", name: "Genetics" }
+    - { code: "3106", name: "Industrial biotechnology" }
+    - { code: "3107", name: "Microbiology" }
+    - { code: "3108", name: "Plant biology" }
+    - { code: "3109", name: "Zoology" }
+    - { code: "3199", name: "Other biological sciences" }
+
+- code: "32"
+  name: "Biomedical and clinical sciences"
+  fields:
+    - { code: "3201", name: "Cardiovascular medicine and haematology" }
+    - { code: "3202", name: "Clinical sciences" }
+    - { code: "3203", name: "Dentistry" }
+    - { code: "3204", name: "Immunology" }
+    - { code: "3205", name: "Medical biochemistry and metabolomics" }
+    - { code: "3206", name: "Medical biotechnology" }
+    - { code: "3207", name: "Medical microbiology" }
+    - { code: "3208", name: "Medical physiology" }
+    - { code: "3209", name: "Neurosciences" }
+    - { code: "3210", name: "Nutrition and dietetics" }
+    - { code: "3211", name: "Oncology and carcinogenesis" }
+    - { code: "3212", name: "Ophthalmology and optometry" }
+    - { code: "3213", name: "Paediatrics" }
+    - { code: "3214", name: "Pharmacology and pharmaceutical sciences" }
+    - { code: "3215", name: "Reproductive medicine" }
+    - { code: "3299", name: "Other biomedical and clinical sciences" }
+
+- code: "33"
+  name: "Built environment and design"
+  fields:
+    - { code: "3301", name: "Architecture" }
+    - { code: "3302", name: "Building" }
+    - { code: "3303", name: "Design" }
+    - { code: "3304", name: "Urban and regional planning" }
+    - { code: "3399", name: "Other built environment and design" }
+
+- code: "34"
+  name: "Chemical sciences"
+  fields:
+    - { code: "3401", name: "Analytical chemistry" }
+    - { code: "3402", name: "Inorganic chemistry" }
+    - { code: "3403", name: "Macromolecular and materials chemistry" }
+    - { code: "3404", name: "Medicinal and biomolecular chemistry" }
+    - { code: "3405", name: "Organic chemistry" }
+    - { code: "3406", name: "Physical chemistry" }
+    - { code: "3407", name: "Theoretical and computational chemistry" }
+    - { code: "3499", name: "Other chemical sciences" }
+
+- code: "35"
+  name: "Commerce, management, tourism and services"
+  fields:
+    - { code: "3501", name: "Accounting, auditing and accountability" }
+    - { code: "3502", name: "Banking, finance and investment" }
+    - { code: "3503", name: "Business systems in context" }
+    - { code: "3504", name: "Commercial services" }
+    - { code: "3505", name: "Human resources and industrial relations" }
+    - { code: "3506", name: "Marketing" }
+    - { code: "3507", name: "Strategy, management and organisational behaviour" }
+    - { code: "3508", name: "Tourism" }
+    - { code: "3509", name: "Transportation, logistics and supply chains" }
+    - { code: "3599", name: "Other commerce, management, tourism and services" }
+
+- code: "36"
+  name: "Creative arts and writing"
+  fields:
+    - { code: "3601", name: "Art history, theory and criticism" }
+    - { code: "3602", name: "Creative and professional writing" }
+    - { code: "3603", name: "Music" }
+    - { code: "3604", name: "Performing arts" }
+    - { code: "3605", name: "Screen and digital media" }
+    - { code: "3606", name: "Visual arts" }
+    - { code: "3699", name: "Other creative arts and writing" }
+
+- code: "37"
+  name: "Earth sciences"
+  fields:
+    - { code: "3701", name: "Atmospheric sciences" }
+    - { code: "3702", name: "Climate change science" }
+    - { code: "3703", name: "Geochemistry" }
+    - { code: "3704", name: "Geoinformatics" }
+    - { code: "3705", name: "Geology" }
+    - { code: "3706", name: "Geophysics" }
+    - { code: "3707", name: "Hydrology" }
+    - { code: "3708", name: "Oceanography" }
+    - { code: "3709", name: "Physical geography and environmental geoscience" }
+    - { code: "3799", name: "Other earth sciences" }
+
+- code: "38"
+  name: "Economics"
+  fields:
+    - { code: "3801", name: "Applied economics" }
+    - { code: "3802", name: "Econometrics" }
+    - { code: "3803", name: "Economic theory" }
+    - { code: "3899", name: "Other economics" }
+
+- code: "39"
+  name: "Education"
+  fields:
+    - { code: "3901", name: "Curriculum and pedagogy" }
+    - { code: "3902", name: "Education policy, sociology and philosophy" }
+    - { code: "3903", name: "Education systems" }
+    - { code: "3904", name: "Specialist studies in education" }
+    - { code: "3999", name: "Other education" }
+
+- code: "40"
+  name: "Engineering"
+  fields:
+    - { code: "4001", name: "Aerospace engineering" }
+    - { code: "4002", name: "Automotive engineering" }
+    - { code: "4003", name: "Biomedical engineering" }
+    - { code: "4004", name: "Chemical engineering" }
+    - { code: "4005", name: "Civil engineering" }
+    - { code: "4006", name: "Communications engineering" }
+    - { code: "4007", name: "Control engineering, mechatronics and robotics" }
+    - { code: "4008", name: "Electrical engineering" }
+    - { code: "4009", name: "Electronics, sensors and digital hardware" }
+    - { code: "4010", name: "Engineering practice and education" }
+    - { code: "4011", name: "Environmental engineering" }
+    - { code: "4012", name: "Fluid mechanics and thermal engineering" }
+    - { code: "4013", name: "Geomatic engineering" }
+    - { code: "4014", name: "Manufacturing engineering" }
+    - { code: "4015", name: "Maritime engineering" }
+    - { code: "4016", name: "Materials engineering" }
+    - { code: "4017", name: "Mechanical engineering" }
+    - { code: "4018", name: "Nanotechnology" }
+    - { code: "4019", name: "Resources engineering and extractive metallurgy" }
+    - { code: "4099", name: "Other engineering" }
+
+- code: "41"
+  name: "Environmental sciences"
+  fields:
+    - { code: "4101", name: "Climate change impacts and adaptation" }
+    - { code: "4102", name: "Ecological applications" }
+    - { code: "4103", name: "Environmental biotechnology" }
+    - { code: "4104", name: "Environmental management" }
+    - { code: "4105", name: "Pollution and contamination" }
+    - { code: "4106", name: "Soil sciences" }
+    - { code: "4199", name: "Other environmental sciences" }
+
+- code: "42"
+  name: "Health sciences"
+  fields:
+    - { code: "4201", name: "Allied health and rehabilitation science" }
+    - { code: "4202", name: "Epidemiology" }
+    - { code: "4203", name: "Health services and systems" }
+    - { code: "4204", name: "Midwifery" }
+    - { code: "4205", name: "Nursing" }
+    - { code: "4206", name: "Public health" }
+    - { code: "4207", name: "Sports science and exercise" }
+    - { code: "4208", name: "Traditional, complementary and integrative medicine" }
+    - { code: "4299", name: "Other health sciences" }
+
+- code: "43"
+  name: "History, heritage and archaeology"
+  fields:
+    - { code: "4301", name: "Archaeology" }
+    - { code: "4302", name: "Heritage, archive and museum studies" }
+    - { code: "4303", name: "Historical studies" }
+    - { code: "4399", name: "Other history, heritage and archaeology" }
+
+- code: "44"
+  name: "Human society"
+  fields:
+    - { code: "4401", name: "Anthropology" }
+    - { code: "4402", name: "Criminology" }
+    - { code: "4403", name: "Demography" }
+    - { code: "4404", name: "Development studies" }
+    - { code: "4405", name: "Gender studies" }
+    - { code: "4406", name: "Human geography" }
+    - { code: "4407", name: "Policy and administration" }
+    - { code: "4408", name: "Political science" }
+    - { code: "4409", name: "Social work" }
+    - { code: "4410", name: "Sociology" }
+    - { code: "4499", name: "Other human society" }
+
+- code: "45"
+  name: "Indigenous studies"
+  fields:
+    - { code: "4501", name: "Aboriginal and Torres Strait Islander culture, language and history" }
+    - { code: "4502", name: "Aboriginal and Torres Strait Islander education" }
+    - { code: "4503", name: "Aboriginal and Torres Strait Islander environmental knowledges and management" }
+    - { code: "4504", name: "Aboriginal and Torres Strait Islander health and wellbeing" }
+    - { code: "4505", name: "Aboriginal and Torres Strait Islander peoples, society and community" }
+    - { code: "4506", name: "Aboriginal and Torres Strait Islander sciences" }
+    - { code: "4507", name: "Te ahurea, reo me te hītori o te Māori (Māori culture, language and history)" }
+    - { code: "4508", name: "Mātauranga Māori (Māori education)" }
+    - { code: "4509", name: "Ngā mātauranga taiao o te Māori (Māori environmental knowledges)" }
+    - { code: "4510", name: "Te hauora me te oranga o te Māori (Māori health and wellbeing)" }
+    - { code: "4511", name: "Ngā tāngata, te porihanga me ngā hapori o te Māori (Māori peoples, society and community)" }
+    - { code: "4512", name: "Ngā pūtaiao Māori (Māori sciences)" }
+    - { code: "4513", name: "Pacific Peoples culture, language and history" }
+    - { code: "4514", name: "Pacific Peoples education" }
+    - { code: "4515", name: "Pacific Peoples environmental knowledges" }
+    - { code: "4516", name: "Pacific Peoples health and wellbeing" }
+    - { code: "4517", name: "Pacific Peoples sciences" }
+    - { code: "4518", name: "Pacific Peoples society and community" }
+    - { code: "4519", name: "Other Indigenous data, methodologies and global Indigenous studies" }
+    - { code: "4599", name: "Other Indigenous studies" }
+
+- code: "46"
+  name: "Information and computing sciences"
+  fields:
+    - { code: "4601", name: "Applied computing" }
+    - { code: "4602", name: "Artificial intelligence" }
+    - { code: "4603", name: "Computer vision and multimedia computation" }
+    - { code: "4604", name: "Cybersecurity and privacy" }
+    - { code: "4605", name: "Data management and data science" }
+    - { code: "4606", name: "Distributed computing and systems software" }
+    - { code: "4607", name: "Graphics, augmented reality and games" }
+    - { code: "4608", name: "Human-centred computing" }
+    - { code: "4609", name: "Information systems" }
+    - { code: "4610", name: "Library and information studies" }
+    - { code: "4611", name: "Machine learning" }
+    - { code: "4612", name: "Software engineering" }
+    - { code: "4613", name: "Theory of computation" }
+    - { code: "4699", name: "Other information and computing sciences" }
+
+- code: "47"
+  name: "Language, communication and culture"
+  fields:
+    - { code: "4701", name: "Communication and media studies" }
+    - { code: "4702", name: "Cultural studies" }
+    - { code: "4703", name: "Language studies" }
+    - { code: "4704", name: "Linguistics" }
+    - { code: "4705", name: "Literary studies" }
+    - { code: "4799", name: "Other language, communication and culture" }
+
+- code: "48"
+  name: "Law and legal studies"
+  fields:
+    - { code: "4801", name: "Commercial law" }
+    - { code: "4802", name: "Environmental and resources law" }
+    - { code: "4803", name: "International and comparative law" }
+    - { code: "4804", name: "Law in context" }
+    - { code: "4805", name: "Legal systems" }
+    - { code: "4806", name: "Private law and civil obligations" }
+    - { code: "4807", name: "Public law" }
+    - { code: "4899", name: "Other law and legal studies" }
+
+- code: "49"
+  name: "Mathematical sciences"
+  fields:
+    - { code: "4901", name: "Applied mathematics" }
+    - { code: "4902", name: "Mathematical physics" }
+    - { code: "4903", name: "Numerical and computational mathematics" }
+    - { code: "4904", name: "Pure mathematics" }
+    - { code: "4905", name: "Statistics" }
+    - { code: "4999", name: "Other mathematical sciences" }
+
+- code: "50"
+  name: "Philosophy and religious studies"
+  fields:
+    - { code: "5001", name: "Applied ethics" }
+    - { code: "5002", name: "History and philosophy of specific fields" }
+    - { code: "5003", name: "Philosophy" }
+    - { code: "5004", name: "Religious studies" }
+    - { code: "5005", name: "Theology" }
+    - { code: "5099", name: "Other philosophy and religious studies" }
+
+- code: "51"
+  name: "Physical sciences"
+  fields:
+    - { code: "5101", name: "Astronomical sciences" }
+    - { code: "5102", name: "Atomic, molecular and optical physics" }
+    - { code: "5103", name: "Classical physics" }
+    - { code: "5104", name: "Condensed matter physics" }
+    - { code: "5105", name: "Medical and biological physics" }
+    - { code: "5106", name: "Nuclear and plasma physics" }
+    - { code: "5107", name: "Particle and high energy physics" }
+    - { code: "5108", name: "Quantum physics" }
+    - { code: "5109", name: "Space sciences" }
+    - { code: "5110", name: "Synchrotrons and accelerators" }
+    - { code: "5199", name: "Other physical sciences" }
+
+- code: "52"
+  name: "Psychology"
+  fields:
+    - { code: "5201", name: "Applied and developmental psychology" }
+    - { code: "5202", name: "Biological psychology" }
+    - { code: "5203", name: "Clinical and health psychology" }
+    - { code: "5204", name: "Cognitive and computational psychology" }
+    - { code: "5205", name: "Social and personality psychology" }
+    - { code: "5299", name: "Other psychology" }

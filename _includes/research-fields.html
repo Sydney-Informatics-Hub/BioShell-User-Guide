@@ -1,0 +1,25 @@
+{%- comment -%}
+Fields of research line for a "BioShell Research" project page, from
+
+  fields_of_research: [3108, 3105, 3102]   # ANZSRC 2020 FoR codes, primary first
+
+Names come from _data/anzsrc_for.yml; a code missing there is shown as the bare code.
+Renders nothing when the page has no `fields_of_research`.
+{%- endcomment -%}
+{%- if page.fields_of_research -%}
+{%- assign field_labels = "" -%}
+{%- for raw in page.fields_of_research -%}
+  {%- assign code = raw | append: "" | strip | slice: 0, 4 -%}
+  {%- assign label = "ANZSRC " | append: code -%}
+  {%- for division in site.data.anzsrc_for -%}
+    {%- for field in division.fields -%}
+      {%- if field.code == code -%}
+        {%- assign label = field.name | append: " (" | append: code | append: ")" -%}
+      {%- endif -%}
+    {%- endfor -%}
+  {%- endfor -%}
+  {%- unless forloop.first -%}{%- assign field_labels = field_labels | append: "; " -%}{%- endunless -%}
+  {%- assign field_labels = field_labels | append: label -%}
+{%- endfor -%}
+**Fields of research:** {{ field_labels }}
+{%- endif -%}

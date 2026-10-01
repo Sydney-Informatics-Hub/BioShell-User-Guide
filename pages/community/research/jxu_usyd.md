@@ -4,11 +4,14 @@ type: "BioShell Research"
 description: "Identify and characterise amino acid transporter genes associated with nitrogen transport and redistribution in soybean. Bioshell will be used to perform computationally intensive analyses including comparative genomics, RNA-sequencing data analysis, phylogenetic reconstruction and genome-wide functional annotation"
 researcher: "Jieru Xu"
 affiliation: "The University of Sydney"
+fields_of_research: [3108, 3105, 3102]
 collaborators: "University of Sydney, Charles Perkins Center"          # optional
 
 ---
 
 {% include research-people.html %}
+
+{% include research-fields.html %}
 
 **Project:** {{ page.title }}
 

@@ -6,11 +6,14 @@ researchers:
    - name: "Dr Mumta Chhetri" 
    - name: "Hammad Hassan"
 affiliation: "The University of Sydney"      # counted as an institution in the statistics block
+fields_of_research: [3004, 3001, 3102]
 collaborators: "Davinder Singh  Sr Research fellow, Plant Breeding Institute, The University of Sydney, and collaborating industry and research organisations"          # optional
 funding: "GRDC funded project - National Cereal Rust Surveillance in Australia."              # optional
 ---
 
 {% include research-people.html %}
+
+{% include research-fields.html %}
 
 **Project:** {{ page.title }}
 

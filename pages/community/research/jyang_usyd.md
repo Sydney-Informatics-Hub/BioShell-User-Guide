@@ -4,10 +4,13 @@ type: "BioShell Research"
 description: "This project investigates multi-omic biomarkers that provide robust, reproducible prediction of a cancer patient's likelihood of responding to immune checkpoint blockade. By integrating bulk RNA-seq and ATAC-seq with flow-cytometric immune subset profiling, we aim to uncover the transcriptomic and epigenetic determinants of primary immunotherapy resistance across lung cancer and melanoma cohorts."
 researcher: "Justin Yang"   # counted in the statistics block
 affiliation: "The University of Sydney"      # counted as an institution in the statistics block
+fields_of_research: [3204]
 collaborators: "Chris O'Brien Lifehouse "          # optional
 ---
 
 {% include research-people.html %}
+
+{% include research-fields.html %}
 
 **Project:** {{ page.title }}
 

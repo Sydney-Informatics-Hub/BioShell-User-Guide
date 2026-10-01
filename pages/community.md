@@ -30,4 +30,12 @@ research.
 
 {% include section-navigation-tiles_mod.html type="BioShell Research" col="4" %}
 
+### Fields of research
+
+BioShell is equipped to support bioinformatics across a broad range of disciplines. The
+projects above span the following
+[fields of research](https://www.abs.gov.au/statistics/classifications/australian-and-new-zealand-standard-research-classification-anzsrc/latest-release).
+
+{% include research-fields-summary.html %}
+
 

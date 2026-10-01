@@ -1,0 +1,150 @@
+{%- comment -%}
+Fields of research summary, generated from every page with type: "BioShell Research".
+
+Each project lists up to three ANZSRC 2020 FoR codes in front matter:
+
+  fields_of_research: [3108, 3105, 3102]
+
+A project counts once for every field it lists, whatever its position — primary,
+secondary and tertiary are not distinguished. Fields are listed most common first (ties
+in code order), as a bar scaled to the most common field. Names come from
+_data/anzsrc_for.yml; a code missing there is shown as "ANZSRC <code>".
+
+Like research-stats.html, values are collected into ","-separated strings and then split,
+because Liquid has no way to push onto an array. Sorting uses a key of
+(1000 - count, as 3 digits) followed by the code, so a plain ascending sort puts the
+highest counts first.
+{%- endcomment -%}
+{%- assign research = site.pages | where: "type", "BioShell Research" -%}
+
+{%- assign tagged = 0 -%}
+{%- assign all_codes = "" -%}
+{%- for project in research -%}
+  {%- if project.fields_of_research -%}
+    {%- assign tagged = tagged | plus: 1 -%}
+    {%- assign seen = "|" -%}
+    {%- for raw in project.fields_of_research -%}
+      {%- comment -%} Tolerates 3108, "3108" and "3108 Plant biology". {%- endcomment -%}
+      {%- assign code = raw | append: "" | strip | slice: 0, 4 -%}
+      {%- assign key = "|" | append: code | append: "|" -%}
+      {%- unless seen contains key -%}
+        {%- assign seen = seen | append: code | append: "|" -%}
+        {%- assign all_codes = all_codes | append: code | append: "," -%}
+      {%- endunless -%}
+    {%- endfor -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- assign all_list = all_codes | split: "," -%}
+{%- assign unique_codes = all_list | uniq -%}
+
+{%- assign sort_keys = "" -%}
+{%- assign max_count = 0 -%}
+{%- for code in unique_codes -%}
+  {%- assign n = 0 -%}
+  {%- for c in all_list -%}{%- if c == code -%}{%- assign n = n | plus: 1 -%}{%- endif -%}{%- endfor -%}
+  {%- if n > max_count -%}{%- assign max_count = n -%}{%- endif -%}
+  {%- assign inverse = 1000 | minus: n | prepend: "000" | slice: -3, 3 -%}
+  {%- assign sort_keys = sort_keys | append: inverse | append: code | append: "," -%}
+{%- endfor -%}
+{%- assign sorted_keys = sort_keys | split: "," | sort -%}
+
+
+{%- if tagged > 0 -%}
+<div class="for-summary">
+  {%- if tagged < research.size %}
+  <p class="for-note">Based on the {{ tagged }} of {{ research | size }} projects that have recorded their fields of research.</p>
+  {%- endif %}
+  <ul class="for-bars">
+  {%- for sort_key in sorted_keys -%}
+    {%- assign code = sort_key | slice: 3, 4 -%}
+    {%- assign inverse = sort_key | slice: 0, 3 | plus: 0 -%}
+    {%- assign n = 1000 | minus: inverse -%}
+    {%- assign label = "ANZSRC " | append: code -%}
+    {%- for division in site.data.anzsrc_for -%}
+      {%- for field in division.fields -%}
+        {%- if field.code == code -%}{%- assign label = field.name -%}{%- endif -%}
+      {%- endfor -%}
+    {%- endfor -%}
+    {%- assign width = n | times: 100 | divided_by: max_count %}
+    <li class="for-bar-row" title="ANZSRC {{ code }}">
+      <span class="for-bar-name">{{ label }}</span>
+      <span class="for-bar-track" aria-hidden="true"><span class="for-bar-fill" style="width: {{ width }}%;"></span></span>
+      <span class="for-bar-count">{{ n }}<span class="for-sr"> project{% if n != 1 %}s{% endif %}</span></span>
+    </li>
+  {%- endfor %}
+  </ul>
+</div>
+
+<style>
+
+  .for-summary {
+    margin: 20px 0 30px;
+    max-width: 760px;
+  }
+
+  .for-note {
+    font-size: 0.9rem;
+    color: #5b6670;
+  }
+
+  .for-bars {
+    list-style: none;
+    margin: 12px 0 0;
+    padding: 0;
+  }
+
+  .for-bar-row {
+    display: grid;
+    grid-template-columns: minmax(0, 18rem) 1fr 2rem;
+    align-items: center;
+    gap: 12px;
+    margin: 0;
+    padding: 5px 0;
+  }
+
+  .for-bar-name {
+    font-size: 0.95rem;
+  }
+
+  .for-bar-track {
+    display: block;
+    height: 8px;
+    border-radius: 4px;
+    background: #e6ecf1;
+  }
+
+  .for-bar-fill {
+    display: block;
+    height: 100%;
+    border-radius: 4px;
+    background: #205a86;
+  }
+
+  .for-bar-count {
+    font-weight: 700;
+    text-align: right;
+    color: #205a86;
+  }
+
+  .for-sr {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
+  @media (max-width: 600px) {
+    .for-bar-row {
+      grid-template-columns: 1fr 2rem;
+      row-gap: 4px;
+    }
+
+    .for-bar-name {
+      grid-column: 1 / -1;
+    }
+  }
+
+</style>
+{%- endif -%}

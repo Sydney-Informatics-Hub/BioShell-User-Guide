@@ -1,20 +1,18 @@
 ---
-title: "<Project name>"
+title: "Human Cardiac Regeneration"
 type: "BioShell Research"
-description: "<1–2 sentence project summary shown on the community tile>"
-researcher: "<Researcher name>"   # counted in the statistics block
-affiliation: "<Institution>"      # counted as an institution in the statistics block
+description: "Investigating omics datasets of human cardiomyocytes in health and disease. We will use published data to investigate drivers of cardiomyocyte mitosis."
+# researcher: "<Researcher name>"   # counted in the statistics block
+affiliation: "The University of Sydney"      # counted as an institution in the statistics block
 # Several people on this one project? Delete the `researcher:` line above, uncomment the
 # block below, and list everyone. `affiliation:` stays as the default institution for
 # anyone without an affiliation of their own.
-# researchers:
-#   - name: "<Researcher name>"
-#   - name: "<Researcher name>"
-#     affiliation: "<Their institution, only if different>"
-fields_of_research: [<primary>, <secondary>, <tertiary>]   # ANZSRC 2020 FoR codes from the application, primary first; 1–3 codes
-collaborators: "<names>"          # optional
-funding: "<funders>"              # optional
-doi: <10.xxxx/xxxxx>              # optional — publication or dataset DOI, without the https://doi.org/ prefix
+researchers:
+  - name: "Robert Hume"
+  - name: "Chloe Tse"
+    # affiliation: "<Their institution, only if different>"
+fields_of_research: [3201, 3101, 3102]
+collaborators: "University of Sydney, The Baird Institute"          # optional
 ---
 
 {% include research-people.html %}
@@ -23,7 +21,8 @@ doi: <10.xxxx/xxxxx>              # optional — publication or dataset DOI, wit
 
 **Project:** {{ page.title }}
 
-<1–2 sentence summary of the research project and how BioShell was used.>
+Investigating omics datasets of human cardiomyocytes in health and disease. We will use published data to investigate drivers of cardiomyocyte mitosis.
+
 
 {%- if page.collaborators or page.funding %}
 
@@ -71,13 +70,6 @@ WHAT FEEDS THE STATISTICS BLOCK
   affiliation / researchers[].affiliation -> "Institutions" (counted once per unique name;
                   keep institution names spelled identically across pages or they will be
                   counted twice)
-
-FIELDS OF RESEARCH
-  fields_of_research: copy the 4-digit ANZSRC 2020 codes from the BioShell application,
-  in the order given (primary, secondary, tertiary). Delete the unused <placeholders> —
-  e.g. [3204] for a project with only a primary field. Codes only, no names: the names
-  come from _data/anzsrc_for.yml, which feeds the "Fields of research" summary on the
-  community page. Add a code to that file if it is not there yet.
 
 DO NOT RECORD ALLOCATION DETAIL HERE
   This repository is public, and everything in this front matter is published with it.
