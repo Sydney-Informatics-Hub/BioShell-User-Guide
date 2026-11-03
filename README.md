@@ -17,32 +17,84 @@ See the [ELIXIR Toolkit theme markdown cheat sheet](https://elixir-belgium.githu
 
 #### Rendering locally {#rendering-locally}
 
-You'll need Ruby and [Bundler](https://bundler.io/) installed. This site uses the `github-pages` gem, which needs Ruby 2.7–3.2.
+You'll need Ruby and [Bundler](https://bundler.io/) installed. This site uses the `github-pages` gem, which needs Ruby 2.7–3.2. Expand the instructions for your operating system:
 
-**macOS (Homebrew):**
+<details markdown="1">
+<summary><b>macOS (Homebrew)</b></summary>
+
+**1. Install Ruby 3.2**
 
 ```bash
 brew install ruby@3.2
 ```
 
-`ruby@3.2` is keg-only, so it won't override your system Ruby automatically. Rather than relying on `PATH` (which tools like conda can silently reorder between terminals), call it explicitly:
+`ruby@3.2` is keg-only, so it won't override your system Ruby automatically. Rather than relying on `PATH` (which tools like conda can silently reorder between terminals), call it explicitly in the steps below.
+
+> [!TIP]
+> Sanity check before installing: run `/opt/homebrew/opt/ruby@3.2/bin/ruby -v` and confirm it prints 3.2.x. If a plain `ruby -v` already prints 3.2.x, you can drop the full paths and just use `gem`/`bundle` directly.
+
+**2. Install Bundler and the site's gems**
 
 ```bash
 /opt/homebrew/opt/ruby@3.2/bin/gem install bundler
 /opt/homebrew/opt/ruby@3.2/bin/bundle install
 ```
 
-{% include callout.html type="tip" content="Sanity check before installing: run <code>/opt/homebrew/opt/ruby@3.2/bin/ruby -v</code> and confirm it prints 3.2.x. If a plain <code>ruby -v</code> already prints 3.2.x, you can drop the full paths and just use <code>gem</code>/<code>bundle</code> directly." %}
-
-**Start the local server, with live-reload so the browser updates automatically on save:**
+**3. Start the local server**
 
 ```bash
 /opt/homebrew/opt/ruby@3.2/bin/bundle exec jekyll serve --livereload
 ```
 
-Then open the printed URL (e.g. `http://127.0.0.1:4000/BioShell-User-Guide/`) in your browser. Every time you save a page, Jekyll rebuilds it and the open browser tab refreshes on its own — no need to restart the server or reload manually.
+</details>
+<br>
 
-{% include callout.html type="note" content="If bundle install fails with a dependency resolution error (e.g. a bundler version mismatch in Gemfile.lock), delete Gemfile.lock and run bundle install again." %}
+<details markdown="1">
+<summary><b>Linux (Ubuntu/Debian)</b></summary>
+
+**1. Install Ruby, its development headers, and build tools**
+
+```bash
+sudo apt install ruby-full build-essential zlib1g-dev
+ruby -v
+```
+
+`ruby-full` includes the headers (`ruby-dev`) needed to compile gems like `nokogiri`. Confirm `ruby -v` prints 2.7–3.2. Ubuntu 22.04 and 24.04 ship a compatible version; on newer releases, install Ruby 3.2 with a version manager such as [rbenv](https://github.com/rbenv/rbenv).
+
+**2. Install Bundler for your user**
+
+```bash
+gem install --user-install bundler
+echo 'export PATH="$(ruby -e "print Gem.user_dir")/bin:$PATH"' >> ~/.bashrc
+source ~/.bashrc
+```
+
+Installing with `--user-install` avoids `sudo gem install`, which writes into the system Ruby.
+
+**3. Install the site's gems into the repository**
+
+From the root of the repository:
+
+```bash
+bundle config set --local path vendor/bundle
+bundle install
+```
+
+This keeps the gems in `vendor/bundle` (ignored by git and Jekyll) instead of a system directory that needs root.
+
+**4. Start the local server**
+
+```bash
+bundle exec jekyll serve --livereload
+```
+
+</details>
+<br>
+
+Then open the printed URL (e.g. `http://127.0.0.1:4000/BioShell-User-Guide/`) in your browser. `--livereload` rebuilds the site every time you save a page and refreshes the open browser tab on its own, so you don't need to restart the server or reload manually.
+
+> [!NOTE]
+> If `bundle install` fails with a dependency resolution error (e.g. a bundler version mismatch in `Gemfile.lock`), delete `Gemfile.lock` and run `bundle install` again.
 
 ## Acknowledgements for the guides
 
