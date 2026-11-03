@@ -21,7 +21,7 @@ You'll need Ruby and [Bundler](https://bundler.io/) installed. This site uses th
 
 <details markdown="1">
 <summary><b>macOS (Homebrew)</b></summary>
-
+<br>
 **1. Install Ruby 3.2**
 
 ```bash
@@ -30,8 +30,7 @@ brew install ruby@3.2
 
 `ruby@3.2` is keg-only, so it won't override your system Ruby automatically. Rather than relying on `PATH` (which tools like conda can silently reorder between terminals), call it explicitly in the steps below.
 
-> [!TIP]
-> Sanity check before installing: run `/opt/homebrew/opt/ruby@3.2/bin/ruby -v` and confirm it prints 3.2.x. If a plain `ruby -v` already prints 3.2.x, you can drop the full paths and just use `gem`/`bundle` directly.
+> TIP: Sanity check before installing: run `/opt/homebrew/opt/ruby@3.2/bin/ruby -v` and confirm it prints 3.2.x. If a plain `ruby -v` already prints 3.2.x, you can drop the full paths and just use `gem`/`bundle` directly.
 
 **2. Install Bundler and the site's gems**
 
@@ -51,7 +50,7 @@ brew install ruby@3.2
 
 <details markdown="1">
 <summary><b>Linux (Ubuntu/Debian)</b></summary>
-
+<br>
 **1. Install Ruby, its development headers, and build tools**
 
 ```bash

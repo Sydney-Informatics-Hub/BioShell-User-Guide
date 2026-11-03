@@ -1,5 +1,5 @@
 ---
-title: Using Nextflow with BioShell
+title: Using Nextflow on BioShell
 type: Tutorial
 description: Learn to run a Nextflow pipeline on BioShell using containers already available in CVMFS, with nf-core/scrnaseq as a worked example.
 ---
@@ -37,7 +37,7 @@ materials cover the fundamentals, and
 [Unlocking nf-core](https://sydney-informatics-hub.github.io/customising-nfcore-workshop-2026/)
 covers running and customising nf-core pipelines like the one in this tutorial.
 
-## Prepare your BioShell {#prepare}
+## 1. Prepare your BioShell {#prepare}
 
 First, set up a working area with the tools, the pipeline code, and the test data.
 
@@ -49,15 +49,7 @@ cd /mnt/data
 
 Everything in this tutorial happens inside this directory.
 
-<details markdown="1">
-<summary>Why work in the data volume?</summary>
-Bioinformatics pipelines read and write large files: input reads, reference genomes,
-intermediate files in the `work/` directory, and any containers that need to be downloaded.
-Your home directory sits on the instance's root disk, which is small and fills up quickly.
-Keeping everything on the data volume avoids running out of space partway through a run.
-<br>
-</details>
-<br>
+{% include callout.html type="note" content="Bioinformatics pipelines read and write large files: input reads, reference genomes, intermediate files in the `work/` directory, and any containers that need to be downloaded. Your home directory sits on the instance's root disk, which is small and fills up quickly. Keeping everything on the data volume avoids running out of space partway through a run." %}
 
 **2.** Load the Nextflow and Singularity modules
 
@@ -93,6 +85,8 @@ These are the same small files nf-core uses to test the pipeline: a handful of 1
 two samples, plus a mouse chromosome 19 reference and annotation. They are designed to run
 quickly, rather than for real biological analysis.
 
+{% include callout.html type="tip" content="When you run the pipeline on your own data, use [Globus](globus-howto) to transfer it onto your data volume. It handles large files and resumes interrupted transfers, which `wget` and `scp` don't." %}
+
 ```bash
 mkdir data && cd data
 wget https://raw.githubusercontent.com/nf-core/test-datasets/scrnaseq/testdata/cellranger/Sample_X_S1_L001_R1_001.fastq.gz
@@ -118,7 +112,7 @@ Sample_Y,data/Sample_Y_S1_L002_R1_001.fastq.gz,data/Sample_Y_S1_L002_R2_001.fast
 The samplesheet tells the pipeline which reads belong to which sample. `Sample_Y` was
 sequenced across two lanes, so it appears twice.
 
-## Find which processes will run {#preview}
+## 2. Find which processes will run {#preview}
 
 A pipeline usually contains far more processes than any single run uses. nf-core/scrnaseq,
 for example, supports several aligners (STAR, simpleaf, Kallisto, Cell Ranger), but this run
@@ -177,17 +171,9 @@ subworkflow it belongs to. Notice that only the STAR processes appear. The simpl
 and Cell Ranger processes are skipped, so you won't need their containers. These eight
 processes are the ones you will find containers for.
 
-<details markdown="1">
-<summary>Previewing and inspecting</summary>
-`nextflow inspect` (the next section) lists the container for every process in the pipeline,
-whether it will run or not. `-preview` lists only the processes your parameters will trigger,
-but not their containers. At the time of writing, no single command gives you both, so you
-use `-preview` to narrow down the list and `inspect` to get the container details.
-<br>
-</details>
-<br>
+{% include callout.html type="note" content="`nextflow inspect` (the next section) lists the container for every process in the pipeline, whether it will run or not. `-preview` lists only the processes your parameters will trigger, but not their containers. At the time of writing, no single command gives you both, so you use `-preview` to narrow down the list and `inspect` to get the container details." %}
 
-## List the containers the pipeline uses {#inspect}
+## 3. List the containers the pipeline uses {#inspect}
 
 Now that you know which processes will run, the next step is finding out which container
 each one uses. This list becomes the starting point for `bioshell.config`.
@@ -223,9 +209,15 @@ Open `bioshell.config`. Each line gives a process name and the container it uses
 the tool name and version:
 
 ```groovy
-process { withName: 'FASTQC' { container = 'https://depot.galaxyproject.org/singularity/fastqc:0.12.1--hdfd78af_0' } }
-process { withName: 'CELLRANGER_MULTI' { container = 'quay.io/nf-core/cellranger:10.0.0' } }
-...
+process {
+    withName: 'FASTQC' {
+        container = 'https://depot.galaxyproject.org/singularity/fastqc:0.12.1--hdfd78af_0'
+    }
+    withName: 'CELLRANGER_MULTI' {
+        container = 'quay.io/nf-core/cellranger:10.0.0'
+    }
+    ...
+}
 ```
 
 **3.** Trim `bioshell.config` down to the processes in `processes.txt`, and wrap them in a
@@ -267,14 +259,17 @@ process {
 The key piece of information here is the version of each tool, which you will use to find the
 matching container in CVMFS.
 
-## Swap in CVMFS containers {#swap-containers}
+## 4. Swap in CVMFS containers {#swap-containers}
 
 Looking at the list above, you'll notice the containers come from several different online
 registries. How you replace each one depends on where it is hosted, so you will work through
 them one registry at a time.
 
-<details markdown="1">
-<summary>Which containers can be replaced?</summary>
+### Which containers can be replaced? {#which-containers}
+
+CVMFS mirrors the Galaxy Project's Singularity images, and also carries many other single-tool
+containers. Whether a container can be swapped depends on how easily you can tell which tool
+and version it holds, and whether it bundles more than one tool:
 
 | Registry | Example | Can it use CVMFS? |
 |---|---|---|
@@ -283,9 +278,7 @@ them one registry at a time.
 | Seqera community (`community-cr-prod.seqera.io`) | `.../sha256/26/268b4c.../data` | Sometimes. The name is only a hash, so you first need to check which tool it contains. |
 | Mulled (multi-tool) containers | `htslib_samtools_star_gawk:...` | No. CVMFS has single-tool containers, so leave these as they are. |
 
-<br>
-</details>
-<br>
+The sections below work through each registry in turn, starting with the direct swaps.
 
 {% include callout.html type="tip" content="CVMFS paths must start with `file://` (for example `file:///cvmfs/...`), because Singularity runs the image directly from disk. Leave containers that must be downloaded as `https://`." %}
 
@@ -340,32 +333,9 @@ expects. This is where you have to make a judgement call. For this pipeline, the
 matters, so **leave both ScanPy processes out of `bioshell.config`**. Without an entry in your
 config, Nextflow uses the pipeline's own containers for them.
 
-{% include callout.html type="warning" content="Using the older ScanPy 1.7 for `MTX_TO_H5AD` produces `.h5ad` files that the downstream `ANNDATAR_CONVERT` process can't read, and the run fails." %}
+{% include callout.html type="warning" content="Using the older ScanPy 1.7 for `MTX_TO_H5AD` produces `.h5ad` files that the downstream `ANNDATAR_CONVERT` process can't read, and the run fails. In the recording, we swapped both ScanPy processes to the CVMFS 1.7 container: most of the pipeline finished, but `ANNDATAR_CONVERT` reported that the `.h5ad` file was invalid or written by an incompatible version. Deleting the two ScanPy entries from `bioshell.config` and re-running with [`-resume`](#resume) finished the remaining processes without repeating the ones that had already succeeded." %}
 
-<details markdown="1">
-<summary>What happened when we tried ScanPy 1.7</summary>
-In the recording, we swapped both ScanPy processes to the CVMFS 1.7 container. Most of the
-pipeline finished, but `ANNDATAR_CONVERT` failed with an error saying the `.h5ad` file was
-invalid or written by an incompatible version. Tracing it upstream led to `MTX_TO_H5AD`, the
-process we had downgraded.
-
-Deleting the `MTX_TO_H5AD` and `CONCAT_H5AD` entries from `bioshell.config` meant Nextflow
-used the pipeline's ScanPy 1.10.2 containers again. Re-running with
-[`-resume`](#resume) then finished the remaining processes without repeating the ones that
-had already succeeded.
-<br>
-</details>
-<br>
-
-<details markdown="1">
-<summary>Should I use an older version from CVMFS?</summary>
-It depends on how much the versions differ and how much reproducibility matters to you. Check
-the tool's changelog between the two versions: if nothing relevant to your analysis has
-changed, the CVMFS version saves a download. If file formats, defaults, or algorithms have
-changed, or you need to match the pipeline exactly, keep the pipeline's container.
-<br>
-</details>
-<br>
+{% include callout.html type="note" content="**Should I use an older version from CVMFS?** It depends on how much the versions differ and how much reproducibility matters to you. Check the tool's changelog between the two versions: if nothing relevant to your analysis has changed, the CVMFS version saves a download. If file formats, defaults, or algorithms have changed, or you need to match the pipeline exactly, keep the pipeline's container." %}
 
 ### Seqera community containers
 
@@ -382,9 +352,17 @@ The Docker profile refers to the same containers by readable names, and `grep` f
 output down to the three processes you're interested in:
 
 ```groovy
-process { withName: 'MULTIQC' { container = 'community.wave.seqera.io/library/multiqc:1.34--db7c73dae76bc9e6' } }
-process { withName: 'ANNDATAR_CONVERT' { container = 'community.wave.seqera.io/library/bioconductor-anndatar_bioconductor-rhdf5_bioconductor-singlecellexperiment_r-seurat:a0f51df063bb9b2a' } }
-process { withName: 'STAR_GENOMEGENERATE' { container = 'community.wave.seqera.io/library/htslib_samtools_star_gawk:ae438e9a604351a4' } }
+process {
+    withName: 'MULTIQC' {
+        container = 'community.wave.seqera.io/library/multiqc:1.34--db7c73dae76bc9e6'
+    }
+    withName: 'ANNDATAR_CONVERT' {
+        container = 'community.wave.seqera.io/library/bioconductor-anndatar_bioconductor-rhdf5_bioconductor-singlecellexperiment_r-seurat:a0f51df063bb9b2a'
+    }
+    withName: 'STAR_GENOMEGENERATE' {
+        container = 'community.wave.seqera.io/library/htslib_samtools_star_gawk:ae438e9a604351a4'
+    }
+}
 ```
 
 **2.** `MULTIQC` turns out to be a single tool, MultiQC 1.34, so look it up and replace it as
@@ -405,7 +383,7 @@ That's every container covered. Four of the eight processes (`FASTQC`, `GTF_GENE
 `STAR_ALIGN`, and `MULTIQC`) will now run straight from CVMFS. The other four share three
 containers that still need downloading: the two mulled containers and the ScanPy container.
 
-## Set resource limits and the container cache {#resources}
+## 5. Set resource limits and the container cache {#resources}
 
 Before running the pipeline, add two more settings to `bioshell.config`: limits on how much
 each process can request, and a location for any containers that still need downloading.
@@ -430,16 +408,11 @@ The instance in this example has 4 CPUs and 16 GB of memory, so the limits leave
 `cacheDir` puts any containers that do need downloading on your data volume, rather than the
 root disk.
 
-<details markdown="1">
-<summary>How much space do downloaded containers take?</summary>
 In this example, the three containers pulled from Seqera took about 1.2 GB in total. Some
 containers are much larger, around 2–5 GB each. Every container you can take from CVMFS
 instead is space kept free for your own data and pipeline outputs.
-<br>
-</details>
-<br>
 
-## Run the pipeline {#run}
+## 6. Run the pipeline {#run}
 
 With `bioshell.config` complete, you're ready for a real run.
 
@@ -520,7 +493,7 @@ Once all eight processes have completed, the pipeline reports that it finished s
 You have run nf-core/scrnaseq on BioShell with most of its containers taken straight from
 CVMFS.
 
-## If a run fails: resume it {#resume}
+## Resuming failed runs {#resume}
 
 If something goes wrong partway through, you don't need to start again from scratch. Fix the
 cause (for example, a container entry in `bioshell.config`), then add `-resume` to the end of
