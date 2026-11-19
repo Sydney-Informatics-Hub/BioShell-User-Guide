@@ -7,7 +7,7 @@ tiles:
     description: "Create an ssh key to access your BioShell environment."
   - title: "Use VS Code with BioShell"
     url: /vscode-howto
-    description: "Connect VS Code to BioShell to edit files and run terminals remotely."
+    description: "Connect Visual Studio Code (VS Code) to BioShell to edit files and run terminals remotely."
   - title: "Use the Shelley CLI companion"
     url: /shelley-howto
     description: "Learn how to access BioShell via SSH, web portal, or other methods."

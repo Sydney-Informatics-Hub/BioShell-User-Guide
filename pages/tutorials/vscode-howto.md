@@ -95,7 +95,7 @@ VS Code reads hosts from your SSH config file (`~/.ssh/config`). If you already 
 
    *The list of configured SSH hosts. The arrow points to `bioshell`, the host you added to your SSH config file.*
 
-{% include callout.html type="note" content="The first time you connect you may be asked to confirm a few settings:<br>• If you see `<host> has fingerprint ...`, select **Continue**.<br>• If you are asked for the remote platform, select **Linux**.<br>• If your private key has a passphrase, enter it when prompted." %}
+{% include callout.html type="important" content="The first time you connect you may be asked to confirm a few settings:<br>• If you see `<host> has fingerprint ...`, select **Continue**.<br>• If you are asked for the remote platform, select **Linux**.<br>• If your private key has a passphrase, enter it when prompted." %}
 
 When the indicator in the bottom-left corner of the window shows **SSH: bioshell**, you are
 connected. The first connection can take a minute while VS Code sets up its server component in
