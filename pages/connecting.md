@@ -24,7 +24,7 @@ are also popular on Windows. Choose whichever suits your platform:
 | **macOS** | The built-in **Terminal** app (`Terminal.app`) includes the `ssh` command. |
 | **Linux** | Your terminal emulator with the built-in OpenSSH `ssh` command. |
 | **Windows** | The built-in `ssh` command in **Windows Terminal** or PowerShell, or a graphical client such as [**MobaXterm**](https://mobaxterm.mobatek.net/), [**PuTTY**](https://putty.org/index.html), or an X server client. |
-| **Any platform** | [**Visual Studio Code**](https://code.visualstudio.com/) with the **Remote - SSH** extension, which connects and lets you edit files and run terminals inside your BioShell environment. |
+| **Any platform** | [**Visual Studio Code**](https://code.visualstudio.com/) with the **Remote - SSH** extension, which connects and lets you edit files and run terminals inside your BioShell environment. See [**Use VS Code with BioShell**](vscode-howto). |
 
 {% include callout.html type="tip" content="On macOS, Linux, and modern Windows the `ssh` command is available directly from the terminal, so the command-line examples below work as-is. Graphical clients such as MobaXterm and PuTTY ask for the same details (host, username, and your private key file) through their connection dialogs instead." %}
 

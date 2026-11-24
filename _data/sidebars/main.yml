@@ -23,6 +23,8 @@ subitems:
     subitems:
       - title: Generate ssh keys
         url: ssh-keys-howto
+      - title: Use VS Code with BioShell
+        url: vscode-howto
       - title: Use Shelley
         url: /shelley-howto
       - title: Use Nextflow in BioShell
