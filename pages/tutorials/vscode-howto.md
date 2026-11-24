@@ -35,10 +35,10 @@ The **Remote - SSH** extension lets VS Code connect to BioShell.
 1. In the left sidebar, select the **Extensions** button (four blocks), or press `Ctrl+Shift+X` (`Cmd+Shift+X` on macOS).
 2. Search for `remote ssh` and select **Remote - SSH** (published by Microsoft).
 3. Select **Install**.
-
+4. Once installed, the new **Remote Explorer** icon will appear in the left sidebar.
    ![](assets/img/vscode_remote_ssh_extension.png)
 
-   *Top: (1) the **Extensions** button in the left sidebar; (2) the **Install** button for Remote - SSH. Bottom, after installing: the button changes to **Disable** and **Uninstall**, and (3) the new **Remote Explorer** icon appears in the left sidebar.*
+   *Top: (1) the **Extensions** button in the left sidebar; (2) search "remote ssh" (3) **Install** Remote - SSH. Bottom, after installing: the button changes to **Disable** and **Uninstall**, and (4) the new **Remote Explorer** icon appears in the left sidebar.*
 
 You can install other extensions in the same way to suit your work. For example, if you
 [use Nextflow in BioShell](nextflow-howto), search for `nextflow` and install the **Nextflow**
@@ -49,8 +49,7 @@ extension for syntax highlighting.
 
 ## Step 3: Add BioShell as an SSH host {#ssh-config}
 
-VS Code reads hosts from your SSH config file (`~/.ssh/config`). If you already added a
-`bioshell` entry when [connecting to BioShell](connecting#ssh-connect), skip to
+By default, VS Code reads hosts from your SSH config file (`~/.ssh/config` for Linux/macOS, `C:\Users\<you>\.ssh\config` on Windows). If you already added a `bioshell` entry when [connecting to BioShell](connecting#ssh-connect), skip to
 [Step 4](#connect).
 
 1. Press `Ctrl+Shift+P` (`Cmd+Shift+P` on macOS) to open the **Command Palette**.
@@ -77,8 +76,7 @@ VS Code reads hosts from your SSH config file (`~/.ssh/config`). If you already 
 
 5. Save the file.
 
-{% include callout.html type="tip" content="Alternatively, choose **Remote-SSH: Add New SSH Host...** and enter `ssh -i ~/.ssh/bioshell_key <username>@<your-bioshell-ip>`. VS Code writes the entry for you, but names it after the IP address rather than `bioshell`." %}
-
+{% include callout.html type="tip" content="Alternatively, choose **Remote-SSH: Add New SSH Host...** and enter `ssh -i ~/.ssh/bioshell_key <username>@<your-bioshell-ip>` (ssh -i `C:\Users\<username>\.ssh\bioshell_key` on Windows). VS Code writes the entry for you, but names it after the IP address rather than `bioshell`." %}
 
 ## Step 4: Connect to BioShell {#connect}
 
@@ -114,9 +112,8 @@ your home directory.
 
    ![](assets/img/vscode_open_folder.png)
 
-   *(1) the **Remote Explorer** icon in the left sidebar; (2) the **Open Folder** button in the Explorer; (3) the folder path box, here set to `/mnt/data`. Select **OK** to open it.*
-
-4. If prompted, select **Yes, I trust the authors**.
+   *(1) the **Explorer** icon in the left sidebar; (2) the **Open Folder** button in the Explorer; (3) the folder path box, here set to `/mnt/data`. Select **OK** to open it.*
+   
 5. Open a terminal inside BioShell by pressing `` Ctrl+` `` (`` Cmd+` `` on macOS), or from the menu with **Terminal > New Terminal**.
 
 The folder appears in the Explorer sidebar, where you can open, edit, upload (drag and drop) and
